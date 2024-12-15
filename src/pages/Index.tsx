@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, Heart, Shield, Smartphone } from "lucide-react";
+import { AuthButton } from "@/components/auth/AuthButton";
 
 const features = [
   {
@@ -49,10 +50,7 @@ const Index = () => {
               Transform your health journey with AI-powered insights and real-time monitoring
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-ninva hover:bg-ninva-dark">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <AuthButton />
               <Button size="lg" variant="outline">
                 Watch Demo
               </Button>
