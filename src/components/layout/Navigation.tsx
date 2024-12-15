@@ -17,7 +17,9 @@ export const Navigation = () => {
             <Button variant="ghost" asChild>
               <Link to="/about">About</Link>
             </Button>
-            <Button variant="ghost">Features</Button>
+            <Button variant="ghost" asChild>
+              <Link to="/features">Features</Link>
+            </Button>
             <Button variant="ghost" asChild>
               <Link to="/privacy-policy">Privacy Policy</Link>
             </Button>
