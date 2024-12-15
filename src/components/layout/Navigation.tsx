@@ -19,14 +19,14 @@ export const Navigation = () => {
             <Link to="/" className="flex items-center space-x-2">
               <img 
                 src="/kolibri-logo.svg" 
-                alt="Kolibri Health" 
+                alt="Ninva Health" 
                 className="h-8 w-auto"
                 onError={(e) => {
                   console.log("Logo failed to load, falling back to text");
                   e.currentTarget.style.display = 'none';
                 }} 
               />
-              <span className="text-xl font-semibold text-gray-900">Kolibri Health</span>
+              <span className="text-xl font-semibold text-gray-900">Ninva Health</span>
             </Link>
           </div>
           <div className="flex items-center space-x-4">
