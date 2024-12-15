@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { CTASection } from '@/components/sections/CTASection';
-import { VisualSitemap } from '@/components/sections/VisualSitemap';
+import VisualSitemap from '@/components/sections/VisualSitemap';
 
 const Index = () => {
   return (
