@@ -7,6 +7,8 @@ import { CTASection } from '@/components/sections/CTASection';
 import VisualSitemap from '@/components/sections/VisualSitemap';
 
 const Index = () => {
+  const isDevelopment = import.meta.env.DEV;
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -14,7 +16,7 @@ const Index = () => {
       <FeaturesSection />
       <PrivacySection />
       <CTASection />
-      <VisualSitemap />
+      {isDevelopment && <VisualSitemap />}
     </div>
   );
 };
