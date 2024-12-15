@@ -20,7 +20,7 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
                 alt="Ninva Health" 
-                className="h-8 w-auto dark:hidden"
+                className="h-10 w-auto dark:hidden"
                 onError={(e) => {
                   console.log("Color logo failed to load, falling back to text");
                   e.currentTarget.style.display = 'none';
@@ -29,7 +29,7 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/7c9de020-0246-4290-9031-2bc460fbff8a.png"
                 alt="Ninva Health" 
-                className="h-8 w-auto hidden dark:block"
+                className="h-10 w-auto hidden dark:block"
                 onError={(e) => {
                   console.log("White logo failed to load, falling back to text");
                   e.currentTarget.style.display = 'none';
