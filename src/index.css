@@ -1,4 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Add Recife fonts - you'll need to host these fonts or use a CDN */
+@font-face {
+  font-family: 'RecifeDisplay';
+  src: url('/fonts/RecifeDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RecifeText';
+  src: url('/fonts/RecifeText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -56,14 +72,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
   p {
-    @apply font-sans leading-relaxed;
+    @apply font-text leading-relaxed;
   }
 }
 
