@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { AuthButton } from '@/components/auth/AuthButton';
+import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
   return (
@@ -8,17 +9,20 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <img src="/placeholder.svg" alt="Ninva Health" className="h-8 w-auto" />
+            <Link to="/">
+              <img src="/placeholder.svg" alt="Kolibri Health" className="h-8 w-auto" />
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost">About</Button>
-            <Button variant="ghost">Features</Button>
-            <Button variant="ghost">Privacy</Button>
             <Button variant="ghost" asChild>
-              <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <Link to="/about">About</Link>
+            </Button>
+            <Button variant="ghost">Features</Button>
+            <Button variant="ghost" asChild>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </Button>
             <Button variant="ghost" asChild>
-              <a href="/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+              <Link to="/terms-of-service">Terms of Service</Link>
             </Button>
             <AuthButton />
           </div>
