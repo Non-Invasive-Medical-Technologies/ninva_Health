@@ -54,6 +54,9 @@ const Index = () => {
               <Button variant="ghost">About</Button>
               <Button variant="ghost">Features</Button>
               <Button variant="ghost">Privacy</Button>
+              <Button variant="ghost" asChild>
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              </Button>
               <AuthButton />
             </div>
           </div>
