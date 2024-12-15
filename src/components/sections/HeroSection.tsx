@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { AuthButton } from '@/components/auth/AuthButton';
 
 export const HeroSection = () => {
   return (
@@ -16,7 +15,7 @@ export const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-28">
+          <main className="mt-20 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32 lg:px-8 xl:mt-40">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl animate-fade-up">
                 <span className="block">Your Health Journey,</span>
@@ -28,10 +27,12 @@ export const HeroSection = () => {
                 unprecedented insights into your health.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate-fade-up [animation-delay:400ms]">
-                <AuthButton />
+                <Button size="lg" className="w-full sm:w-auto">
+                  Get Started
+                </Button>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Button variant="outline" className="w-full">
-                    Learn More
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    Watch Demo
                   </Button>
                 </div>
               </div>

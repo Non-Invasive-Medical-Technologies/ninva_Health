@@ -1,5 +1,12 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { AuthButton } from '@/components/auth/AuthButton';
 import { Link } from 'react-router-dom';
 
@@ -20,13 +27,22 @@ export const Navigation = () => {
             <Button variant="ghost" asChild>
               <Link to="/features">Features</Link>
             </Button>
-            <Button variant="ghost" asChild>
-              <Link to="/privacy-policy">Privacy Policy</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link to="/terms-of-service">Terms of Service</Link>
-            </Button>
-            <AuthButton />
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>Sign In</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Sign In</DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col space-y-4 py-4">
+                  <AuthButton />
+                  <p className="text-sm text-muted-foreground text-center">
+                    Sign in with Apple - Coming Soon
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
