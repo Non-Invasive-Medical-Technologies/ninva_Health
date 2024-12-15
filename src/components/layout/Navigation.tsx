@@ -16,8 +16,17 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link to="/">
-              <img src="/placeholder.svg" alt="Kolibri Health" className="h-8 w-auto" />
+            <Link to="/" className="flex items-center space-x-2">
+              <img 
+                src="/kolibri-logo.svg" 
+                alt="Kolibri Health" 
+                className="h-8 w-auto"
+                onError={(e) => {
+                  console.log("Logo failed to load, falling back to text");
+                  e.currentTarget.style.display = 'none';
+                }} 
+              />
+              <span className="text-xl font-semibold text-gray-900">Kolibri Health</span>
             </Link>
           </div>
           <div className="flex items-center space-x-4">
