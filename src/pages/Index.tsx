@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AuthButton } from '@/components/auth/AuthButton';
@@ -9,17 +9,17 @@ const Index = () => {
     {
       title: "Advanced Health Monitoring",
       description: "Revolutionary multi-parameter health assessment powered by AI",
-      icon: <Heart className="w-8 h-8 text-blue-500" />
+      icon: <Heart className="w-8 h-8 text-ninva" />
     },
     {
       title: "Medical-Grade Precision",
       description: "Professional diagnostics meeting clinical standards",
-      icon: <Activity className="w-8 h-8 text-green-500" />
+      icon: <Activity className="w-8 h-8 text-ninva" />
     },
     {
       title: "Privacy First",
       description: "Bank-grade encryption and HIPAA compliance",
-      icon: <Lock className="w-8 h-8 text-purple-500" />
+      icon: <Lock className="w-8 h-8 text-ninva" />
     }
   ];
 
@@ -27,17 +27,17 @@ const Index = () => {
     {
       title: "End-to-End Encryption",
       description: "Your health data is encrypted at all times",
-      icon: <Shield className="w-6 h-6 text-blue-500" />
+      icon: <Shield className="w-6 h-6 text-ninva" />
     },
     {
       title: "HIPAA Compliant",
       description: "Meeting highest healthcare privacy standards",
-      icon: <Award className="w-6 h-6 text-green-500" />
+      icon: <Award className="w-6 h-6 text-ninva" />
     },
     {
       title: "Data Control",
       description: "You own and control your health data",
-      icon: <Lock className="w-6 h-6 text-purple-500" />
+      icon: <Lock className="w-6 h-6 text-ninva" />
     }
   ];
 
@@ -48,7 +48,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <img src="/placeholder.svg" alt="Ninva Health" className="h-8" />
+              <img src="/placeholder.svg" alt="Ninva Health" className="h-8 w-auto" />
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="ghost">About</Button>
