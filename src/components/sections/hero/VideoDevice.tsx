@@ -13,7 +13,7 @@ export const VideoDevice = () => {
     >
       <motion.div
         animate={{ 
-          rotateY: [-5, 5],
+          rotateY: [-15, 15],
           scale: [1, 1.02, 1]
         }}
         transition={{
@@ -34,12 +34,12 @@ export const VideoDevice = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[400px]"
+        className="w-full max-w-[300px]"
       >
         <img 
           src={deviceImageUrl}
           alt="Kolibri Health Device"
-          className="w-full h-auto drop-shadow-2xl"
+          className="w-full h-auto rounded-lg shadow-xl"
         />
       </motion.div>
     </motion.div>
