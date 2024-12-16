@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroContent } from './hero/HeroContent';
+import { VideoDevice } from './hero/VideoDevice';
 import { Heart, Activity, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -29,8 +30,13 @@ export const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative">
         <div className="relative z-10 pt-20 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="sm:text-center lg:text-left">
-              <HeroContent />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <HeroContent />
+              </div>
+              <div className="hidden lg:block">
+                <VideoDevice />
+              </div>
             </div>
             
             {/* Animated Scroll Icon */}
