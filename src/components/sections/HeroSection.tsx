@@ -5,11 +5,17 @@ import { VideoDevice } from './hero/VideoDevice';
 export const HeroSection = () => {
   return (
     <div className="relative min-h-[90vh] overflow-hidden">
-      {/* Background with depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ninva/20 via-ninva/5 to-transparent">
-        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/30" />
+      {/* Option 1: Darker gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1A1F2C] via-ninva-dark to-transparent">
+        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/10" />
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       </div>
+
+      {/* Option 2: Lighter gradient (comment out Option 1 and uncomment this for lighter version) */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-ninva-light via-white/50 to-transparent">
+        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      </div> */}
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto relative">

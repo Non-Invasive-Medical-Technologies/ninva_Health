@@ -34,6 +34,7 @@ export default {
           foreground: "#FFFFFF",
           light: "#E6F4F1",
           dark: "#1A5755",
+          darker: "#1A1F2C",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
