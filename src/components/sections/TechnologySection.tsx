@@ -1,33 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Dna, Brain, Microscope, Activity, Play, Pause } from 'lucide-react';
+import { ArrowUpRight, Activity, Play, Pause } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 export const TechnologySection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
-
-  const features = [
-    {
-      number: "01",
-      title: "Personalized Health Solutions",
-      description: "Tailored healthcare monitoring for your unique needs",
-      icon: <Dna className="w-6 h-6 text-ninva" />
-    },
-    {
-      number: "02",
-      title: "Precision And Accuracy",
-      description: "Medical-grade diagnostics with proven reliability",
-      icon: <Microscope className="w-6 h-6 text-ninva" />
-    },
-    {
-      number: "03",
-      title: "Scientific Innovation",
-      description: "Cutting-edge technology for better health outcomes",
-      icon: <Brain className="w-6 h-6 text-ninva" />
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,37 +51,6 @@ export const TechnologySection = () => {
             </p>
           </motion.div>
 
-          {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                className="relative"
-              >
-                <Card className="p-6 h-full bg-white/80 backdrop-blur border border-ninva/10 hover:border-ninva/20 transition-colors">
-                  <div className="flex items-start justify-between">
-                    <span className="inline-flex items-center justify-center">
-                      {feature.icon}
-                    </span>
-                    <span className="text-4xl font-light text-ninva/20">{feature.number}</span>
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold bg-gradient-to-r from-ninva to-[#0EA5E9] bg-clip-text text-transparent">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-gray-600">
-                    {feature.description}
-                  </p>
-                  <div className="mt-4 flex items-center text-ninva hover:text-ninva-dark transition-colors">
-                    <span className="text-sm font-medium">Learn more</span>
-                    <ArrowUpRight className="ml-1 w-4 h-4" />
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Video Showcase */}
           <motion.div
             variants={itemVariants}
@@ -120,10 +68,6 @@ export const TechnologySection = () => {
                   <div className="flex items-center space-x-2 text-ninva">
                     <Activity className="w-5 h-5" />
                     <span className="font-medium">Real-time monitoring</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-ninva">
-                    <Brain className="w-5 h-5" />
-                    <span className="font-medium">AI-powered insights</span>
                   </div>
                 </div>
               </div>
