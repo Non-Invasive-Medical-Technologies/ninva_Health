@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const VideoDevice = () => {
-  const deviceImageUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
+  const deviceImageUrl = "/lovable-uploads/3bb9b84f-1377-461b-ab76-959f11e50f8d.png";
 
   return (
     <motion.div
@@ -13,7 +13,7 @@ export const VideoDevice = () => {
     >
       <motion.div
         animate={{ 
-          rotateY: [-15, 15],
+          rotateY: [-5, 5],
           scale: [1, 1.02, 1]
         }}
         transition={{
@@ -34,12 +34,12 @@ export const VideoDevice = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[300px]"
+        className="w-full max-w-[400px]"
       >
         <img 
           src={deviceImageUrl}
           alt="Kolibri Health Device"
-          className="w-full h-auto rounded-lg shadow-xl"
+          className="w-full h-auto drop-shadow-2xl"
         />
       </motion.div>
     </motion.div>
