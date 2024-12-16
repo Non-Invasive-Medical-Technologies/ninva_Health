@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { TechnologySection } from '@/components/sections/TechnologySection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
+import { TechnologySection } from '@/components/sections/TechnologySection';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { CTASection } from '@/components/sections/CTASection';
 import VisualSitemap from '@/components/sections/VisualSitemap';
@@ -14,8 +14,8 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       <HeroSection />
-      <TechnologySection />
       <FeaturesSection />
+      <TechnologySection />
       <PrivacySection />
       <CTASection />
       {isDevelopment && <VisualSitemap />}
