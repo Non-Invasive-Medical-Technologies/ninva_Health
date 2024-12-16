@@ -388,4 +388,5 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-export default HealthcareFlows;
+// Change the export to be named instead of default
+export const HealthcareFlowsSection = HealthcareFlows;
