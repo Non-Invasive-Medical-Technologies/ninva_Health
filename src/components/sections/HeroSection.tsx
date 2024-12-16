@@ -1,7 +1,8 @@
 import React from 'react';
 import { HeroContent } from './hero/HeroContent';
 import { VideoDevice } from './hero/VideoDevice';
-import { Heart, Activity } from 'lucide-react';
+import { Heart, Activity, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   const features = [
@@ -33,18 +34,31 @@ export const HeroSection = () => {
               <HeroContent />
               <VideoDevice />
             </div>
+            
+            {/* Animated Scroll Icon */}
+            <motion.div 
+              className="flex justify-center mt-8"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <ChevronDown className="w-8 h-8 text-white/70" />
+            </motion.div>
           </main>
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="bg-white py-12">
+      {/* Features Section - Moved up and lightened text */}
+      <div className="bg-white/5 backdrop-blur-sm py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <div className="lg:text-center mb-8">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white/90 sm:text-4xl">
               Advanced Health Monitoring
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-white/70 lg:mx-auto">
               Professional-grade diagnostics in the comfort of your home
             </p>
           </div>
@@ -56,10 +70,10 @@ export const HeroSection = () => {
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-ninva/10">
                     {feature.icon}
                   </div>
-                  <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                  <p className="ml-16 text-lg leading-6 font-medium text-white/90">
                     {feature.title}
                   </p>
-                  <p className="mt-2 ml-16 text-base text-gray-500">
+                  <p className="mt-2 ml-16 text-base text-white/70">
                     {feature.description}
                   </p>
                 </div>
