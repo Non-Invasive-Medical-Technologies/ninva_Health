@@ -13,19 +13,19 @@ export const TechnologySection = () => {
       number: "01",
       title: "Personalized Health Solutions",
       description: "Tailored healthcare monitoring for your unique needs",
-      icon: <Dna className="w-6 h-6" />
+      icon: <Dna className="w-6 h-6 text-ninva" />
     },
     {
       number: "02",
       title: "Precision And Accuracy",
       description: "Medical-grade diagnostics with proven reliability",
-      icon: <Microscope className="w-6 h-6" />
+      icon: <Microscope className="w-6 h-6 text-ninva" />
     },
     {
       number: "03",
       title: "Scientific Innovation",
       description: "Cutting-edge technology for better health outcomes",
-      icon: <Brain className="w-6 h-6" />
+      icon: <Brain className="w-6 h-6 text-ninva" />
     }
   ];
 
