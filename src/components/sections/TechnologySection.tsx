@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Activity, Play, Pause } from 'lucide-react';
+import { ArrowUpRight, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { VideoDevice } from './hero/VideoDevice';
 
 export const TechnologySection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -51,7 +47,7 @@ export const TechnologySection = () => {
             </p>
           </motion.div>
 
-          {/* Video Showcase */}
+          {/* Content Section */}
           <motion.div
             variants={itemVariants}
             className="mt-16 bg-white rounded-2xl overflow-hidden shadow-xl"
@@ -72,7 +68,10 @@ export const TechnologySection = () => {
                 </div>
               </div>
               <div className="relative">
-                <VideoDevice />
+                {/* Placeholder for future technology visualization */}
+                <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-500">Technology Preview</span>
+                </div>
               </div>
             </div>
           </motion.div>
