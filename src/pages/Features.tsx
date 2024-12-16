@@ -3,6 +3,7 @@ import { Navigation } from '@/components/layout/Navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Activity, Heart, Shield, Stethoscope, Brain, Share2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { HealthcareFlowsSection } from '@/components/sections/HealthcareFlowsSection';
 
 const Features = () => {
   const features = [
@@ -67,7 +68,7 @@ const Features = () => {
         </div>
       </motion.div>
 
-      {/* Rest of the Features content */}
+      {/* Features Grid */}
       <main className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -87,6 +88,19 @@ const Features = () => {
           </div>
         </div>
       </main>
+
+      {/* Healthcare Flows Demo Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Experience Our Features</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Interactive demonstration of our healthcare platform
+            </p>
+          </div>
+          <HealthcareFlowsSection />
+        </div>
+      </section>
     </div>
   );
 };
