@@ -7,17 +7,17 @@ export const PrivacySection = () => {
     {
       title: "End-to-End Encryption",
       description: "Your health data is encrypted at all times",
-      icon: <Shield className="w-6 h-6 text-green-500" />
+      icon: <Shield className="w-6 h-6 text-ninva" />
     },
     {
       title: "HIPAA Compliant",
       description: "Meeting highest healthcare privacy standards",
-      icon: <Award className="w-6 h-6 text-green-500" />
+      icon: <Award className="w-6 h-6 text-ninva" />
     },
     {
       title: "Data Control",
       description: "You own and control your health data",
-      icon: <Lock className="w-6 h-6 text-green-500" />
+      icon: <Lock className="w-6 h-6 text-ninva" />
     }
   ];
 
