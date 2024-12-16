@@ -1,42 +1,15 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Activity, Heart, Shield, Waves } from 'lucide-react';
+import { Activity, Heart, Shield } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
-    <div className="relative min-h-[90vh] bg-gradient-to-br from-ninva/5 via-ninva/10 to-ninva/5 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute -top-40 -right-32 w-96 h-96"
-        >
-          <Waves className="w-full h-full text-ninva/10" />
-        </motion.div>
-        <motion.div 
-          animate={{ 
-            y: [0, 20, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute top-20 -left-32 w-96 h-96"
-        >
-          <Waves className="w-full h-full text-ninva/5" />
-        </motion.div>
+    <div className="relative min-h-[90vh] overflow-hidden">
+      {/* Background with depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ninva/20 via-ninva/5 to-transparent">
+        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       </div>
 
       {/* Hero Content */}
@@ -45,20 +18,40 @@ export const HeroSection = () => {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="sm:text-center lg:text-left lg:flex lg:items-center lg:gap-12">
               <div className="lg:w-1/2">
-                <motion.h1 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
                 >
-                  <span className="block">Your Health Journey,</span>
-                  <span className="block text-ninva">Reimagined</span>
-                </motion.h1>
+                  <motion.h1 
+                    className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <motion.span 
+                      className="block"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      Your Health Journey,
+                    </motion.span>
+                    <motion.span 
+                      className="block text-ninva"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                      Reimagined
+                    </motion.span>
+                  </motion.h1>
+                </motion.div>
                 
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
                   className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
                 >
                   Experience professional-grade health monitoring with Kolibri. 
@@ -69,7 +62,7 @@ export const HeroSection = () => {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.8, delay: 1 }}
                   className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
                 >
                   <div className="rounded-md shadow">
@@ -103,14 +96,23 @@ export const HeroSection = () => {
                   <motion.div
                     animate={{ 
                       rotateY: [0, 360],
+                      scale: [1, 1.05, 1]
                     }}
                     transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
+                      rotateY: {
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear"
+                      },
+                      scale: {
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
                     }}
                     style={{
-                      perspective: 1000
+                      perspective: 2000,
+                      transformStyle: "preserve-3d"
                     }}
                     className="relative w-[300px]"
                   >
@@ -118,6 +120,9 @@ export const HeroSection = () => {
                       src="/lovable-uploads/6fa9526a-455b-4c6a-adb0-34bc056b6afc.png"
                       alt="Kolibri Health Device"
                       className="w-full h-auto drop-shadow-2xl"
+                      style={{
+                        backfaceVisibility: "hidden"
+                      }}
                     />
                   </motion.div>
 
