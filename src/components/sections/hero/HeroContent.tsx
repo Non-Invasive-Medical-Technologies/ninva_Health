@@ -8,10 +8,10 @@ export const HeroContent = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1 
-          className="text-5xl tracking-tight font-extrabold text-white sm:text-6xl md:text-7xl"
+          className="text-6xl tracking-tight font-extrabold text-white sm:text-7xl md:text-8xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -20,15 +20,23 @@ export const HeroContent = () => {
             className="block"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.4,
+              ease: "easeOut"
+            }}
           >
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-[#33C3F0] mt-2"
+            className="block text-[#33C3F0] mt-2 text-5xl sm:text-6xl md:text-7xl"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.6,
+              ease: "easeOut"
+            }}
           >
             Reimagined
           </motion.span>
