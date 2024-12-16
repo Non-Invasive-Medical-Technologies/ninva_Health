@@ -5,6 +5,8 @@ import { Heart, Activity, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
+  console.log('[HeroSection] Rendering HeroSection');
+
   const features = [
     {
       title: "Advanced Health Monitoring",
@@ -17,6 +19,13 @@ export const HeroSection = () => {
       icon: <Activity className="w-8 h-8 text-ninva" />
     }
   ];
+
+  React.useEffect(() => {
+    console.log('[HeroSection] Component mounted');
+    return () => {
+      console.log('[HeroSection] Component unmounted');
+    };
+  }, []);
 
   return (
     <div className="relative min-h-[90vh] overflow-hidden">

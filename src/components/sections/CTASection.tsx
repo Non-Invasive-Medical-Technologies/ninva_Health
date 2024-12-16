@@ -2,6 +2,15 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 
 export const CTASection = () => {
+  console.log('[CTASection] Rendering CTASection');
+
+  React.useEffect(() => {
+    console.log('[CTASection] Component mounted');
+    return () => {
+      console.log('[CTASection] Component unmounted');
+    };
+  }, []);
+
   return (
     <div className="bg-ninva">
       <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
@@ -14,6 +23,7 @@ export const CTASection = () => {
         </p>
         <Button 
           className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-ninva bg-white hover:bg-ninva-light sm:w-auto"
+          onClick={() => console.log('[CTASection] CTA button clicked')}
         >
           Get Started
         </Button>

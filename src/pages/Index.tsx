@@ -7,6 +7,15 @@ import { PrivacySection } from '@/components/sections/PrivacySection';
 import { CTASection } from '@/components/sections/CTASection';
 
 const Index = () => {
+  console.log('[Index] Rendering Index page');
+
+  React.useEffect(() => {
+    console.log('[Index] Component mounted');
+    return () => {
+      console.log('[Index] Component unmounted');
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
