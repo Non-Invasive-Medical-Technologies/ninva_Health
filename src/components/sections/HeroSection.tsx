@@ -1,7 +1,6 @@
 import React from 'react';
 import { HeroContent } from './hero/HeroContent';
 import { VideoDevice } from './hero/VideoDevice';
-import { FloatingIcons } from './hero/FloatingIcons';
 
 export const HeroSection = () => {
   return (
@@ -19,7 +18,6 @@ export const HeroSection = () => {
             <div className="sm:text-center lg:text-left lg:flex lg:items-center lg:gap-12">
               <HeroContent />
               <VideoDevice />
-              <FloatingIcons />
             </div>
           </main>
         </div>

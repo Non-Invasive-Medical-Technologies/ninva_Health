@@ -37,14 +37,11 @@ export const VideoDevice = () => {
           }}
           className="relative w-[300px]"
         >
-          <div className="relative rounded-lg overflow-hidden shadow-2xl bg-white">
-            <img 
-              src={deviceImageUrl}
-              alt="Kolibri Health Device"
-              className="w-full h-auto"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-ninva/10 via-transparent to-transparent" />
-          </div>
+          <img 
+            src={deviceImageUrl}
+            alt="Kolibri Health Device"
+            className="w-full h-auto"
+          />
         </motion.div>
       </div>
     </motion.div>
