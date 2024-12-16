@@ -7,20 +7,8 @@ export const HeroContent = () => {
     <div className="lg:w-1/2">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: 1, 
-          y: 0,
-          scale: [1, 1.02, 1],
-        }}
-        transition={{ 
-          duration: 0.8,
-          scale: {
-            duration: 6,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }
-        }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <motion.h1 
           className="text-6xl tracking-tight font-extrabold text-white/90 sm:text-7xl md:text-8xl space-y-6"
@@ -31,42 +19,16 @@ export const HeroContent = () => {
           <motion.span 
             className="block mb-4"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ 
-              opacity: 1, 
-              x: 0,
-              scale: [1, 1.01, 1]
-            }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.4,
-              scale: {
-                duration: 6,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut"
-              }
-            }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             Your Health Journey,
           </motion.span>
           <motion.span 
             className="block text-[#33C3F0] mb-8"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ 
-              opacity: 1, 
-              x: 0,
-              scale: [1, 1.01, 1]
-            }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.6,
-              scale: {
-                duration: 6,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut"
-              }
-            }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
             Reimagined
           </motion.span>
