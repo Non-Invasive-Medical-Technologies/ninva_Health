@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthButton } from '@/components/auth/AuthButton';
+import { Button } from '@/components/ui/button';
 
 export const CTASection = () => {
   return (
@@ -10,9 +10,13 @@ export const CTASection = () => {
           <span className="block">of your health?</span>
         </h2>
         <p className="mt-4 text-lg leading-6 text-ninva-light">
-          Join thousands of users who trust Ninva Health for their wellness journey.
+          Join thousands of users who trust Kolibri Health for their wellness journey.
         </p>
-        <AuthButton />
+        <Button 
+          className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-ninva bg-white hover:bg-ninva-light sm:w-auto"
+        >
+          Get Started
+        </Button>
       </div>
     </div>
   );
