@@ -64,7 +64,7 @@ export const TechnologySection = () => {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-ninva sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-ninva to-[#0EA5E9] bg-clip-text text-transparent sm:text-4xl">
               Delivering reliable medical and wellness data
             </h2>
             <p className="mt-4 text-lg text-gray-600">
