@@ -1,29 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Play, Pause } from 'lucide-react';
 
 export const VideoDevice = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const { data: videos } = useQuery({
-    queryKey: ['hero-videos'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('videos')
-        .select('*')
-        .limit(1);
-      
-      if (error) throw error;
-      return data;
-    }
-  });
-
-  const videoUrl = videos?.[0]?.video_path 
-    ? `${supabase.storage.from('videos').getPublicUrl(videos[0].video_path).data.publicUrl}`
-    : null;
+  const videoUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
 
   const handlePlayPause = () => {
     const video = document.getElementById('hero-video') as HTMLVideoElement;
@@ -71,39 +54,13 @@ export const VideoDevice = () => {
           }}
           className="relative w-[300px]"
         >
-          {videoUrl ? (
-            <div className="relative rounded-lg overflow-hidden shadow-2xl">
-              <video
-                id="hero-video"
-                src={videoUrl}
-                className="w-full h-auto"
-                loop
-                muted
-                playsInline
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute bottom-4 right-4 bg-white/80 hover:bg-white/90 rounded-full"
-                onClick={handlePlayPause}
-              >
-                {isPlaying ? (
-                  <Pause className="h-4 w-4" />
-                ) : (
-                  <Play className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
-          ) : (
+          <div className="relative rounded-lg overflow-hidden shadow-2xl">
             <img 
-              src="/lovable-uploads/6fa9526a-455b-4c6a-adb0-34bc056b6afc.png"
+              src={videoUrl}
               alt="Kolibri Health Device"
-              className="w-full h-auto drop-shadow-2xl"
-              style={{
-                backfaceVisibility: "hidden"
-              }}
+              className="w-full h-auto"
             />
-          )}
+          </div>
         </motion.div>
       </div>
     </motion.div>
