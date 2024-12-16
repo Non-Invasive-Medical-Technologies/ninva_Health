@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
-import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
-import { KolibriJourneySections } from '@/components/sections/KolibriJourneySections';
-import { EnhancedHealthDashboard } from '@/components/sections/EnhancedHealthDashboard';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import KolibriJourneySections from '@/components/sections/KolibriJourneySections';
+import EnhancedHealthDashboard from '@/components/sections/EnhancedHealthDashboard';
 import { motion } from 'framer-motion';
 
 const Technology = () => {
