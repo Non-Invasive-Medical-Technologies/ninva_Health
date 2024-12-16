@@ -88,7 +88,7 @@ export const TechnologySection = () => {
                     </span>
                     <span className="text-4xl font-light text-ninva/20">{feature.number}</span>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-gray-900">
+                  <h3 className="mt-4 text-xl font-semibold bg-gradient-to-r from-ninva to-[#0EA5E9] bg-clip-text text-transparent">
                     {feature.title}
                   </h3>
                   <p className="mt-2 text-gray-600">
