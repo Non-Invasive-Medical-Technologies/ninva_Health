@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const VideoDevice = () => {
-  const deviceImageUrl = "/lovable-uploads/2b09a7bb-11a8-49c4-a67c-36d3de941c17.png";
+  const deviceImageUrl = "/lovable-uploads/6fa9526a-455b-4c6a-adb0-34bc056b6afc.png";
 
   return (
     <motion.div
