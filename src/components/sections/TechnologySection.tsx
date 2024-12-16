@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Activity, Play, Pause } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { VideoDevice } from './hero/VideoDevice';
 
 export const TechnologySection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,27 +71,9 @@ export const TechnologySection = () => {
                   </div>
                 </div>
               </div>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="relative rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform hover:scale-[1.02]">
-                    <img
-                      src={videoUrl}
-                      alt="Health monitoring demonstration"
-                      className="w-full h-auto object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                      <Play className="w-12 h-12 text-white" />
-                    </div>
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl w-full p-0 bg-black">
-                  <img
-                    src={videoUrl}
-                    alt="Health monitoring demonstration"
-                    className="w-full h-auto"
-                  />
-                </DialogContent>
-              </Dialog>
+              <div className="relative">
+                <VideoDevice />
+              </div>
             </div>
           </motion.div>
         </motion.div>
