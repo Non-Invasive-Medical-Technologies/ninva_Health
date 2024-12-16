@@ -1,73 +1,63 @@
 import React from 'react';
-import { Dna, Microscope, Brain } from 'lucide-react';
-
-const features = [
-  {
-    title: "Personalized Health Solutions",
-    description: "Tailored healthcare monitoring for your unique needs",
-    icon: <Dna className="w-8 h-8 text-ninva" />,
-    number: "01"
-  },
-  {
-    title: "Precision And Accuracy",
-    description: "Medical-grade diagnostics with proven reliability",
-    icon: <Microscope className="w-8 h-8 text-ninva" />,
-    number: "02"
-  },
-  {
-    title: "Scientific Innovation",
-    description: "Cutting-edge technology for better health outcomes",
-    icon: <Brain className="w-8 h-8 text-ninva" />,
-    number: "03"
-  }
-];
+import { Dna, Microscope, Brain, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const FeaturesSection = () => {
+  const features = [
+    {
+      number: "01",
+      title: "Personalized Health Solutions",
+      description: "Tailored healthcare monitoring for your unique needs",
+      icon: <Dna className="w-6 h-6 text-ninva" />
+    },
+    {
+      number: "02",
+      title: "Precision And Accuracy",
+      description: "Medical-grade diagnostics with proven reliability",
+      icon: <Microscope className="w-6 h-6 text-ninva" />
+    },
+    {
+      number: "03",
+      title: "Scientific Innovation",
+      description: "Cutting-edge technology for better health outcomes",
+      icon: <Brain className="w-6 h-6 text-ninva" />
+    }
+  ];
+
   return (
-    <div className="bg-white py-12">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="relative p-6 bg-white rounded-lg shadow-sm border border-gray-100"
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <div className="flex justify-between items-start mb-4">
-                <div className="p-2 bg-ninva/10 rounded-lg">
-                  {feature.icon}
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="inline-flex items-center justify-center">
+                    {feature.icon}
+                  </span>
+                  <span className="text-4xl font-light text-ninva/20">{feature.number}</span>
                 </div>
-                <span className="text-4xl font-light text-gray-200">
-                  {feature.number}
-                </span>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {feature.description}
+                </p>
+                <button className="flex items-center text-ninva hover:text-ninva-dark transition-colors">
+                  <span className="text-sm font-medium">Learn more</span>
+                  <ArrowUpRight className="ml-1 w-4 h-4" />
+                </button>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 mb-4">
-                {feature.description}
-              </p>
-              <a 
-                href="#" 
-                className="inline-flex items-center text-ninva hover:text-ninva-dark transition-colors"
-              >
-                Learn more 
-                <svg 
-                  className="w-4 h-4 ml-1" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
