@@ -102,7 +102,7 @@ export const HeroContent = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10"
+            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-black border-white/20 hover:bg-white/10"
           >
             Watch Demo
           </Button>
