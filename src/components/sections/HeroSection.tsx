@@ -92,14 +92,35 @@ export const HeroSection = () => {
                 </motion.div>
               </div>
 
-              {/* Animated Graphics */}
+              {/* Device Animation */}
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
                 className="hidden lg:block lg:w-1/2"
               >
-                <div className="relative w-full h-[500px]">
+                <div className="relative w-full h-[500px] flex items-center justify-center">
+                  <motion.div
+                    animate={{ 
+                      rotateY: [0, 360],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    style={{
+                      perspective: 1000
+                    }}
+                    className="relative w-[300px]"
+                  >
+                    <img 
+                      src="/lovable-uploads/6fa9526a-455b-4c6a-adb0-34bc056b6afc.png"
+                      alt="Kolibri Health Device"
+                      className="w-full h-auto drop-shadow-2xl"
+                    />
+                  </motion.div>
+
                   {/* Floating Icons */}
                   <motion.div
                     animate={{
@@ -146,22 +167,6 @@ export const HeroSection = () => {
                     className="absolute bottom-40 right-40"
                   >
                     <Shield className="w-12 h-12 text-ninva" />
-                  </motion.div>
-
-                  <motion.div
-                    animate={{
-                      y: [0, 25, 0],
-                      x: [0, 20, 0],
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1.5,
-                    }}
-                    className="absolute bottom-20 left-40"
-                  >
-                    <Waves className="w-12 h-12 text-ninva" />
                   </motion.div>
                 </div>
               </motion.div>
