@@ -76,7 +76,7 @@ export const HeroSection = () => {
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
               {features.map((feature, index) => (
                 <div key={index} className="relative">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-ninva-light">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-ninva/10">
                     {feature.icon}
                   </div>
                   <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
@@ -107,7 +107,7 @@ export const HeroSection = () => {
             {privacyFeatures.map((feature, index) => (
               <div key={index} className="relative">
                 <dt>
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-ninva-light">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-ninva/10">
                     {feature.icon}
                   </div>
                   <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
