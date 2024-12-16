@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Activity, Heart, Shield, Stethoscope, Brain, Share2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Features = () => {
   const features = [
@@ -41,18 +42,34 @@ const Features = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
+      {/* Hero Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative bg-white overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-28">
+              <div className="text-center lg:text-left">
+                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                  <span className="block">Advanced Features for</span>
+                  <span className="block text-ninva">Modern Healthcare</span>
+                </h1>
+                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  Experience the next generation of health monitoring with our comprehensive suite of features 
+                  designed for both patients and healthcare providers.
+                </p>
+              </div>
+            </main>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Rest of the Features content */}
       <main className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              Advanced Features for
-              <span className="text-primary block">Modern Healthcare</span>
-            </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Experience the next generation of health monitoring with our comprehensive suite of features designed for both patients and healthcare providers.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
