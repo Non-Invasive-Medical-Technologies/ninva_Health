@@ -25,7 +25,7 @@ export const HeroContent = () => {
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-ninva-light"
+            className="block text-[#33C3F0]"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
