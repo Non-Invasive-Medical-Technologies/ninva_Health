@@ -1,25 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Play, Pause } from 'lucide-react';
 
 export const VideoDevice = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const videoUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
-
-  const handlePlayPause = () => {
-    const video = document.getElementById('hero-video') as HTMLVideoElement;
-    if (video) {
-      if (video.paused) {
-        video.play();
-        setIsPlaying(true);
-      } else {
-        video.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
+  const deviceImageUrl = "/lovable-uploads/2b09a7bb-11a8-49c4-a67c-36d3de941c17.png";
 
   return (
     <motion.div
@@ -54,12 +37,13 @@ export const VideoDevice = () => {
           }}
           className="relative w-[300px]"
         >
-          <div className="relative rounded-lg overflow-hidden shadow-2xl">
+          <div className="relative rounded-lg overflow-hidden shadow-2xl bg-white">
             <img 
-              src={videoUrl}
+              src={deviceImageUrl}
               alt="Kolibri Health Device"
               className="w-full h-auto"
             />
+            <div className="absolute inset-0 bg-gradient-to-tr from-ninva/10 via-transparent to-transparent" />
           </div>
         </motion.div>
       </div>
