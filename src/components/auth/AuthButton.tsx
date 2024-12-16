@@ -30,11 +30,31 @@ export const AuthButton = () => {
 
   return (
     <div className="flex flex-col space-y-6">
-      <div className="flex flex-col space-y-2 text-center">
-        <h3 className="font-semibold tracking-tight text-2xl">Welcome back</h3>
-        <p className="text-sm text-muted-foreground">
-          Sign in to your account to continue
-        </p>
+      <div className="flex flex-col items-center space-y-4">
+        <img 
+          src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
+          alt="Ninva Health" 
+          className="h-12 w-auto dark:hidden"
+          onError={(e) => {
+            console.log("Color logo failed to load");
+            e.currentTarget.style.display = 'none';
+          }} 
+        />
+        <img 
+          src="/lovable-uploads/7c9de020-0246-4290-9031-2bc460fbff8a.png"
+          alt="Ninva Health" 
+          className="h-12 w-auto hidden dark:block"
+          onError={(e) => {
+            console.log("White logo failed to load");
+            e.currentTarget.style.display = 'none';
+          }} 
+        />
+        <div className="text-center">
+          <h3 className="font-semibold tracking-tight text-2xl">Welcome back</h3>
+          <p className="text-sm text-muted-foreground">
+            Sign in to your account to continue
+          </p>
+        </div>
       </div>
       <Button
         variant="outline"
