@@ -7,8 +7,20 @@ export const HeroContent = () => {
     <div className="lg:w-1/2">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        animate={{ 
+          opacity: 1, 
+          y: 0,
+          scale: [1, 1.02, 1],
+        }}
+        transition={{ 
+          duration: 0.8,
+          scale: {
+            duration: 6,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }
+        }}
       >
         <motion.h1 
           className="text-6xl tracking-tight font-extrabold text-white/90 sm:text-7xl md:text-8xl"
@@ -19,16 +31,42 @@ export const HeroContent = () => {
           <motion.span 
             className="block"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            animate={{ 
+              opacity: 1, 
+              x: 0,
+              scale: [1, 1.01, 1]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.4,
+              scale: {
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut"
+              }
+            }}
           >
             Your Health Journey,
           </motion.span>
           <motion.span 
             className="block text-[#33C3F0]"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            animate={{ 
+              opacity: 1, 
+              x: 0,
+              scale: [1, 1.01, 1]
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.6,
+              scale: {
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut"
+              }
+            }}
           >
             Reimagined
           </motion.span>
@@ -55,7 +93,7 @@ export const HeroContent = () => {
         <div className="rounded-md shadow">
           <Button 
             size="lg"
-            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200"
+            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-[#33C3F0] hover:bg-[#0FA0CE]"
           >
             Get Started
           </Button>
@@ -64,7 +102,7 @@ export const HeroContent = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200"
+            className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10"
           >
             Watch Demo
           </Button>
