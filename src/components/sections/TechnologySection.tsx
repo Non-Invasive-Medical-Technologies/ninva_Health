@@ -83,7 +83,7 @@ export const TechnologySection = () => {
               >
                 <Card className="p-6 h-full bg-white/80 backdrop-blur border border-ninva/10 hover:border-ninva/20 transition-colors">
                   <div className="flex items-start justify-between">
-                    <span className="inline-flex items-center justify-center rounded-lg bg-ninva/5 p-2">
+                    <span className="inline-flex items-center justify-center">
                       {feature.icon}
                     </span>
                     <span className="text-4xl font-light text-ninva/20">{feature.number}</span>
