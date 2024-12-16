@@ -11,7 +11,7 @@ export const HeroContent = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1 
-          className="text-6xl tracking-tight font-extrabold text-white sm:text-7xl md:text-8xl"
+          className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -29,7 +29,7 @@ export const HeroContent = () => {
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-[#33C3F0] mt-2 text-5xl sm:text-6xl md:text-7xl"
+            className="block text-[#33C3F0] mt-2 text-display-md sm:text-display-lg"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -47,7 +47,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-6 text-base text-gray-300 sm:text-lg max-w-2xl"
+        className="mt-6 text-body-lg text-gray-300 max-w-2xl"
       >
         Experience professional-grade health monitoring with Kolibri. 
         Advanced sensors combined with AI-powered analytics provide 
@@ -62,14 +62,14 @@ export const HeroContent = () => {
       >
         <Button 
           size="lg"
-          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-[#33C3F0] hover:bg-[#0FA0CE] text-lg px-8"
+          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-[#33C3F0] hover:bg-[#0FA0CE] text-body-md px-8"
         >
           Get Started
         </Button>
         <Button 
           variant="outline" 
           size="lg"
-          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 text-lg px-8"
+          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 text-body-md px-8"
         >
           Watch Demo
         </Button>

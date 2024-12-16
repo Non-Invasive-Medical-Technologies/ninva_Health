@@ -23,6 +23,21 @@ export default {
         display: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
         text: ["DM Sans", "Inter", "system-ui", "sans-serif"],
       },
+      fontSize: {
+        // Display
+        'display-2xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-xl': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-lg': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-md': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        'display-sm': ['1.875rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'display-xs': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        // Body
+        'body-xl': ['1.25rem', { lineHeight: '1.6' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],
+        'body-md': ['1rem', { lineHeight: '1.6' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+        'body-xs': ['0.75rem', { lineHeight: '1.5' }],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
