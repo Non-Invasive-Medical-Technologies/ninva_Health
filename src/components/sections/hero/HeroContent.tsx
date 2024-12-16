@@ -47,7 +47,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-6 text-xl text-gray-300 sm:text-2xl max-w-2xl"
+        className="mt-6 text-base text-gray-300 sm:text-lg max-w-2xl"
       >
         Experience professional-grade health monitoring with Kolibri. 
         Advanced sensors combined with AI-powered analytics provide 
