@@ -1,8 +1,7 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
-import KolibriJourneySections from '@/components/sections/KolibriJourneySections';
-import EnhancedHealthDashboard from '@/components/sections/EnhancedHealthDashboard';
+import { TechnologySection } from '@/components/sections/TechnologySection';
+import KolibriBusinessSections from '@/components/sections/KolibriBusinessSections';
 import { motion } from 'framer-motion';
 
 const Technology = () => {
@@ -35,26 +34,11 @@ const Technology = () => {
         </div>
       </motion.div>
 
-      {/* How It Works Section */}
-      <HowItWorksSection />
+      {/* Technology Overview Section */}
+      <TechnologySection />
 
-      {/* Journey Sections */}
-      <KolibriJourneySections />
-
-      {/* Dashboard Preview */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Comprehensive Health Dashboard
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Monitor your health metrics and receive AI-powered insights in real-time
-            </p>
-          </div>
-          <EnhancedHealthDashboard />
-        </div>
-      </section>
+      {/* Business Strategy Section */}
+      <KolibriBusinessSections />
     </div>
   );
 };
