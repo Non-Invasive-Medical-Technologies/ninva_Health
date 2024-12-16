@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Dna, Brain, Microscope, Activity } from 'lucide-react';
+import { ArrowUpRight, Dna, Brain, Microscope, Activity, Play, Pause } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export const TechnologySection = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoUrl = "https://dvlanhpficohhiiqugzq.supabase.co/storage/v1/object/public/videos/03997675344777.5c4a29a4a81aa.gif";
+
   const features = [
     {
       number: "01",
@@ -99,7 +102,7 @@ export const TechnologySection = () => {
             ))}
           </div>
 
-          {/* Technology Showcase */}
+          {/* Video Showcase */}
           <motion.div
             variants={itemVariants}
             className="mt-16 bg-white rounded-2xl overflow-hidden shadow-xl"
@@ -123,11 +126,11 @@ export const TechnologySection = () => {
                   </div>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/lovable-uploads/2b09a7bb-11a8-49c4-a67c-36d3de941c17.png"
-                  alt="Health monitoring dashboard"
-                  className="rounded-lg shadow-lg"
+                  src={videoUrl}
+                  alt="Health monitoring demonstration"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
