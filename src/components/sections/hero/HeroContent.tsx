@@ -11,7 +11,7 @@ export const HeroContent = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.h1 
-          className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+          className="text-5xl tracking-tight font-extrabold text-white/90 sm:text-6xl md:text-7xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -25,7 +25,7 @@ export const HeroContent = () => {
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-ninva"
+            className="block text-ninva-light"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -39,7 +39,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+        className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
       >
         Experience professional-grade health monitoring with Kolibri. 
         Advanced sensors combined with AI-powered analytics provide 
