@@ -4,20 +4,20 @@ import { Button } from '@/components/ui/button';
 
 export const HeroContent = () => {
   return (
-    <div className="sm:text-left lg:max-w-xl">
+    <div className="sm:text-left lg:max-w-xl pt-20 lg:pt-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1 
-          className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white"
+          className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white space-y-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span 
-            className="block"
+            className="block mb-2"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -29,7 +29,7 @@ export const HeroContent = () => {
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-[#33C3F0] mt-2 text-display-md sm:text-display-lg"
+            className="block text-[#33C3F0] text-display-md sm:text-display-lg"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -47,7 +47,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-6 text-body-lg text-gray-300 max-w-2xl"
+        className="mt-8 text-body-lg text-gray-300 max-w-2xl"
       >
         Experience professional-grade health monitoring with Kolibri. 
         Advanced sensors combined with AI-powered analytics provide 
@@ -58,7 +58,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
-        className="mt-8 flex flex-col sm:flex-row gap-4"
+        className="mt-12 flex flex-col sm:flex-row gap-4"
       >
         <Button 
           size="lg"
