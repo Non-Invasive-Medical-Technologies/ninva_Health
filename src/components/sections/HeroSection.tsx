@@ -29,7 +29,7 @@ export const HeroSection = () => {
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto relative">
         <div className="relative z-10 pt-20 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <HeroContent />
               <div className="hidden lg:block">

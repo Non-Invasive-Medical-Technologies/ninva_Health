@@ -34,12 +34,12 @@ export const VideoDevice = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[400px]"
+        className="w-full max-w-[300px]"
       >
         <img 
           src={deviceImageUrl}
           alt="Kolibri Health Device"
-          className="w-full h-auto drop-shadow-2xl mix-blend-screen"
+          className="w-full h-auto drop-shadow-2xl mix-blend-screen rounded-lg"
         />
       </motion.div>
     </motion.div>
