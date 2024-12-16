@@ -1,16 +1,42 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Activity, Heart, Shield, Zap } from 'lucide-react';
+import { Activity, Heart, Shield, Waves } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
     <div className="relative min-h-[90vh] bg-gradient-to-br from-ninva/5 via-ninva/10 to-ninva/5 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-32 w-96 h-96 rounded-full bg-ninva/10 blur-3xl animate-pulse" />
-        <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-ninva/5 blur-3xl animate-pulse delay-700" />
-        <div className="absolute h-40 w-40 -bottom-10 left-20 rounded-full bg-ninva/10 blur-2xl animate-pulse delay-500" />
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -top-40 -right-32 w-96 h-96"
+        >
+          <Waves className="w-full h-full text-ninva/10" />
+        </motion.div>
+        <motion.div 
+          animate={{ 
+            y: [0, 20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute top-20 -left-32 w-96 h-96"
+        >
+          <Waves className="w-full h-full text-ninva/5" />
+        </motion.div>
       </div>
 
       {/* Hero Content */}
@@ -74,87 +100,69 @@ export const HeroSection = () => {
                 className="hidden lg:block lg:w-1/2"
               >
                 <div className="relative w-full h-[500px]">
-                  {/* Main Circle */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="relative">
-                      {/* Outer Ring */}
-                      <div className="absolute -inset-8 border-4 border-ninva/20 rounded-full animate-[spin_10s_linear_infinite] w-64 h-64" />
-                      
-                      {/* Inner Ring */}
-                      <div className="absolute -inset-4 border-4 border-ninva/30 rounded-full animate-[spin_8s_linear_infinite_reverse] w-48 h-48" />
+                  {/* Floating Icons */}
+                  <motion.div
+                    animate={{
+                      y: [0, -30, 0],
+                      x: [0, 15, 0],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute top-20 left-20"
+                  >
+                    <Heart className="w-12 h-12 text-ninva" />
+                  </motion.div>
 
-                      {/* Center Circle */}
-                      <div className="absolute -inset-1 bg-ninva/10 rounded-full w-32 h-32 backdrop-blur-sm" />
+                  <motion.div
+                    animate={{
+                      y: [0, 30, 0],
+                      x: [0, -15, 0],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.5,
+                    }}
+                    className="absolute top-40 right-20"
+                  >
+                    <Activity className="w-12 h-12 text-ninva" />
+                  </motion.div>
 
-                      {/* Floating Icons */}
-                      <motion.div
-                        animate={{
-                          y: [0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="absolute -top-20 left-0"
-                      >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg">
-                          <Heart className="w-8 h-8 text-ninva" />
-                        </div>
-                      </motion.div>
+                  <motion.div
+                    animate={{
+                      y: [0, -20, 0],
+                      x: [0, -20, 0],
+                    }}
+                    transition={{
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1,
+                    }}
+                    className="absolute bottom-40 right-40"
+                  >
+                    <Shield className="w-12 h-12 text-ninva" />
+                  </motion.div>
 
-                      <motion.div
-                        animate={{
-                          y: [0, 10, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 0.5,
-                        }}
-                        className="absolute top-10 -right-16"
-                      >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg">
-                          <Activity className="w-8 h-8 text-ninva" />
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        animate={{
-                          y: [0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 1,
-                        }}
-                        className="absolute -bottom-10 right-0"
-                      >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg">
-                          <Shield className="w-8 h-8 text-ninva" />
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        animate={{
-                          y: [0, 10, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 1.5,
-                        }}
-                        className="absolute bottom-10 -left-16"
-                      >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg">
-                          <Zap className="w-8 h-8 text-ninva" />
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
+                  <motion.div
+                    animate={{
+                      y: [0, 25, 0],
+                      x: [0, 20, 0],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.5,
+                    }}
+                    className="absolute bottom-20 left-40"
+                  >
+                    <Waves className="w-12 h-12 text-ninva" />
+                  </motion.div>
                 </div>
               </motion.div>
             </div>
