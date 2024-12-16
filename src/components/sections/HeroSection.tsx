@@ -20,7 +20,7 @@ export const HeroSection = () => {
 
   return (
     <div className="relative min-h-[90vh] overflow-hidden">
-      {/* Option 1: Darker gradient */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1A1F2C] via-ninva-dark to-transparent">
         <div className="absolute inset-0 backdrop-blur-[100px] bg-white/10" />
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
@@ -30,10 +30,8 @@ export const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative">
         <div className="relative z-10 pt-20 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <HeroContent />
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <HeroContent />
               <div className="hidden lg:block">
                 <VideoDevice />
               </div>
@@ -55,7 +53,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Features Section - Moved up and lightened text */}
+      {/* Features Section */}
       <div className="bg-white/5 backdrop-blur-sm py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-8">
