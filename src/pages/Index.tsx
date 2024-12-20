@@ -5,6 +5,7 @@ import { DataSection } from '@/components/sections/DataSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { CTASection } from '@/components/sections/CTASection';
+import { FloatingChat } from '@/components/chat/FloatingChat';
 
 const Index = () => {
   console.log('[Index] Rendering Index page');
@@ -24,6 +25,7 @@ const Index = () => {
       <FeaturesSection />
       <PrivacySection />
       <CTASection />
+      <FloatingChat />
     </div>
   );
 };

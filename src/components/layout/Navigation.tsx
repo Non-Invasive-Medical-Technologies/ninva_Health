@@ -28,8 +28,9 @@ export const Navigation = () => {
                 alt="Ninva Health" 
                 className="h-10 w-auto dark:hidden"
                 onError={(e) => {
-                  console.log("Color logo failed to load, falling back to text");
-                  e.currentTarget.style.display = 'none';
+                  const target = e.target as HTMLImageElement;
+                  console.log("Color logo failed to load");
+                  target.style.display = 'none';
                 }} 
               />
               <img 
@@ -37,8 +38,9 @@ export const Navigation = () => {
                 alt="Ninva Health" 
                 className="h-10 w-auto hidden dark:block"
                 onError={(e) => {
-                  console.log("White logo failed to load, falling back to text");
-                  e.currentTarget.style.display = 'none';
+                  const target = e.target as HTMLImageElement;
+                  console.log("White logo failed to load");
+                  target.style.display = 'none';
                 }} 
               />
             </Link>
