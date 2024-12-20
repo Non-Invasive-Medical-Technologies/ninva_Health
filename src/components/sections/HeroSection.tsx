@@ -4,6 +4,7 @@ import { VideoDevice } from './hero/VideoDevice';
 import { FloatingIcons } from './hero/FloatingIcons';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { Heart, Activity } from 'lucide-react';
 
 export const HeroSection = () => {
   console.log('[HeroSection] Rendering HeroSection');
@@ -158,3 +159,4 @@ export const HeroSection = () => {
     </div>
   );
 };
+
