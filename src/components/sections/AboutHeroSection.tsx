@@ -13,7 +13,7 @@ export const AboutHeroSection = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 lg:pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -28,7 +28,7 @@ export const AboutHeroSection = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="inline-block px-4 py-1 rounded-full bg-ninva/10 text-ninva-light mb-6"
             >
-              About Kolibri Health
+              About Ninva Health
             </motion.div>
             
             <motion.h1 
@@ -47,7 +47,7 @@ export const AboutHeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              At Kolibri Health, we're dedicated to transforming healthcare through innovative technology 
+              At Ninva Health, we're dedicated to transforming healthcare through innovative technology 
               and AI-powered solutions, making professional-grade health monitoring accessible to everyone.
             </motion.p>
 
@@ -59,7 +59,7 @@ export const AboutHeroSection = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-ninva hover:bg-ninva-dark text-white"
+                className="bg-white text-ninva hover:bg-gray-100 hover:text-ninva-dark font-semibold px-8"
               >
                 Our Mission
               </Button>
