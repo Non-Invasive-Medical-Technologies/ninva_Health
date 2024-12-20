@@ -3,6 +3,7 @@ import { Navigation } from '@/components/layout/Navigation';
 import { TechnologySection } from '@/components/sections/TechnologySection';
 import KolibriBusinessSections from '@/components/sections/KolibriBusinessSections';
 import { motion } from 'framer-motion';
+import { Footer } from '@/components/layout/Footer';
 
 const Technology = () => {
   return (
@@ -40,6 +41,8 @@ const Technology = () => {
 
       {/* Business Strategy Section */}
       <KolibriBusinessSections />
+
+      <Footer />
     </div>
   );
 };

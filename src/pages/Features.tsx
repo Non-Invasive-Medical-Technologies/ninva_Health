@@ -5,6 +5,7 @@ import { Activity, Heart, Shield, Stethoscope, Brain, Share2 } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { HealthcareFlowsSection } from '@/components/sections/HealthcareFlowsSection';
 import { DeviceShowcase } from '@/components/sections/features/DeviceShowcase';
+import { Footer } from '@/components/layout/Footer';
 
 const Features = () => {
   const features = [
@@ -39,11 +40,9 @@ const Features = () => {
       icon: <Share2 className="w-8 h-8 text-primary" />
     }
   ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      
       {/* Hero Section with gradient and device showcase */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -108,6 +107,7 @@ const Features = () => {
           <HealthcareFlowsSection />
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

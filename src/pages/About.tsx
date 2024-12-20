@@ -3,8 +3,10 @@ import { Navigation } from '@/components/layout/Navigation';
 import { AboutHeroSection } from '@/components/sections/AboutHeroSection';
 import { Button } from '@/components/ui/button';
 import { Heart, Activity, Shield } from 'lucide-react';
+import { Footer } from '@/components/layout/Footer';
 
 const About = () => {
+  // ... keep existing code (component content)
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -66,6 +68,7 @@ const About = () => {
           <Button className="bg-ninva text-white hover:bg-ninva/90">Get Started Today</Button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

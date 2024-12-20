@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, Lock, FileCheck, Database } from 'lucide-react';
+import { Footer } from '@/components/layout/Footer';
 
 const Security = () => {
   const securityFeatures = [
@@ -56,6 +57,7 @@ const Security = () => {
           ))}
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
+import { Footer } from '@/components/layout/Footer';
 
 const TermsOfService = () => {
   return (
@@ -28,6 +29,7 @@ const TermsOfService = () => {
           <p>These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

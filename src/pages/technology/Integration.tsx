@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileCode, Users, Settings, Book } from 'lucide-react';
+import { Footer } from '@/components/layout/Footer';
 
 const Integration = () => {
   const integrationFeatures = [
@@ -56,6 +57,7 @@ const Integration = () => {
           ))}
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
