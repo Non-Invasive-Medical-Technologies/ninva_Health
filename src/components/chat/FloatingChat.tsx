@@ -2,15 +2,32 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageSquare, X, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FloatingChatProps {
   activeCard?: string | null;
   contextMessage?: string;
 }
 
+const medicalFacts = [
+  "Did you know? The human heart beats about 115,000 times each day!",
+  "Time for a health pun: What did the cardiologist say to their patient? 'I heart you!'",
+  "Fascinating fact: Your body has enough blood vessels to circle the Earth twice!",
+  "Health tip: Regular deep breathing can help reduce stress and improve focus.",
+  "Quick laugh: Why don't bacteria like jokes? Because they split their sides!",
+];
+
 export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) => {
   const [showChat, setShowChat] = useState(true);
   const [chatMinimized, setChatMinimized] = useState(false);
+  const [currentFact, setCurrentFact] = useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFact((prev) => (prev + 1) % medicalFacts.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   if (!showChat) return null;
 
@@ -18,7 +35,27 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
     <div className={`fixed ${
       chatMinimized ? 'bottom-4 right-4 w-auto' : 'bottom-4 right-4 w-80'
     } z-50 transition-all duration-300`}>
-      <Card>
+      <Card className="overflow-visible">
+        {/* Hummingbird Animation */}
+        <motion.div
+          className="absolute -top-12 right-4"
+          animate={{
+            y: [0, -10, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <img 
+            src="/lovable-uploads/3bb9b84f-1377-461b-ab76-959f11e50f8d.png" 
+            alt="Ninva Hummingbird"
+            className="w-12 h-12 object-contain"
+          />
+        </motion.div>
+
         <div className="bg-gradient-to-r from-ninva to-ninva-dark p-4 rounded-t-lg">
           <div className="flex items-center justify-between text-white">
             <div className="flex items-center gap-2">
@@ -44,11 +81,19 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
         
         {!chatMinimized && (
           <div className="p-4">
-            <div className="bg-ninva/5 rounded-lg p-3 mb-3">
-              <p className="text-ninva">
-                {contextMessage || "Hello! I can help explain each phase of your health journey. How can I assist you today?"}
-              </p>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentFact}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="bg-ninva/5 rounded-lg p-3 mb-3"
+              >
+                <p className="text-ninva">
+                  {contextMessage || medicalFacts[currentFact]}
+                </p>
+              </motion.div>
+            </AnimatePresence>
             <div className="flex gap-2">
               <input 
                 type="text"
