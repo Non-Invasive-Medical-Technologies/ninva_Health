@@ -9,16 +9,17 @@ export const HeroSection = () => {
 
   return (
     <div className="relative min-h-[90vh] overflow-hidden">
-      {/* Enhanced animated gradient background */}
+      {/* Enhanced animated gradient background matching About page */}
       <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-gradient-to-br from-ninva-teal via-ninva to-ninva-midnight animate-gradient-wave"
+          className="absolute inset-0 bg-gradient-to-b from-ninva-darker to-ninva"
           style={{
             backgroundSize: '200% 200%',
-            filter: 'blur(80px)',
+            animation: 'gradient-wave 15s ease infinite',
           }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(0,0,0,0.3),transparent_70%)]" />
+        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/5" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       </div>
 
       {/* Hero Content */}
@@ -77,7 +78,7 @@ export const HeroSection = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    className="border-2 border-white bg-transparent text-black hover:bg-white/10 font-semibold px-8"
+                    className="text-white border-white/20 hover:bg-white/10 font-semibold px-8"
                   >
                     Watch Demo
                   </Button>
@@ -92,7 +93,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Features Section with improved visuals */}
+      {/* Features Section */}
       <div className="bg-white/5 backdrop-blur-sm py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-8">
