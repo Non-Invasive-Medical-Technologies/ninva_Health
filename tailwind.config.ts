@@ -52,6 +52,20 @@ export default {
           deepBlue: "#0D324D",
           midnight: "#051B2C",
         },
+        brand: {
+          primary: {
+            main: '#26652C',
+            secondary: '#8FD5CA',
+            accent: '#EAD0AD',
+            background: '#FFF8F0'
+          },
+          supporting: {
+            peach: '#FFB69E',
+            lime: '#86C34E',
+            turquoise: '#4EC989',
+            mint: '#BBE2BB'
+          }
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
