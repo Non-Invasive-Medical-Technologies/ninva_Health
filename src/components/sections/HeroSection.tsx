@@ -78,7 +78,7 @@ export const HeroSection = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    className="text-white border-white/20 hover:bg-white/10 font-semibold px-8"
+                    className="text-white border-white/20 hover:bg-[#33C3F0] hover:border-[#33C3F0] hover:text-white font-semibold px-8 transition-all duration-300"
                   >
                     Watch Demo
                   </Button>
