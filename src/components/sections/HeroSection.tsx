@@ -9,10 +9,10 @@ export const HeroSection = () => {
 
   return (
     <div className="relative min-h-[90vh] overflow-hidden">
-      {/* Enhanced animated gradient background matching About page */}
+      {/* Updated gradient background to match the provided image */}
       <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-ninva-darker to-ninva"
+          className="absolute inset-0 bg-gradient-to-b from-ninva-deepBlue to-ninva"
           style={{
             backgroundSize: '200% 200%',
             animation: 'gradient-wave 15s ease infinite',
@@ -86,8 +86,6 @@ export const HeroSection = () => {
               </div>
 
               <div className="hidden lg:block relative">
-                {/* Add a light teal background circle behind the device */}
-                <div className="absolute inset-0 -inset-x-24 bg-ninva-light/20 backdrop-blur-3xl rounded-full transform -translate-y-12" />
                 <VideoDevice />
               </div>
             </div>
