@@ -50,6 +50,8 @@ export default {
           light: "#E6F4F1",
           dark: "#1A5755",
           darker: "#1A1F2C",
+          teal: "#20B2AA",
+          deepBlue: "#0D324D",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -80,11 +82,6 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -112,14 +109,26 @@ export default {
             opacity: "1",
           },
         },
-        "gradient-x": {
+        "gradient-flow": {
           "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
+            "background-position": "0% 50%",
+          },
+          "50%": {
+            "background-position": "100% 50%",
+          },
+        },
+        "gradient-wave": {
+          "0%": {
+            "background-size": "100% 100%",
+            "background-position": "0% 0%",
           },
           "50%": {
             "background-size": "200% 200%",
-            "background-position": "right center",
+            "background-position": "100% 100%",
+          },
+          "100%": {
+            "background-size": "100% 100%",
+            "background-position": "0% 0%",
           },
         },
       },
@@ -128,7 +137,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
-        "gradient-x": "gradient-x 15s ease infinite",
+        "gradient-flow": "gradient-flow 15s ease infinite",
+        "gradient-wave": "gradient-wave 20s ease infinite",
       },
     },
   },

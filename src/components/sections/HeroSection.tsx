@@ -9,10 +9,16 @@ export const HeroSection = () => {
 
   return (
     <div className="relative min-h-[90vh] overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-light to-ninva-dark animate-gradient-x">
-        <div className="absolute inset-0 backdrop-blur-[100px] bg-white/10" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      {/* Enhanced animated gradient background */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-ninva-teal via-ninva to-ninva-deepBlue animate-gradient-wave"
+          style={{
+            backgroundSize: '200% 200%',
+            filter: 'blur(60px)',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
       </div>
 
       {/* Hero Content */}
