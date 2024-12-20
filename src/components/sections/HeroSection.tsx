@@ -46,10 +46,10 @@ export const HeroSection = () => {
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto relative">
-        <div className="relative z-10 pt-20 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+        <div className="relative z-10 pt-12 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-left lg:max-w-xl pt-20 lg:pt-32">
+              <div className="text-left lg:max-w-xl pt-12 lg:pt-24">
                 <motion.h1 
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ export const HeroSection = () => {
                 >
                   <Button 
                     size="lg"
-                    className="bg-white text-emerald-700 hover:bg-gray-100 hover:text-emerald-800 font-semibold px-8"
+                    className="bg-white text-ninva hover:bg-gray-100 hover:text-ninva-dark font-semibold px-8"
                   >
                     {pageContent.ctaPrimary}
                   </Button>
