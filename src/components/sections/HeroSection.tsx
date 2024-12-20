@@ -51,7 +51,7 @@ export const HeroSection = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="text-left lg:max-w-xl pt-20 lg:pt-32">
                 <motion.h1 
-                  className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white space-y-4"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -70,7 +70,7 @@ export const HeroSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="mt-8 text-body-lg text-gray-300 max-w-2xl"
+                  className="text-body-lg text-gray-200 max-w-2xl font-text mb-8"
                 >
                   {pageContent.subtitle}
                 </motion.p>
@@ -79,18 +79,18 @@ export const HeroSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
-                  className="mt-12 flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row gap-4"
                 >
                   <Button 
                     size="lg"
-                    className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-white text-emerald-700 hover:bg-gray-100 hover:text-emerald-800 text-body-md px-8"
+                    className="bg-white text-emerald-700 hover:bg-gray-100 hover:text-emerald-800 font-semibold px-8"
                   >
                     {pageContent.ctaPrimary}
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg"
-                    className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 text-body-md px-8"
+                    className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8"
                   >
                     {pageContent.ctaSecondary}
                   </Button>
@@ -110,10 +110,10 @@ export const HeroSection = () => {
       <div className="bg-white/5 backdrop-blur-sm py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-8">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white/90 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white/90 sm:text-4xl font-display">
               Advanced Health Monitoring
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-white/70 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-white/70 lg:mx-auto font-text">
               Professional-grade diagnostics in the comfort of your home
             </p>
           </div>
