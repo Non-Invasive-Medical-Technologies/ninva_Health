@@ -35,7 +35,7 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
     <div className={`fixed ${
       chatMinimized ? 'bottom-4 right-4 w-auto' : 'bottom-4 right-4 w-80'
     } z-50 transition-all duration-300`}>
-      <Card className="overflow-visible">
+      <Card className="overflow-visible shadow-lg border border-ninva/10 bg-white/95 backdrop-blur-lg">
         {/* Hummingbird Animation */}
         <motion.div
           className="absolute -top-12 right-4"
@@ -52,11 +52,11 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
           <img 
             src="/lovable-uploads/3bb9b84f-1377-461b-ab76-959f11e50f8d.png" 
             alt="Ninva Hummingbird"
-            className="w-12 h-12 object-contain"
+            className="w-12 h-12 object-contain drop-shadow-lg"
           />
         </motion.div>
 
-        <div className="bg-gradient-to-r from-ninva to-ninva-dark p-4 rounded-t-lg">
+        <div className="bg-gradient-to-r from-ninva via-ninva-dark to-ninva-deepBlue p-4 rounded-t-lg">
           <div className="flex items-center justify-between text-white">
             <div className="flex items-center gap-2">
               <MessageSquare className="w-5 h-5" />
@@ -65,13 +65,13 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
             <div className="flex gap-2">
               <button 
                 onClick={() => setChatMinimized(!chatMinimized)}
-                className="hover:bg-white/10 rounded-full p-1"
+                className="hover:bg-white/10 rounded-full p-1 transition-colors"
               >
                 {chatMinimized ? '+' : '-'}
               </button>
               <button 
                 onClick={() => setShowChat(false)}
-                className="hover:bg-white/10 rounded-full p-1"
+                className="hover:bg-white/10 rounded-full p-1 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -87,9 +87,9 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-ninva/5 rounded-lg p-3 mb-3"
+                className="bg-gradient-to-br from-ninva/5 to-ninva/10 rounded-lg p-3 mb-3"
               >
-                <p className="text-ninva">
+                <p className="text-ninva text-sm">
                   {contextMessage || medicalFacts[currentFact]}
                 </p>
               </motion.div>
@@ -98,9 +98,9 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
               <input 
                 type="text"
                 placeholder="Ask me anything..."
-                className="flex-1 p-2 border rounded-lg text-sm"
+                className="flex-1 p-2 border rounded-lg text-sm bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-ninva/20 transition-all"
               />
-              <Button size="sm" className="bg-ninva hover:bg-ninva-dark">
+              <Button size="sm" className="bg-ninva hover:bg-ninva-dark transition-colors">
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
