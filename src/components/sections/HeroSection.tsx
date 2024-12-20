@@ -24,6 +24,13 @@ export const HeroSection = () => {
     }
   };
 
+  const pageContent = {
+    title: "Your Health Journey, Reimagined",
+    subtitle: "Experience professional-grade health monitoring with Kolibri. Advanced sensors combined with AI-powered analytics provide unprecedented insights into your health.",
+    ctaPrimary: "Get Started",
+    ctaSecondary: "Watch Demo"
+  };
+
   React.useEffect(() => {
     console.log('[HeroSection] Component mounted');
     return () => {
@@ -62,15 +69,7 @@ export const HeroSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                   >
-                    Your Health Journey,
-                  </motion.span>
-                  <motion.span 
-                    className="block text-[#8FD5CA] text-display-md sm:text-display-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    Reimagined
+                    {pageContent.title}
                   </motion.span>
                 </motion.h1>
                 
@@ -80,9 +79,7 @@ export const HeroSection = () => {
                   transition={{ duration: 0.8, delay: 0.8 }}
                   className="mt-8 text-body-lg text-gray-300 max-w-2xl"
                 >
-                  Experience professional-grade health monitoring with Kolibri. 
-                  Advanced sensors combined with AI-powered analytics provide 
-                  unprecedented insights into your health.
+                  {pageContent.subtitle}
                 </motion.p>
 
                 <motion.div 
@@ -95,14 +92,14 @@ export const HeroSection = () => {
                     size="lg"
                     className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-white text-emerald-700 hover:bg-gray-100 hover:text-emerald-800 text-body-md px-8"
                   >
-                    Get Started
+                    {pageContent.ctaPrimary}
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg"
                     className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 text-body-md px-8"
                   >
-                    Watch Demo
+                    {pageContent.ctaSecondary}
                   </Button>
                 </motion.div>
               </div>
@@ -159,4 +156,3 @@ export const HeroSection = () => {
     </div>
   );
 };
-
