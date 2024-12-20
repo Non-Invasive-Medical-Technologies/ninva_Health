@@ -1,7 +1,5 @@
 import React from 'react';
-import { HeroContent } from './hero/HeroContent';
 import { VideoDevice } from './hero/VideoDevice';
-import { FloatingIcons } from './hero/FloatingIcons';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Heart, Activity } from 'lucide-react';
@@ -44,11 +42,6 @@ export const HeroSection = () => {
       <div className={`absolute inset-0 ${brandColors.gradients.primary}`}>
         <div className="absolute inset-0 backdrop-blur-[100px] bg-white/10" />
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      </div>
-
-      {/* Floating Icons in background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <FloatingIcons />
       </div>
 
       {/* Hero Content */}
