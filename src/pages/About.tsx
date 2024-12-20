@@ -12,7 +12,7 @@ const About = () => {
       
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Kolibri Health</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Ninva Health</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Revolutionizing personal health monitoring with advanced technology and AI-powered insights
           </p>
@@ -22,7 +22,7 @@ const About = () => {
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-lg text-gray-600 mb-6">
-              At Kolibri Health, we're dedicated to transforming the way people monitor and understand their health. By combining cutting-edge technology with intuitive design, we make professional-grade health monitoring accessible to everyone.
+              At Ninva Health, we're dedicated to transforming the way people monitor and understand their health. By combining cutting-edge technology with intuitive design, we make professional-grade health monitoring accessible to everyone.
             </p>
             <p className="text-lg text-gray-600">
               Our goal is to empower individuals with real-time health insights, enabling proactive health management and better healthcare decisions.
