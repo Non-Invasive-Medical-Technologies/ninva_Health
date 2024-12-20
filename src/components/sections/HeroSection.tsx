@@ -12,13 +12,13 @@ export const HeroSection = () => {
       {/* Enhanced animated gradient background */}
       <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-gradient-to-br from-ninva-teal via-ninva to-ninva-deepBlue animate-gradient-wave"
+          className="absolute inset-0 bg-gradient-to-br from-ninva-teal via-ninva to-ninva-midnight animate-gradient-wave"
           style={{
             backgroundSize: '200% 200%',
-            filter: 'blur(60px)',
+            filter: 'blur(80px)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(0,0,0,0.3),transparent_70%)]" />
       </div>
 
       {/* Hero Content */}

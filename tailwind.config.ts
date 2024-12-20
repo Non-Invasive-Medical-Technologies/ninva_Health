@@ -24,14 +24,12 @@ export default {
         text: ["DM Sans", "Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Display
         'display-2xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'display-xl': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'display-lg': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'display-md': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
         'display-sm': ['1.875rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'display-xs': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        // Body
         'body-xl': ['1.25rem', { lineHeight: '1.6' }],
         'body-lg': ['1.125rem', { lineHeight: '1.6' }],
         'body-md': ['1rem', { lineHeight: '1.6' }],
@@ -52,6 +50,7 @@ export default {
           darker: "#1A1F2C",
           teal: "#20B2AA",
           deepBlue: "#0D324D",
+          midnight: "#051B2C",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -119,16 +118,24 @@ export default {
         },
         "gradient-wave": {
           "0%": {
-            "background-size": "100% 100%",
-            "background-position": "0% 0%",
+            "background-position": "0% 50%",
+            "background-size": "200% 200%",
+          },
+          "25%": {
+            "background-position": "50% 25%",
+            "background-size": "200% 200%",
           },
           "50%": {
+            "background-position": "100% 50%",
             "background-size": "200% 200%",
-            "background-position": "100% 100%",
+          },
+          "75%": {
+            "background-position": "50% 75%",
+            "background-size": "200% 200%",
           },
           "100%": {
-            "background-size": "100% 100%",
-            "background-position": "0% 0%",
+            "background-position": "0% 50%",
+            "background-size": "200% 200%",
           },
         },
       },
@@ -138,7 +145,7 @@ export default {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "gradient-flow": "gradient-flow 15s ease infinite",
-        "gradient-wave": "gradient-wave 20s ease infinite",
+        "gradient-wave": "gradient-wave 15s ease infinite",
       },
     },
   },
