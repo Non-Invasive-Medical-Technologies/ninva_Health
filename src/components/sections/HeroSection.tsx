@@ -85,7 +85,9 @@ export const HeroSection = () => {
                 </motion.div>
               </div>
 
-              <div className="hidden lg:block">
+              <div className="hidden lg:block relative">
+                {/* Add a light teal background circle behind the device */}
+                <div className="absolute inset-0 -inset-x-24 bg-ninva-light/20 backdrop-blur-3xl rounded-full transform -translate-y-12" />
                 <VideoDevice />
               </div>
             </div>
