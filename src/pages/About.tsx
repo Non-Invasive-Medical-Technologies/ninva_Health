@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
+import { AboutHeroSection } from '@/components/sections/AboutHeroSection';
 import { Button } from '@/components/ui/button';
 import { Heart, Activity, Shield } from 'lucide-react';
 
@@ -7,6 +8,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
+      <AboutHeroSection />
+      
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">About Kolibri Health</h1>
