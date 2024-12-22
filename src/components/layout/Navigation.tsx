@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
   return (
-    <nav className="bg-white border-b">
+    <nav className="bg-white/80 backdrop-blur-sm border-b border-brand-primary-main/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -46,15 +46,15 @@ export const Navigation = () => {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5" asChild>
               <Link to="/about">About</Link>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5" asChild>
               <Link to="/features">Features</Link>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost">Technology</Button>
+                <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5">Technology</Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem asChild>
@@ -73,7 +73,7 @@ export const Navigation = () => {
             </DropdownMenu>
             <Sheet>
               <SheetTrigger asChild>
-                <Button>Sign In</Button>
+                <Button className="bg-brand-primary-main hover:bg-brand-primary-main/90 text-white">Sign In</Button>
               </SheetTrigger>
               <SheetContent>
                 <SheetHeader>
