@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,33 +9,33 @@ const Footer = () => {
           <div>
             <h3 className="font-display font-semibold mb-4 text-brand-primary-main">Product</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Features</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Integration</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Pricing</a>
+              <Link to="/features" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Features</Link>
+              <Link to="/technology/integration" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Integration</Link>
+              <Link to="/pricing" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Pricing</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-brand-primary-main">Company</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">About</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Team</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Careers</a>
+              <Link to="/about" className="block text-gray-600 hover:text-brand-primary-main transition-colors">About</Link>
+              <Link to="/team" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Team</Link>
+              <Link to="/careers" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Careers</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-brand-primary-main">Resources</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Documentation</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Support</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Privacy</a>
+              <Link to="/docs" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Documentation</Link>
+              <Link to="/support" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Support</Link>
+              <Link to="/privacy-policy" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Privacy</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-brand-primary-main">Contact</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Contact Us</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Press</a>
-              <a href="#" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Partners</a>
+              <Link to="/contact" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Contact Us</Link>
+              <Link to="/press" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Press</Link>
+              <Link to="/partners" className="block text-gray-600 hover:text-brand-primary-main transition-colors">Partners</Link>
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
   return (
-    <nav className="bg-white/80 backdrop-blur-sm border-b border-brand-primary-main/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-brand-primary-main/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -26,26 +26,11 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
                 alt="Ninva Health" 
-                className="h-10 w-auto dark:hidden"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  console.log("Color logo failed to load");
-                  target.style.display = 'none';
-                }} 
-              />
-              <img 
-                src="/lovable-uploads/7c9de020-0246-4290-9031-2bc460fbff8a.png"
-                alt="Ninva Health" 
-                className="h-10 w-auto hidden dark:block"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  console.log("White logo failed to load");
-                  target.style.display = 'none';
-                }} 
+                className="h-10 w-auto"
               />
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5" asChild>
               <Link to="/about">About</Link>
             </Button>
@@ -54,7 +39,9 @@ export const Navigation = () => {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5">Technology</Button>
+                <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5">
+                  Technology
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem asChild>
