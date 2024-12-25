@@ -5,6 +5,15 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-brand-primary-main/10">
       <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Logo Section */}
+        <div className="flex justify-center mb-12">
+          <img 
+            src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
+            alt="Ninva Health" 
+            className="h-12 w-auto"
+          />
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-display font-semibold mb-4 text-brand-primary-main">Product</h3>

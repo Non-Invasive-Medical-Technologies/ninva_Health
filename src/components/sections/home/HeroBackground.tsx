@@ -4,7 +4,7 @@ export const HeroBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-brand-primary-main via-brand-supporting-turquoise to-brand-supporting-mint opacity-90"
+        className="absolute inset-0 bg-gradient-to-r from-ninva via-ninva-dark to-ninva-deepBlue opacity-90"
         style={{
           backgroundSize: '400% 400%',
           animation: 'gradient-wave 15s ease infinite'
