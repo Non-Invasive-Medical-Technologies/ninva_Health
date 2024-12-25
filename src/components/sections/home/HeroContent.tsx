@@ -9,15 +9,16 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        className="space-y-6"
       >
         <motion.h1 
-          className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white space-y-4"
+          className="text-display-lg sm:text-display-xl md:text-display-2xl font-extrabold text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span 
-            className="block mb-2"
+            className="block mb-4 leading-tight"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -29,7 +30,7 @@ export const HeroContent = () => {
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-display-md sm:text-display-lg bg-gradient-to-r from-[#33C3F0] via-[#8FD5CA] to-[#4EC989] bg-clip-text text-transparent animate-gradient-flow"
+            className="block text-display-md sm:text-display-lg bg-gradient-to-r from-[#33C3F0] via-[#8FD5CA] to-[#4EC989] bg-clip-text text-transparent animate-gradient-flow leading-tight"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -50,7 +51,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-8 text-body-lg text-gray-300 max-w-2xl"
+        className="mt-8 mb-12 text-body-lg text-gray-300 max-w-2xl leading-relaxed"
       >
         Experience professional-grade health monitoring with Kolibri. 
         Advanced sensors combined with AI-powered analytics provide 
@@ -61,7 +62,7 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
-        className="mt-12 flex flex-col sm:flex-row gap-4"
+        className="flex flex-col sm:flex-row gap-4"
       >
         <Button 
           size="lg"
@@ -72,7 +73,7 @@ export const HeroContent = () => {
         <Button 
           variant="outline" 
           size="lg"
-          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white hover:bg-white/10 text-body-md px-8"
+          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 text-body-md px-8"
         >
           Watch Demo
         </Button>
