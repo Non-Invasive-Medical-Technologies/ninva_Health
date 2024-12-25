@@ -20,15 +20,26 @@ export const HeroContent = () => {
             className="block mb-2"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.4,
+              ease: "easeOut"
+            }}
           >
             Your Health Journey,
           </motion.span>
           <motion.span 
-            className="block text-brand-primary-accent"
+            className="block text-display-md sm:text-display-lg bg-gradient-to-r from-[#33C3F0] via-[#8FD5CA] to-[#4EC989] bg-clip-text text-transparent animate-gradient-flow"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.6,
+              ease: "easeOut"
+            }}
+            style={{
+              backgroundSize: '200% auto',
+            }}
           >
             Reimagined
           </motion.span>
@@ -39,9 +50,11 @@ export const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mt-8 text-body-lg text-gray-200 max-w-2xl font-text"
+        className="mt-8 text-body-lg text-gray-300 max-w-2xl"
       >
-        Professional-grade health monitoring powered by AI, bringing advanced diagnostics to your fingertips.
+        Experience professional-grade health monitoring with Kolibri. 
+        Advanced sensors combined with AI-powered analytics provide 
+        unprecedented insights into your health.
       </motion.p>
 
       <motion.div 
@@ -52,16 +65,16 @@ export const HeroContent = () => {
       >
         <Button 
           size="lg"
-          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-brand-primary-accent hover:bg-brand-primary-accent/90 text-brand-primary-main font-semibold px-8"
+          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 bg-[#33C3F0] hover:bg-[#0FA0CE] text-body-md px-8"
         >
           Get Started
         </Button>
         <Button 
           variant="outline" 
           size="lg"
-          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white/20 hover:bg-white/10 font-semibold px-8"
+          className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 text-white border-white hover:bg-white/10 text-body-md px-8"
         >
-          Book Demo
+          Watch Demo
         </Button>
       </motion.div>
     </div>
