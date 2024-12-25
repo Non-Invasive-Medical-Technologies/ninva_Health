@@ -14,6 +14,24 @@ interface HeroSectionProps {
   showChat?: boolean;
 }
 
+const variants = {
+  default: {
+    layout: 'flex flex-col lg:flex-row',
+    content: 'lg:w-1/2',
+    visual: 'lg:w-1/2'
+  },
+  centered: {
+    layout: 'text-center',
+    content: 'max-w-3xl mx-auto',
+    visual: 'max-w-2xl mx-auto mt-12'
+  },
+  split: {
+    layout: 'grid lg:grid-cols-2 gap-12',
+    content: '',
+    visual: ''
+  }
+};
+
 export const HeroSection = ({ 
   variant = 'default',
   title,
@@ -23,12 +41,7 @@ export const HeroSection = ({
 }: HeroSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentMetric, setCurrentMetric] = useState(0);
-
-  const metrics = [
-    { value: '99.9%', label: 'Data Security' },
-    { value: '24/7', label: 'Health Monitoring' },
-    { value: '50M+', label: 'Health Insights' }
-  ];
+  const currentVariant = variants[variant];
 
   useEffect(() => {
     setIsVisible(true);
@@ -36,7 +49,7 @@ export const HeroSection = ({
       setCurrentMetric((prev) => (prev + 1) % metrics.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [metrics.length]);
 
   const ChatDocAvatar = () => (
     <div className="relative w-12 h-12">
@@ -56,6 +69,12 @@ export const HeroSection = ({
         </svg>
         <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-ping" />
       </div>
+    </div>
+  );
+
+  const renderChatBot = () => (
+    <div className="fixed bottom-4 right-4">
+      <ChatDocAvatar />
     </div>
   );
 

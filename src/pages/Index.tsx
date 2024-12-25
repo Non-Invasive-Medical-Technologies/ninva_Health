@@ -10,13 +10,22 @@ import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
 
 const Index = () => {
-  console.log('[Index] Rendering Index page');
-  
+  const metrics = [
+    { value: '99.9%', label: 'Data Security' },
+    { value: '24/7', label: 'Health Monitoring' },
+    { value: '50M+', label: 'Health Insights' }
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="pt-16"> {/* Add padding-top to account for fixed header */}
-        <HeroSection />
+      <div className="pt-16">
+        <HeroSection 
+          title="Transform Your Healthcare Experience with AI-Powered Precision"
+          subtitle="Experience the future of healthcare with Kolibri's advanced monitoring system. Seamlessly integrate professional-grade diagnostics with personalized AI insights for comprehensive health management."
+          metrics={metrics}
+          showChat={true}
+        />
         <FeaturesSection />
         <TechnologySection />
         <DataSection />
