@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { MessageSquare, ArrowRight, Activity, Shield, Heart } from 'lucide-react';
 
-const HeroSection = () => {
+export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentMetric, setCurrentMetric] = useState(0);
 
@@ -142,5 +142,3 @@ const HeroSection = () => {
     </section>
   );
 };
-
-export default HeroSection;
