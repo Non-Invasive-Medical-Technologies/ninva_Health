@@ -3,7 +3,24 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { MessageSquare, ArrowRight, Activity, Shield, Heart } from 'lucide-react';
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  variant?: 'default' | 'centered' | 'split';
+  title: string;
+  subtitle: string;
+  metrics: Array<{
+    value: string;
+    label: string;
+  }>;
+  showChat?: boolean;
+}
+
+export const HeroSection = ({ 
+  variant = 'default',
+  title,
+  subtitle,
+  metrics,
+  showChat = false 
+}: HeroSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentMetric, setCurrentMetric] = useState(0);
 
@@ -44,23 +61,21 @@ export const HeroSection = () => {
 
   return (
     <section className="min-h-[80vh] bg-[#FFF8F0] px-4 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-        <div className="space-y-6 lg:w-1/2">
+      <div className={`max-w-7xl mx-auto ${currentVariant.layout}`}>
+        <div className={`space-y-6 ${currentVariant.content}`}>
           <h1 
             className={`text-4xl md:text-6xl font-bold text-[#26652C] ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             } transition-all duration-700`}
             style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
           >
-            Transform Your Healthcare Experience with AI-Powered Precision
+            {title}
           </h1>
           <p 
             className="text-xl text-gray-600"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            Experience the future of healthcare with Kolibri's advanced monitoring system. 
-            Seamlessly integrate professional-grade diagnostics with personalized AI insights 
-            for comprehensive health management.
+            {subtitle}
           </p>
           
           <div className="flex flex-wrap gap-4">
@@ -95,7 +110,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        <div className="mt-8 lg:mt-0 lg:w-1/2">
+        <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
           <div className="relative">
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#8FD5CA]/20 rounded-full animate-pulse" />
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#FFB69E]/20 rounded-full animate-pulse" />
@@ -139,6 +154,8 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {showChat && renderChatBot()}
     </section>
   );
 };

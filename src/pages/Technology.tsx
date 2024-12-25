@@ -18,7 +18,7 @@ const Technology = () => {
       <HeroSection
         variant="default"
         title="Advanced Health Analytics Technology"
-        subtitle="Discover KOLIBRI®'s groundbreaking health analyzer technology, protected under Patent US 10,531,836 B2"
+        subtitle="With just one action, Kolibri provides a comprehensive assessment of your cardiovascular and respiratory health. Experience the effortless and simultaneous measurement of your electrocardiogram and blood oxygen saturation levels, ensuring you stay informed about your well-being."
         metrics={metrics}
         showChat={true}
       />
