@@ -69,18 +69,20 @@
   }
 }
 
-.glass-card {
-  @apply bg-white/80 backdrop-blur-lg border border-ninva-tertiary/20 shadow-lg;
-}
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-ninva-tertiary/20 shadow-lg;
+  }
 
-.fade-up {
-  @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
-}
+  .fade-up {
+    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+  }
 
-.fade-up.in-view {
-  @apply opacity-100 translate-y-0;
-}
+  .fade-up.in-view {
+    @apply opacity-100 translate-y-0;
+  }
 
-.hover-scale {
-  @apply transition-transform duration-300 hover:scale-105;
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
 }
