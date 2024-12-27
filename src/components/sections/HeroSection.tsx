@@ -63,12 +63,12 @@ export const HeroSection = ({
           <div className={`space-y-8 ${currentVariant.content}`}>
             {/* Title */}
             <motion.h1 
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-complementary-dark leading-tight ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               } transition-all duration-700`}
             >
               {title}
-              <span className="block text-ninva-light mt-2">
+              <span className="block text-ninva-complementary-dark mt-2">
                 AI-Powered Precision
               </span>
             </motion.h1>
@@ -78,7 +78,7 @@ export const HeroSection = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-ninva-light/90 max-w-2xl"
+              className="text-lg md:text-xl text-ninva-complementary-dark/90 max-w-2xl"
             >
               {subtitle}
             </motion.p>
@@ -92,7 +92,7 @@ export const HeroSection = ({
             >
               <Button 
                 size="lg"
-                className="bg-white text-ninva hover:bg-ninva-light transition-colors duration-300"
+                className="bg-ninva hover:bg-ninva/90 text-white transition-colors duration-300"
               >
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -100,7 +100,7 @@ export const HeroSection = ({
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10 transition-colors duration-300"
+                className="border-ninva text-ninva hover:bg-ninva/10 transition-colors duration-300"
               >
                 Book Demo
               </Button>
@@ -120,8 +120,8 @@ export const HeroSection = ({
                       : 'bg-white/10'
                   } transition-all duration-300`}
                 >
-                  <div className="text-3xl font-bold text-white mb-2">{metric.value}</div>
-                  <div className="text-sm text-ninva-light">{metric.label}</div>
+                  <div className="text-3xl font-bold text-ninva-complementary-dark mb-2">{metric.value}</div>
+                  <div className="text-sm text-ninva-complementary-dark/80">{metric.label}</div>
                 </motion.div>
               ))}
             </div>
