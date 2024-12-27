@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const DeviceShowcase = () => {
-  const deviceImage = "/lovable-uploads/ee917407-931c-4a50-b917-566f45e9fce0.png"; // New Kolibri device image
+  const deviceImage = "/lovable-uploads/ee917407-931c-4a50-b917-566f45e9fce0.png";
 
   return (
     <motion.div
@@ -13,8 +13,8 @@ export const DeviceShowcase = () => {
     >
       <motion.div
         animate={{ 
-          rotateY: [-15, 15],
-          scale: [1, 1.02, 1]
+          rotateY: [-10, 10],
+          scale: [1, 1.01, 1]
         }}
         transition={{
           rotateY: {
@@ -34,7 +34,7 @@ export const DeviceShowcase = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[600px] lg:max-w-[800px]"
+        className="w-full max-w-[400px] lg:max-w-[450px]"
       >
         <img 
           src={deviceImage}
