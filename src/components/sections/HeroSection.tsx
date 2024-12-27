@@ -50,45 +50,49 @@ export const HeroSection = ({
       setCurrentMetric((prev) => (prev + 1) % metrics.length);
     }, 3000);
 
-    return () => {
-      clearInterval(metricInterval);
-    };
+    return () => clearInterval(metricInterval);
   }, [metrics.length]);
-
-  const ChatDocAvatar = () => (
-    <div className="relative w-12 h-12">
-      <div className="absolute inset-0 bg-ninva rounded-full animate-pulse" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <MessageSquare className="w-8 h-8 text-white" />
-        <div className="absolute top-0 right-0 w-3 h-3 bg-ninva-secondary rounded-full border-2 border-white animate-ping" />
-      </div>
-    </div>
-  );
 
   return (
     <section className="min-h-[80vh] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave opacity-90" />
+      
       <div className="relative">
         <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
-          <div className={`space-y-6 ${currentVariant.content}`}>
-            <h1 
-              className={`text-4xl md:text-6xl font-bold text-white ${
+          <div className={`space-y-8 ${currentVariant.content}`}>
+            {/* Title */}
+            <motion.h1 
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               } transition-all duration-700`}
             >
               {title}
-              <span className="block bg-gradient-to-r from-white via-ninva-light to-white bg-clip-text text-transparent animate-gradient-flow">
+              <span className="block text-ninva-light mt-2">
                 AI-Powered Precision
               </span>
-            </h1>
-            <p className="text-xl text-ninva-light">
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg md:text-xl text-ninva-light/90 max-w-2xl"
+            >
               {subtitle}
-            </p>
+            </motion.p>
             
-            <div className="flex flex-wrap gap-4">
+            {/* Buttons */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
               <Button 
-                className="bg-ninva hover:bg-ninva/90 text-white"
                 size="lg"
+                className="bg-white text-ninva hover:bg-ninva-light transition-colors duration-300"
               >
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -96,37 +100,58 @@ export const HeroSection = ({
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-ninva-light text-ninva-light hover:bg-ninva-light/10"
+                className="border-white text-white hover:bg-white/10 transition-colors duration-300"
               >
                 Book Demo
               </Button>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-3 gap-4 pt-8">
+            {/* Metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
               {metrics.map((metric, index) => (
-                <div 
+                <motion.div 
                   key={index}
-                  className={`text-center p-4 rounded-lg glass-card ${
-                    currentMetric === index ? 'ring-2 ring-ninva-tertiary' : ''
-                  }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className={`p-6 rounded-xl backdrop-blur-sm ${
+                    currentMetric === index 
+                      ? 'bg-white/20 ring-2 ring-white/30' 
+                      : 'bg-white/10'
+                  } transition-all duration-300`}
                 >
-                  <div className="text-3xl font-bold text-white">{metric.value}</div>
+                  <div className="text-3xl font-bold text-white mb-2">{metric.value}</div>
                   <div className="text-sm text-ninva-light">{metric.label}</div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
-          <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
+          {/* Device Showcase */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className={`mt-12 lg:mt-0 ${currentVariant.visual}`}
+          >
             <DeviceShowcase />
-          </div>
+          </motion.div>
         </div>
       </div>
 
+      {/* Chat Button */}
       {showChat && (
-        <div className="fixed bottom-4 right-4">
-          <ChatDocAvatar />
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1 }}
+          className="fixed bottom-4 right-4"
+        >
+          <button className="relative w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-ninva-light transition-colors duration-300">
+            <MessageSquare className="w-6 h-6 text-ninva" />
+            <div className="absolute top-0 right-0 w-3 h-3 bg-ninva-secondary rounded-full border-2 border-white" />
+          </button>
+        </motion.div>
       )}
     </section>
   );
