@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { MessageSquare, ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { MessageSquare, ArrowRight, Activity, Shield, Heart } from 'lucide-react';
 
 interface HeroSectionProps {
   variant?: 'default' | 'centered' | 'split';
@@ -42,13 +43,26 @@ export const HeroSection = ({
   const [isVisible, setIsVisible] = useState(false);
   const [currentMetric, setCurrentMetric] = useState(0);
   const currentVariant = variants[variant];
+  const deviceImages = [
+    "/lovable-uploads/bad4244e-4441-4ff0-9900-6058de450767.png",
+    "/lovable-uploads/f7e8009e-b2d9-402b-9c97-0c705d964e62.png"
+  ];
+  const [currentDevice, setCurrentDevice] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-    const interval = setInterval(() => {
+    const metricInterval = setInterval(() => {
       setCurrentMetric((prev) => (prev + 1) % metrics.length);
     }, 3000);
-    return () => clearInterval(interval);
+    
+    const deviceInterval = setInterval(() => {
+      setCurrentDevice((prev) => (prev + 1) % deviceImages.length);
+    }, 3000);
+
+    return () => {
+      clearInterval(metricInterval);
+      clearInterval(deviceInterval);
+    };
   }, [metrics.length]);
 
   const ChatDocAvatar = () => (
@@ -80,7 +94,7 @@ export const HeroSection = ({
 
   return (
     <section className="min-h-[80vh] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1d617a] via-[#2a8dad] to-[#40b5d8] animate-gradient-wave" />
       <div className="relative">
         <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
           <div className={`space-y-6 ${currentVariant.content}`}>
@@ -91,7 +105,7 @@ export const HeroSection = ({
               style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
             >
               {title}
-              <span className="block bg-gradient-to-r from-ninva-complementary-cyan via-ninva-white to-ninva-complementary-blue bg-clip-text text-transparent animate-gradient-flow">
+              <span className="block bg-gradient-to-r from-white via-[#e0f2f7] to-[#b3e0ec] bg-clip-text text-transparent animate-gradient-flow">
                 AI-Powered Precision
               </span>
             </h1>
@@ -127,42 +141,41 @@ export const HeroSection = ({
                     currentMetric === index ? 'ring-2 ring-ninva-tertiary' : ''
                   }`}
                 >
-                  <div className="text-3xl font-bold text-ninva">{metric.value}</div>
-                  <div className="text-sm text-ninva-complementary-dark">{metric.label}</div>
+                  <div className="text-3xl font-bold text-white">{metric.value}</div>
+                  <div className="text-sm text-ninva-light">{metric.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-ninva-tertiary/20 rounded-full animate-pulse" />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-ninva-complementary-sage/20 rounded-full animate-pulse" />
-              <Card className="relative bg-white p-6 rounded-xl shadow-lg">
-                <div className="relative w-full aspect-[3/2] bg-gradient-to-br from-ninva-tertiary/20 to-ninva-complementary-sage/20 rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-4 p-4">
-                      <div className="space-y-4">
-                        <div className="h-4 bg-ninva-tertiary/20 rounded w-3/4"></div>
-                        <div className="h-4 bg-ninva-tertiary/30 rounded w-1/2"></div>
-                        <div className="h-4 bg-ninva-tertiary/40 rounded w-5/6"></div>
-                      </div>
-                      <div className="space-y-4">
-                        <div className="h-16 bg-ninva-complementary-sage/20 rounded"></div>
-                        <div className="h-8 bg-ninva-complementary-sage/30 rounded"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-2 right-2 flex space-x-2">
-                    <div className="w-2 h-2 rounded-full bg-ninva-tertiary"></div>
-                    <div className="w-2 h-2 rounded-full bg-ninva-secondary"></div>
-                    <div className="w-2 h-2 rounded-full bg-ninva-complementary-sage"></div>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-ninva text-white p-2 rounded-lg">
-                  <Shield className="h-6 w-6" />
-                </div>
-              </Card>
+            <div className="relative h-[500px] flex items-center justify-center">
+              {deviceImages.map((image, index) => (
+                <motion.img
+                  key={index}
+                  src={image}
+                  alt={`Kolibri Device ${index + 1}`}
+                  className="absolute w-full max-w-[400px] object-contain"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: currentDevice === index ? 1 : 0,
+                    scale: currentDevice === index ? 1 : 0.8,
+                    rotateY: [-15, 15],
+                  }}
+                  transition={{
+                    opacity: { duration: 0.5 },
+                    scale: { duration: 0.5 },
+                    rotateY: {
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      duration: 2
+                    }
+                  }}
+                  style={{
+                    filter: 'drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))'
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>
