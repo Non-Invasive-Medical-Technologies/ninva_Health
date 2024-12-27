@@ -34,7 +34,7 @@ export const DeviceShowcase = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[400px] lg:max-w-[450px]"
+        className="w-full max-w-[280px] lg:max-w-[320px]"
       >
         <img 
           src={deviceImage}
