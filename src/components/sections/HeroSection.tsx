@@ -53,11 +53,11 @@ export const HeroSection = ({
 
   const ChatDocAvatar = () => (
     <div className="relative w-12 h-12">
-      <div className="absolute inset-0 bg-[#26652C] rounded-full animate-pulse" />
+      <div className="absolute inset-0 bg-ninva rounded-full animate-pulse" />
       <div className="absolute inset-0 flex items-center justify-center">
         <svg
           viewBox="0 0 24 24"
-          className="w-8 h-8 text-[#4EC989]"
+          className="w-8 h-8 text-ninva-secondary"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -67,7 +67,7 @@ export const HeroSection = ({
           <path d="M12 9v6" />
           <circle cx="12" cy="6" r="1" fill="currentColor" />
         </svg>
-        <div className="absolute top-0 right-0 w-3 h-3 bg-[#4EC989] rounded-full border-2 border-white animate-ping" />
+        <div className="absolute top-0 right-0 w-3 h-3 bg-ninva-secondary rounded-full border-2 border-white animate-ping" />
       </div>
     </div>
   );
@@ -80,7 +80,7 @@ export const HeroSection = ({
 
   return (
     <section className="min-h-[80vh] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#26652C] via-[#4EC989] to-[#8FD5CA] animate-gradient-wave" />
+      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave" />
       <div className="relative">
         <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
           <div className={`space-y-6 ${currentVariant.content}`}>
@@ -91,12 +91,12 @@ export const HeroSection = ({
               style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
             >
               {title}
-              <span className="block bg-gradient-to-r from-[#BBE2BB] via-[#EAD0AD] to-[#8FD5CA] bg-clip-text text-transparent animate-gradient-flow">
+              <span className="block bg-gradient-to-r from-ninva-complementary-cyan via-ninva-white to-ninva-complementary-blue bg-clip-text text-transparent animate-gradient-flow">
                 AI-Powered Precision
               </span>
             </h1>
             <p 
-              className="text-xl text-[#F5F9F9]"
+              className="text-xl text-ninva-light"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               {subtitle}
@@ -104,7 +104,7 @@ export const HeroSection = ({
             
             <div className="flex flex-wrap gap-4">
               <Button 
-                className="bg-[#26652C] hover:bg-[#26652C]/90 text-white"
+                className="bg-ninva hover:bg-ninva/90 text-white"
                 size="lg"
               >
                 Get Started
@@ -113,7 +113,7 @@ export const HeroSection = ({
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-[#F5F9F9] text-[#F5F9F9] hover:bg-[#F5F9F9]/10"
+                className="border-ninva-light text-ninva-light hover:bg-ninva-light/10"
               >
                 Book Demo
               </Button>
@@ -124,11 +124,11 @@ export const HeroSection = ({
                 <div 
                   key={index}
                   className={`text-center p-4 rounded-lg glass-card ${
-                    currentMetric === index ? 'ring-2 ring-[#4EC989]' : ''
+                    currentMetric === index ? 'ring-2 ring-ninva-tertiary' : ''
                   }`}
                 >
-                  <div className="text-3xl font-bold text-[#26652C]">{metric.value}</div>
-                  <div className="text-sm text-[#1A5B5D]">{metric.label}</div>
+                  <div className="text-3xl font-bold text-ninva">{metric.value}</div>
+                  <div className="text-sm text-ninva-complementary-dark">{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -159,7 +159,7 @@ export const HeroSection = ({
                     <div className="w-2 h-2 rounded-full bg-ninva-complementary-sage"></div>
                   </div>
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-ninva-DEFAULT text-white p-2 rounded-lg">
+                <div className="absolute -bottom-4 -right-4 bg-ninva text-white p-2 rounded-lg">
                   <Shield className="h-6 w-6" />
                 </div>
               </Card>
