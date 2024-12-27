@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, ArrowRight, Shield } from 'lucide-react';
+import { MessageSquare, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { DeviceShowcase } from './hero/DeviceShowcase';
 
 interface HeroSectionProps {
   variant?: 'default' | 'centered' | 'split';
@@ -43,25 +43,15 @@ export const HeroSection = ({
   const [isVisible, setIsVisible] = useState(false);
   const [currentMetric, setCurrentMetric] = useState(0);
   const currentVariant = variants[variant];
-  const deviceImages = [
-    "/lovable-uploads/bad4244e-4441-4ff0-9900-6058de450767.png",
-    "/lovable-uploads/f7e8009e-b2d9-402b-9c97-0c705d964e62.png"
-  ];
-  const [currentDevice, setCurrentDevice] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
     const metricInterval = setInterval(() => {
       setCurrentMetric((prev) => (prev + 1) % metrics.length);
     }, 3000);
-    
-    const deviceInterval = setInterval(() => {
-      setCurrentDevice((prev) => (prev + 1) % deviceImages.length);
-    }, 3000);
 
     return () => {
       clearInterval(metricInterval);
-      clearInterval(deviceInterval);
     };
   }, [metrics.length]);
 
@@ -69,32 +59,15 @@ export const HeroSection = ({
     <div className="relative w-12 h-12">
       <div className="absolute inset-0 bg-ninva rounded-full animate-pulse" />
       <div className="absolute inset-0 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-8 h-8 text-ninva-secondary"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M12 2a3 3 0 0 0-3 3v1H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3z" />
-          <path d="M9 12h6" />
-          <path d="M12 9v6" />
-          <circle cx="12" cy="6" r="1" fill="currentColor" />
-        </svg>
+        <MessageSquare className="w-8 h-8 text-white" />
         <div className="absolute top-0 right-0 w-3 h-3 bg-ninva-secondary rounded-full border-2 border-white animate-ping" />
       </div>
     </div>
   );
 
-  const renderChatBot = () => (
-    <div className="fixed bottom-4 right-4">
-      <ChatDocAvatar />
-    </div>
-  );
-
   return (
     <section className="min-h-[80vh] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1d617a] via-[#2a8dad] to-[#40b5d8] animate-gradient-wave" />
+      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave" />
       <div className="relative">
         <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
           <div className={`space-y-6 ${currentVariant.content}`}>
@@ -102,17 +75,13 @@ export const HeroSection = ({
               className={`text-4xl md:text-6xl font-bold text-white ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               } transition-all duration-700`}
-              style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
             >
               {title}
-              <span className="block bg-gradient-to-r from-white via-[#e0f2f7] to-[#b3e0ec] bg-clip-text text-transparent animate-gradient-flow">
+              <span className="block bg-gradient-to-r from-white via-ninva-light to-white bg-clip-text text-transparent animate-gradient-flow">
                 AI-Powered Precision
               </span>
             </h1>
-            <p 
-              className="text-xl text-ninva-light"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
+            <p className="text-xl text-ninva-light">
               {subtitle}
             </p>
             
@@ -149,39 +118,16 @@ export const HeroSection = ({
           </div>
 
           <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
-            <div className="relative h-[500px] flex items-center justify-center">
-              {deviceImages.map((image, index) => (
-                <motion.img
-                  key={index}
-                  src={image}
-                  alt={`Kolibri Device ${index + 1}`}
-                  className="absolute w-full max-w-[400px] object-contain"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ 
-                    opacity: currentDevice === index ? 1 : 0,
-                    scale: currentDevice === index ? 1 : 0.8,
-                    rotateY: [-15, 15],
-                  }}
-                  transition={{
-                    opacity: { duration: 0.5 },
-                    scale: { duration: 0.5 },
-                    rotateY: {
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                      duration: 2
-                    }
-                  }}
-                  style={{
-                    filter: 'drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))'
-                  }}
-                />
-              ))}
-            </div>
+            <DeviceShowcase />
           </div>
         </div>
       </div>
 
-      {showChat && renderChatBot()}
+      {showChat && (
+        <div className="fixed bottom-4 right-4">
+          <ChatDocAvatar />
+        </div>
+      )}
     </section>
   );
 };
