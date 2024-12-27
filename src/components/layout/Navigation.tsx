@@ -29,43 +29,43 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
                 alt="Ninva Health" 
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="text-ninva hover:text-ninva-dark hover:bg-ninva-light/10" asChild>
               <Link to="/about">About</Link>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="text-ninva hover:text-ninva-dark hover:bg-ninva-light/10" asChild>
               <Link to="/features">Features</Link>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost">
+                <Button variant="ghost" className="text-ninva hover:text-ninva-dark hover:bg-ninva-light/10">
                   Technology
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem asChild>
-                  <Link to="/technology">Overview</Link>
+                  <Link to="/technology" className="text-ninva hover:text-ninva-dark">Overview</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/technology/ai">AI & Analytics</Link>
+                  <Link to="/technology/ai" className="text-ninva hover:text-ninva-dark">AI & Analytics</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/technology/security">Data Security</Link>
+                  <Link to="/technology/security" className="text-ninva hover:text-ninva-dark">Data Security</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/technology/integration">Integration</Link>
+                  <Link to="/technology/integration" className="text-ninva hover:text-ninva-dark">Integration</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <Sheet>
               <SheetTrigger asChild>
-                <Button>
+                <Button className="bg-ninva text-white hover:bg-ninva-dark">
                   Sign In
                 </Button>
               </SheetTrigger>
@@ -84,7 +84,7 @@ export const Navigation = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-ninva hover:text-ninva-dark hover:bg-ninva-light/10">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
@@ -93,13 +93,13 @@ export const Navigation = () => {
                   <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col space-y-4 mt-8">
-                  <Button variant="ghost" className="w-full justify-start" asChild>
+                  <Button variant="ghost" className="w-full justify-start text-ninva hover:text-ninva-dark hover:bg-ninva-light/10" asChild>
                     <Link to="/about">About</Link>
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start" asChild>
+                  <Button variant="ghost" className="w-full justify-start text-ninva hover:text-ninva-dark hover:bg-ninva-light/10" asChild>
                     <Link to="/features">Features</Link>
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start" asChild>
+                  <Button variant="ghost" className="w-full justify-start text-ninva hover:text-ninva-dark hover:bg-ninva-light/10" asChild>
                     <Link to="/technology">Technology</Link>
                   </Button>
                   <AuthButton />

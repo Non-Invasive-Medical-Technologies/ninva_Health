@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 export const AboutHeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-ninva-darker to-ninva min-h-[90vh]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ninva to-ninva-secondary min-h-[85vh] pt-24">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 backdrop-blur-[100px] bg-white/5" />
@@ -13,7 +13,7 @@ export const AboutHeroSection = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 lg:pt-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -26,13 +26,13 @@ export const AboutHeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-block px-4 py-1 rounded-full bg-ninva/10 text-ninva-light mb-6"
+              className="inline-block px-4 py-1 rounded-full bg-ninva-light/10 text-ninva-light mb-6"
             >
               About Ninva Health
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -42,7 +42,7 @@ export const AboutHeroSection = () => {
             </motion.h1>
 
             <motion.p 
-              className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-lg text-ninva-light/90 mb-8 max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -59,7 +59,7 @@ export const AboutHeroSection = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-ninva hover:bg-gray-100 hover:text-ninva-dark font-semibold px-8"
+                className="bg-white text-ninva hover:bg-ninva-light hover:text-ninva-dark font-semibold px-8"
               >
                 Our Mission
               </Button>
@@ -97,13 +97,13 @@ export const AboutHeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + (index * 0.1), duration: 0.8 }}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6"
+                className="glass-card backdrop-blur-sm rounded-xl p-6"
               >
-                <div className="bg-ninva/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-ninva-light/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-300">{item.description}</p>
+                <p className="text-sm text-ninva-light/90">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
