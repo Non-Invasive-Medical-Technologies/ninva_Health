@@ -9,7 +9,7 @@ export const DeviceShowcase = () => {
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 0.6 }}
-      className="w-full h-full flex items-center justify-center"
+      className="w-full h-full flex items-center justify-center px-4 lg:px-8"
     >
       <motion.div
         animate={{ 
@@ -34,7 +34,7 @@ export const DeviceShowcase = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[400px]"
+        className="w-full max-w-[600px] lg:max-w-[800px]" // Increased from 400px to 600px/800px
       >
         <img 
           src={deviceImage}
