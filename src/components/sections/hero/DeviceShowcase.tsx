@@ -1,47 +1,64 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Brain, Shield, Activity, Sparkles } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 export const DeviceShowcase = () => {
-  const deviceImage = "/lovable-uploads/ee917407-931c-4a50-b917-566f45e9fce0.png";
+  const features = [
+    {
+      icon: <Brain className="w-6 h-6 text-ninva-light" />,
+      title: "AI Analysis",
+      description: "Real-time health insights powered by advanced AI"
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-ninva-light" />,
+      title: "Data Security",
+      description: "Enterprise-grade encryption for your health data"
+    },
+    {
+      icon: <Activity className="w-6 h-6 text-ninva-light" />,
+      title: "Health Monitoring",
+      description: "Continuous tracking of vital health metrics"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-ninva-light" />,
+      title: "Smart Insights",
+      description: "Personalized health recommendations"
+    }
+  ];
 
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 0.6 }}
-      className="w-full h-full flex items-center justify-center px-4 lg:px-8"
+      className="grid grid-cols-2 gap-4 p-4"
     >
-      <motion.div
-        animate={{ 
-          rotateY: [-10, 10],
-          scale: [1, 1.01, 1]
-        }}
-        transition={{
-          rotateY: {
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          },
-          scale: {
-            duration: 6,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }
-        }}
-        style={{
-          perspective: 1000,
-          transformStyle: "preserve-3d"
-        }}
-        className="w-full max-w-[280px] lg:max-w-[320px]"
-      >
-        <img 
-          src={deviceImage}
-          alt="Kolibri Health Device"
-          className="w-full h-auto drop-shadow-2xl"
-        />
-      </motion.div>
+      {features.map((feature, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.8 + (index * 0.1)
+          }}
+        >
+          <Card className="p-4 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 h-full">
+            <div className="flex flex-col space-y-3">
+              <div className="w-12 h-12 rounded-lg bg-ninva/20 flex items-center justify-center">
+                {feature.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-ninva-light">
+                {feature.description}
+              </p>
+            </div>
+          </Card>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };
