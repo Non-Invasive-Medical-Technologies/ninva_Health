@@ -62,7 +62,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-ninva-DEFAULT;
+    @apply font-display tracking-tight;
   }
   p {
     @apply font-text leading-relaxed text-ninva-complementary-dark;

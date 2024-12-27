@@ -79,85 +79,91 @@ export const HeroSection = ({
   );
 
   return (
-    <section className="min-h-[80vh] bg-ninva-light px-4 py-16 lg:py-24">
-      <div className={`max-w-7xl mx-auto ${currentVariant.layout}`}>
-        <div className={`space-y-6 ${currentVariant.content}`}>
-          <h1 
-            className={`text-4xl md:text-6xl font-bold text-ninva-DEFAULT ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            } transition-all duration-700`}
-            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
-          >
-            {title}
-          </h1>
-          <p 
-            className="text-xl text-gray-600"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-          >
-            {subtitle}
-          </p>
-          
-          <div className="flex flex-wrap gap-4">
-            <Button 
-              className="bg-ninva-DEFAULT hover:bg-ninva-DEFAULT/90 text-white"
-              size="lg"
+    <section className="min-h-[80vh] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-ninva-DEFAULT via-ninva-secondary to-ninva-tertiary animate-gradient-wave" />
+      <div className="relative">
+        <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
+          <div className={`space-y-6 ${currentVariant.content}`}>
+            <h1 
+              className={`text-4xl md:text-6xl font-bold text-white ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              } transition-all duration-700`}
+              style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
             >
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button 
-              variant="outline"
-              size="lg"
-              className="border-ninva-DEFAULT text-ninva-DEFAULT hover:bg-ninva-DEFAULT/10"
+              {title}
+              <span className="block bg-gradient-to-r from-ninva-complementary-cyan via-ninva-white to-ninva-complementary-blue bg-clip-text text-transparent animate-gradient-flow">
+                AI-Powered Precision
+              </span>
+            </h1>
+            <p 
+              className="text-xl text-ninva-light"
+              style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              Book Demo
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 pt-8">
-            {metrics.map((metric, index) => (
-              <div 
-                key={index}
-                className={`text-center p-4 rounded-lg bg-white shadow-sm ${
-                  currentMetric === index ? 'ring-2 ring-ninva-DEFAULT' : ''
-                }`}
+              {subtitle}
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+              <Button 
+                className="bg-ninva-DEFAULT hover:bg-ninva-DEFAULT/90 text-white"
+                size="lg"
               >
-                <div className="text-3xl font-bold text-ninva-DEFAULT">{metric.value}</div>
-                <div className="text-sm text-gray-600">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-ninva-light text-ninva-light hover:bg-ninva-light/10"
+              >
+                Book Demo
+              </Button>
+            </div>
 
-        <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
-          <div className="relative">
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-ninva-tertiary/20 rounded-full animate-pulse" />
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-ninva-complementary-sage/20 rounded-full animate-pulse" />
-            <Card className="relative bg-white p-6 rounded-xl shadow-lg">
-              <div className="relative w-full aspect-[3/2] bg-gradient-to-br from-ninva-tertiary/20 to-ninva-complementary-sage/20 rounded-lg overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 p-4">
-                    <div className="space-y-4">
-                      <div className="h-4 bg-ninva-tertiary/20 rounded w-3/4"></div>
-                      <div className="h-4 bg-ninva-tertiary/30 rounded w-1/2"></div>
-                      <div className="h-4 bg-ninva-tertiary/40 rounded w-5/6"></div>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="h-16 bg-ninva-complementary-sage/20 rounded"></div>
-                      <div className="h-8 bg-ninva-complementary-sage/30 rounded"></div>
+            <div className="grid grid-cols-3 gap-4 pt-8">
+              {metrics.map((metric, index) => (
+                <div 
+                  key={index}
+                  className={`text-center p-4 rounded-lg glass-card ${
+                    currentMetric === index ? 'ring-2 ring-ninva-tertiary' : ''
+                  }`}
+                >
+                  <div className="text-3xl font-bold text-ninva-DEFAULT">{metric.value}</div>
+                  <div className="text-sm text-ninva-complementary-dark">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={`mt-8 lg:mt-0 ${currentVariant.visual}`}>
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-ninva-tertiary/20 rounded-full animate-pulse" />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-ninva-complementary-sage/20 rounded-full animate-pulse" />
+              <Card className="relative bg-white p-6 rounded-xl shadow-lg">
+                <div className="relative w-full aspect-[3/2] bg-gradient-to-br from-ninva-tertiary/20 to-ninva-complementary-sage/20 rounded-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-4 p-4">
+                      <div className="space-y-4">
+                        <div className="h-4 bg-ninva-tertiary/20 rounded w-3/4"></div>
+                        <div className="h-4 bg-ninva-tertiary/30 rounded w-1/2"></div>
+                        <div className="h-4 bg-ninva-tertiary/40 rounded w-5/6"></div>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="h-16 bg-ninva-complementary-sage/20 rounded"></div>
+                        <div className="h-8 bg-ninva-complementary-sage/30 rounded"></div>
+                      </div>
                     </div>
                   </div>
+                  <div className="absolute bottom-2 right-2 flex space-x-2">
+                    <div className="w-2 h-2 rounded-full bg-ninva-tertiary"></div>
+                    <div className="w-2 h-2 rounded-full bg-ninva-secondary"></div>
+                    <div className="w-2 h-2 rounded-full bg-ninva-complementary-sage"></div>
+                  </div>
                 </div>
-                <div className="absolute bottom-2 right-2 flex space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-ninva-tertiary"></div>
-                  <div className="w-2 h-2 rounded-full bg-ninva-secondary"></div>
-                  <div className="w-2 h-2 rounded-full bg-ninva-complementary-sage"></div>
+                <div className="absolute -bottom-4 -right-4 bg-ninva-DEFAULT text-white p-2 rounded-lg">
+                  <Shield className="h-6 w-6" />
                 </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-ninva-DEFAULT text-white p-2 rounded-lg">
-                <Shield className="h-6 w-6" />
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
