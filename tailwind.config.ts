@@ -43,28 +43,17 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         ninva: {
-          DEFAULT: "#2B7B78",
-          foreground: "#FFFFFF",
-          light: "#E6F4F1",
-          dark: "#1A5755",
-          darker: "#1A1F2C",
-          teal: "#20B2AA",
-          deepBlue: "#0D324D",
-          midnight: "#051B2C",
-        },
-        brand: {
-          primary: {
-            main: '#26652C',
-            secondary: '#8FD5CA',
-            accent: '#EAD0AD',
-            background: '#FFF8F0'
+          DEFAULT: "#1d617a",
+          secondary: "#00a18b",
+          tertiary: "#65c5b9",
+          light: "#d6efeb",
+          white: "#ffffff",
+          complementary: {
+            sage: "#bcc4bc",
+            dark: "#062e2e",
+            blue: "#0474ed",
+            cyan: "#91f0fa",
           },
-          supporting: {
-            peach: '#FFB69E',
-            lime: '#86C34E',
-            turquoise: '#4EC989',
-            mint: '#BBE2BB'
-          }
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
