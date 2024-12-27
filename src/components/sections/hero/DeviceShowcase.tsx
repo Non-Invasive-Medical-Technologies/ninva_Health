@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const DeviceShowcase = () => {
-  const deviceImage = "/lovable-uploads/f7e8009e-b2d9-402b-9c97-0c705d964e62.png"; // Black device only
+  const deviceImage = "/lovable-uploads/ee917407-931c-4a50-b917-566f45e9fce0.png"; // New Kolibri device image
 
   return (
     <motion.div
@@ -34,7 +34,7 @@ export const DeviceShowcase = () => {
           perspective: 1000,
           transformStyle: "preserve-3d"
         }}
-        className="w-full max-w-[600px] lg:max-w-[800px]" // Increased from 400px to 600px/800px
+        className="w-full max-w-[600px] lg:max-w-[800px]"
       >
         <img 
           src={deviceImage}
