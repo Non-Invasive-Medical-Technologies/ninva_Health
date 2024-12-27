@@ -20,17 +20,23 @@ export const MainHero = () => {
                 unprecedented insights into your health.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <Button 
-                  className="w-full sm:w-auto px-8 py-3 text-base font-medium rounded-md text-ninva bg-ninva-light hover:bg-white transition-colors duration-300"
-                >
-                  Get Started
-                </Button>
-                <Button 
-                  variant="outline"
-                  className="mt-3 sm:mt-0 sm:ml-3 w-full sm:w-auto px-8 py-3 text-base font-medium rounded-md text-ninva-light border-ninva-light hover:bg-ninva-light/10 transition-colors duration-300"
-                >
-                  Learn More
-                </Button>
+                <div className="rounded-md">
+                  <Button 
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
+                    Get Started
+                  </Button>
+                </div>
+                <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
+                    Learn More
+                  </Button>
+                </div>
               </div>
             </div>
           </main>

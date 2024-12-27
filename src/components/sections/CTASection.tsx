@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const CTASection = () => {
   return (
-    <section className="section-padding bg-gradient-to-br from-primary via-secondary to-primary">
+    <section className="section-padding bg-gradient-to-br from-ninva via-ninva-secondary to-ninva">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,8 @@ export const CTASection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-white hover:bg-white/90 text-primary font-semibold px-8"
+              variant="secondary"
+              className="bg-white text-ninva hover:bg-white/90"
             >
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />

@@ -21,7 +21,7 @@ export const Navigation = () => {
   console.log('[Navigation] Rendering Navigation');
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-primary-main/10 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-ninva/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -29,22 +29,22 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
                 alt="Ninva Health" 
-                className="h-12 w-auto" // Increased from h-8 to h-12
+                className="h-12 w-auto"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5" asChild>
+            <Button variant="ghost" asChild>
               <Link to="/about">About</Link>
             </Button>
-            <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5" asChild>
+            <Button variant="ghost" asChild>
               <Link to="/features">Features</Link>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-brand-primary-main hover:text-brand-primary-main/80 hover:bg-brand-primary-main/5">
+                <Button variant="ghost">
                   Technology
                 </Button>
               </DropdownMenuTrigger>
@@ -65,7 +65,7 @@ export const Navigation = () => {
             </DropdownMenu>
             <Sheet>
               <SheetTrigger asChild>
-                <Button className="bg-brand-primary-main hover:bg-brand-primary-main/90 text-white">
+                <Button>
                   Sign In
                 </Button>
               </SheetTrigger>
