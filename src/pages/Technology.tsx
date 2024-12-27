@@ -13,7 +13,7 @@ const Technology = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-ninva-light to-white">
       <Navigation />
       <HeroSection
         variant="default"
@@ -22,22 +22,22 @@ const Technology = () => {
         metrics={metrics}
         showChat={true}
       />
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-b from-white to-ninva-light/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="prose prose-lg">
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-ninva-complementary-dark leading-relaxed">
               The KOLIBRI® health analyzer technology represents a groundbreaking advancement in the analysis of heart activity (HA) signals, which are critical indicators of your overall health. Our state-of-the-art system employs an innovative autoregressive linear prediction model tailored to extract valuable properties from HA signals to accurately determine various biochemical parameters. This cutting-edge approach is protected under Patent US 10,531,836 B2, dated January 14, 2020.
             </p>
             
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-ninva-complementary-dark leading-relaxed mt-6">
               Over the past decade, we have amassed a wealth of data from extensive clinical and pre-clinical trials, establishing a strong foundation for the development of sophisticated neural network algorithms by our renowned experts in non-invasive medical technologies. These algorithms are specifically crafted to analyze intricate patterns in the data, ensuring exceptional accuracy and reliability in health assessments.
             </p>
             
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-ninva-complementary-dark leading-relaxed mt-6">
               The patented KOLIBRI® system harnesses these advanced algorithms to provide a thorough evaluation of the collected data. This capability allows the system to identify specific criteria linked to a wide range of health conditions, from cardiovascular issues to metabolic imbalances. By detecting these vital indicators, the KOLIBRI® system promptly alerts users to potential health risks, allowing for timely intervention and better health outcomes.
             </p>
             
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-ninva-complementary-dark leading-relaxed mt-6">
               Additionally, when you integrate the KOLIBRI® medical device into your daily routine and collaborate with healthcare professionals—be it your medical institution or family doctor—you gain access to a comprehensive support network designed for remote health monitoring. This partnership empowers you to actively manage your health, promoting continuous tracking and a deeper understanding of your wellness journey. With KOLIBRI®, you take a significant step toward holistic health management and improved quality of life.
             </p>
           </div>
