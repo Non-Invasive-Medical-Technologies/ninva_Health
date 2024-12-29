@@ -42,23 +42,23 @@ const Technology = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+      <section className="relative pt-24 pb-32 md:pt-32 md:pb-48 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="max-w-2xl"
             >
-              <h1 className="text-4xl md:text-5xl font-bold">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-medical-primary">Advanced Health</span>
                 <span className="block mt-2">Analytics Technology</span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 With just one action, Kolibri provides a comprehensive assessment of your cardiovascular and respiratory health. Experience the effortless and simultaneous measurement of your electrocardiogram and blood oxygen saturation levels.
               </p>
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-3 gap-8 mb-8">
                 {metrics.map((metric, index) => (
                   <motion.div
                     key={index}
@@ -81,36 +81,24 @@ const Technology = () => {
                 </Button>
               </div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative flex items-center justify-center p-8"
-            >
-              <div className="relative w-full max-w-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-medical-primary/10 to-medical-secondary/10 rounded-3xl transform rotate-3 scale-95 -z-10" />
-                <motion.div
-                  animate={{ 
-                    rotateZ: [0, 2, 0],
-                    scale: [1, 1.02, 1]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
-                  }}
-                  className="relative z-10 w-full"
-                >
-                  <img
-                    src="/lovable-uploads/d58748f8-3da1-4fce-9364-2180e9f4c1c1.png"
-                    alt="Kolibri Health Device"
-                    className="w-full h-auto transform -rotate-90 drop-shadow-2xl"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
           </div>
+
+          {/* Device Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl mx-auto px-4"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-medical-primary/10 to-medical-secondary/10 rounded-3xl transform -rotate-1 scale-105 blur-xl" />
+              <img
+                src="/lovable-uploads/72171c40-73cd-49ba-97c2-11411ae5ac6a.png"
+                alt="Kolibri Health Device"
+                className="relative z-10 w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
