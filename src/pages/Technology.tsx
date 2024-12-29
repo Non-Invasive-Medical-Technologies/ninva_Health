@@ -53,14 +53,18 @@ const Technology = () => {
           </div>
 
           {/* Device Image - Fixed at bottom */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-5xl">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
             <motion.img
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              src="/lovable-uploads/72171c40-73cd-49ba-97c2-11411ae5ac6a.png"
+              src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
               alt="Kolibri Health Device"
               className="w-full h-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
+                maxHeight: '200px'
+              }}
             />
           </div>
         </div>
