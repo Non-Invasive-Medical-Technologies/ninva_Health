@@ -1,167 +1,120 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, ArrowRight, Brain, Shield, Activity } from 'lucide-react';
+import { Brain, Sparkles, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { DeviceShowcase } from './hero/DeviceShowcase';
 
-interface HeroSectionProps {
-  variant?: 'default' | 'centered' | 'split';
-  title: string;
-  subtitle: string;
-  metrics: Array<{
-    value: string;
-    label: string;
-  }>;
-  showChat?: boolean;
-}
-
-const variants = {
-  default: {
-    layout: 'flex flex-col lg:flex-row',
-    content: 'lg:w-1/2',
-    visual: 'lg:w-1/2'
-  },
-  centered: {
-    layout: 'text-center',
-    content: 'max-w-3xl mx-auto',
-    visual: 'max-w-2xl mx-auto mt-12'
-  },
-  split: {
-    layout: 'grid lg:grid-cols-2 gap-12',
-    content: '',
-    visual: ''
-  }
-};
-
-export const HeroSection = ({ 
-  variant = 'default',
-  title,
-  subtitle,
-  metrics,
-  showChat = false 
-}: HeroSectionProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [currentMetric, setCurrentMetric] = useState(0);
-  const currentVariant = variants[variant];
-
-  useEffect(() => {
-    setIsVisible(true);
-    const metricInterval = setInterval(() => {
-      setCurrentMetric((prev) => (prev + 1) % metrics.length);
-    }, 3000);
-
-    return () => clearInterval(metricInterval);
-  }, [metrics.length]);
-
+export const HeroSection = () => {
   return (
-    <section className="min-h-[80vh] relative overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ninva via-ninva-secondary to-ninva-tertiary animate-gradient-wave opacity-90" />
-      
-      {/* Decorative patterns */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNiIgZmlsbC1vcGFjaXR5PSIuMSIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=')] opacity-10" />
-      
-      <div className="relative">
-        <div className={`max-w-7xl mx-auto ${currentVariant.layout} px-4 py-16 lg:py-24`}>
-          <div className={`space-y-8 ${currentVariant.content}`}>
-            {/* Title with gradient animation */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-ninva/5 to-white pt-20 pb-16 lg:pt-32 lg:pb-24">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-block px-4 py-1 rounded-full bg-ninva/10 text-ninva mb-6"
+            >
+              AI & Analytics
+            </motion.div>
+            
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <span className="block text-white mb-2">{title}</span>
-              <span className="block bg-gradient-to-r from-white via-ninva-light to-ninva-tertiary bg-clip-text text-transparent animate-gradient-flow">
-                AI-Powered Precision
-              </span>
+              Transform Your Health
+              <span className="block text-ninva">With AI-Powered Precision</span>
             </motion.h1>
 
-            {/* Subtitle with fade animation */}
             <motion.p 
+              className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-lg md:text-xl text-ninva-light/90 max-w-2xl leading-relaxed"
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              {subtitle}
+              Our advanced AI algorithms analyze your health data in real-time, providing 
+              personalized insights and actionable recommendations for optimal wellness.
             </motion.p>
-            
-            {/* Buttons with hover effects */}
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="flex flex-wrap gap-4"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button 
-                size="lg"
-                className="bg-white text-ninva hover:bg-ninva-light hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+                size="lg" 
+                className="bg-ninva hover:bg-ninva-dark text-white"
               >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4 animate-pulse" />
+                Explore Features
               </Button>
               <Button 
-                variant="outline"
-                size="lg"
-                className="border-white/20 text-white hover:bg-white/10 hover:scale-105 transform transition-all duration-300 backdrop-blur-sm"
+                size="lg" 
+                variant="outline" 
+                className="border-ninva text-ninva hover:bg-ninva/5"
               >
-                Book Demo
+                View Demo
               </Button>
             </motion.div>
+          </motion.div>
 
-            {/* Metrics with staggered animation */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
-              {metrics.map((metric, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + index * 0.1, duration: 0.7 }}
-                  className={`p-6 rounded-xl backdrop-blur-sm ${
-                    currentMetric === index 
-                      ? 'bg-white/20 ring-2 ring-white/30 scale-105' 
-                      : 'bg-white/10 hover:bg-white/15'
-                  } transition-all duration-500`}
-                >
-                  <div className="text-3xl font-bold bg-gradient-to-r from-white to-ninva-light bg-clip-text text-transparent">
-                    {metric.value}
-                  </div>
-                  <div className="text-sm text-ninva-light mt-2">{metric.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Visual section with feature cards */}
-          <motion.div 
+          {/* Feature Cards */}
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-            className={`mt-12 lg:mt-0 ${currentVariant.visual}`}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="grid grid-cols-1 gap-6"
           >
-            <DeviceShowcase />
+            {[
+              {
+                icon: <Brain className="w-8 h-8 text-ninva" />,
+                title: "Advanced AI Analysis",
+                description: "Real-time processing of health metrics for instant insights"
+              },
+              {
+                icon: <Sparkles className="w-8 h-8 text-ninva" />,
+                title: "Personalized Recommendations",
+                description: "Tailored health suggestions based on your unique profile"
+              },
+              {
+                icon: <ChartBar className="w-8 h-8 text-ninva" />,
+                title: "Predictive Analytics",
+                description: "Anticipate health trends and potential concerns early"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + (index * 0.1), duration: 0.8 }}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-ninva/10"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-ninva/10 w-12 h-12 rounded-lg flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-ninva-darker mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
-
-      {/* Chat Button with pulse effect */}
-      {showChat && (
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 }}
-          className="fixed bottom-4 right-4"
-        >
-          <button className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-ninva-light to-ninva-tertiary rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-flow"></div>
-            <div className="relative px-4 py-4 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300">
-              <MessageSquare className="w-6 h-6 text-ninva" />
-              <div className="absolute top-0 right-0 w-3 h-3 bg-ninva-secondary rounded-full border-2 border-white animate-pulse" />
-            </div>
-          </button>
-        </motion.div>
-      )}
     </section>
   );
 };
