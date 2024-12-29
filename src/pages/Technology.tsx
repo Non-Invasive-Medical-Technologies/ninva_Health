@@ -85,16 +85,30 @@ const Technology = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative flex items-center justify-center p-8"
             >
-              <div className="relative z-10">
-                <img
-                  src="/lovable-uploads/bad4244e-4441-4ff0-9900-6058de450767.png"
-                  alt="Kolibri Health Device"
-                  className="w-full max-w-md mx-auto drop-shadow-2xl"
-                />
+              <div className="relative w-full max-w-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-medical-primary/10 to-medical-secondary/10 rounded-3xl transform rotate-3 scale-95 -z-10" />
+                <motion.div
+                  animate={{ 
+                    rotateZ: [0, 2, 0],
+                    scale: [1, 1.02, 1]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut"
+                  }}
+                  className="relative z-10 w-full"
+                >
+                  <img
+                    src="/lovable-uploads/d58748f8-3da1-4fce-9364-2180e9f4c1c1.png"
+                    alt="Kolibri Health Device"
+                    className="w-full h-auto transform -rotate-90 drop-shadow-2xl"
+                  />
+                </motion.div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-medical-primary/10 to-medical-secondary/10 rounded-3xl transform rotate-3 scale-95 -z-10" />
             </motion.div>
           </div>
         </div>
