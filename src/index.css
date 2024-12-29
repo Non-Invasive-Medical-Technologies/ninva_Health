@@ -65,13 +65,13 @@
     @apply font-display tracking-tight;
   }
   p {
-    @apply font-text leading-relaxed text-ninva-complementary-dark;
+    @apply font-text leading-relaxed text-gray-700;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/80 backdrop-blur-lg border border-ninva-tertiary/20 shadow-lg;
+    @apply bg-white/80 backdrop-blur-lg border border-secondary/20 shadow-lg;
   }
 
   .fade-up {
@@ -95,7 +95,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-flow;
+    @apply bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent animate-gradient-flow;
   }
 
   .primary-button {
