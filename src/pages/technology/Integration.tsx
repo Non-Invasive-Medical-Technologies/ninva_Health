@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 
 const Integration = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-surface-light to-white">
       <Navigation />
       <HealthcareFlowsSection />
       <Footer />

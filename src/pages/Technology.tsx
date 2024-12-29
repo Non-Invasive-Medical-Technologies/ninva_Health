@@ -6,12 +6,35 @@ import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { Brain, Shield, Link2 } from 'lucide-react';
 
 const Technology = () => {
   const metrics = [
     { value: '2020', label: 'Patent Granted' },
     { value: '10+', label: 'Years Research' },
     { value: '99.9%', label: 'Accuracy Rate' }
+  ];
+
+  const subPages = [
+    {
+      title: 'AI & Analytics',
+      description: 'Advanced algorithms and machine learning capabilities',
+      icon: Brain,
+      path: '/technology/ai'
+    },
+    {
+      title: 'Security',
+      description: 'Enterprise-grade security and compliance',
+      icon: Shield,
+      path: '/technology/security'
+    },
+    {
+      title: 'Integration',
+      description: 'Seamless connectivity with healthcare systems',
+      icon: Link2,
+      path: '/technology/integration'
+    }
   ];
 
   return (
@@ -78,32 +101,55 @@ const Technology = () => {
       </section>
 
       {/* Technology Overview */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-surface-light">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="prose prose-lg max-w-none"
-          >
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              The KOLIBRI® health analyzer technology represents a groundbreaking advancement in the analysis of heart activity (HA) signals, which are critical indicators of your overall health. Our state-of-the-art system employs an innovative autoregressive linear prediction model tailored to extract valuable properties from HA signals.
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-medical-primary mb-4">
+              Technology Solutions
+            </h2>
+            <p className="text-lg text-gray-600">
+              Explore our comprehensive suite of healthcare technology
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Over the past decade, we have amassed a wealth of data from extensive clinical and pre-clinical trials, establishing a strong foundation for the development of sophisticated neural network algorithms by our renowned experts in non-invasive medical technologies.
-            </p>
-          </motion.div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {subPages.map((page, index) => (
+              <Link 
+                key={index}
+                to={page.path}
+                className="group"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-lg bg-medical-primary/10 text-medical-primary">
+                      <page.icon className="w-6 h-6" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-medical-primary group-hover:text-medical-primary/80 transition-colors">
+                    {page.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {page.description}
+                  </p>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* How It Works Section with improved spacing */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* How It Works Section */}
+      <section className="py-16 md:py-24 bg-surface-light">
         <HowItWorksSection />
       </section>
 
-      {/* Technology Details Section with consistent spacing */}
-      <section className="py-16 md:py-24 bg-surface-light">
+      {/* Technology Details */}
+      <section className="py-16 md:py-24 bg-white">
         <TechnologySection />
       </section>
 
