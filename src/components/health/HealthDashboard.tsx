@@ -25,8 +25,8 @@ const HealthDashboard = () => {
       "Improve heart rate variability"
     ],
     nextSteps: [
-      { text: "Follow-up appointment in 2 weeks", icon: "clock" },
-      { text: "Daily vital signs monitoring", icon: "activity" }
+      { text: "Follow-up appointment in 2 weeks", icon: "clock" as const },
+      { text: "Daily vital signs monitoring", icon: "activity" as const }
     ]
   };
 
