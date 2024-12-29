@@ -37,6 +37,7 @@ export default {
             cyan: "#91f0fa",
             peach: "#FFB69E",
             mint: "#BBE2BB",
+            dark: "#1A1F2C",  // Added the missing dark color
           },
         },
         medical: {
