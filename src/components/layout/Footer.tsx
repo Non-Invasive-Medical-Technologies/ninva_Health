@@ -7,11 +7,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Logo Section */}
         <div className="flex justify-center mb-12">
-          <img 
-            src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
-            alt="Ninva Health" 
-            className="h-8 w-auto"
-          />
+          <Link to="/">
+            <img 
+              src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
+              alt="Ninva Health" 
+              className="h-8 w-auto"
+            />
+          </Link>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -19,32 +21,33 @@ const Footer = () => {
             <h3 className="font-display font-semibold mb-4 text-ninva">Product</h3>
             <div className="space-y-2">
               <Link to="/features" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Features</Link>
-              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Integration</Link>
-              <Link to="/pricing" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Pricing</Link>
+              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Technology</Link>
+              <Link to="/technology/ai" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">AI Solutions</Link>
+              <Link to="/technology/security" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Security</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-ninva">Company</h3>
             <div className="space-y-2">
               <Link to="/about" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">About</Link>
-              <Link to="/team" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Team</Link>
-              <Link to="/careers" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Careers</Link>
+              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Technology</Link>
+              <Link to="/features" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Solutions</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-ninva">Resources</h3>
             <div className="space-y-2">
-              <Link to="/docs" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Documentation</Link>
-              <Link to="/support" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Support</Link>
+              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Documentation</Link>
+              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Integration</Link>
               <Link to="/privacy-policy" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Privacy</Link>
             </div>
           </div>
           <div>
             <h3 className="font-display font-semibold mb-4 text-ninva">Contact</h3>
             <div className="space-y-2">
-              <Link to="/contact" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Contact Us</Link>
-              <Link to="/press" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Press</Link>
-              <Link to="/partners" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Partners</Link>
+              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Contact Us</Link>
+              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Support</Link>
+              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Partners</Link>
             </div>
           </div>
         </div>
