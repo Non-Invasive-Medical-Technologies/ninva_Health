@@ -30,46 +30,41 @@ export default {
           tertiary: "#65c5b9",
           light: "#d6efeb",
           white: "#ffffff",
+          dark: "#062e2e",
           complementary: {
             sage: "#bcc4bc",
-            dark: "#062e2e",
             blue: "#0474ed",
             cyan: "#91f0fa",
+            peach: "#FFB69E",
+            mint: "#BBE2BB",
           },
+        },
+        medical: {
+          primary: "#2B7C7E",    // Teal - Primary brand color
+          secondary: "#4EC989",  // Green - Secondary interactions
+          accent: "#FFB69E",     // Peach - Accent elements
+          success: "#65C5B9",    // Mint - Success states
+          warning: "#FFB69E",    // Peach - Warning states
+          error: "#FF6B6B",      // Red - Error states
+          info: "#0474ed",       // Blue - Information states
+        },
+        surface: {
+          light: "#F5F9F9",      // Light background
+          white: "#FFFFFF",      // White background
+          muted: "#F1F5F5",      // Muted background
+          hover: "#E6EDED",      // Hover state
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+      },
+      gradients: {
+        'primary': 'linear-gradient(135deg, #2B7C7E 0%, #4EC989 100%)',
+        'secondary': 'linear-gradient(135deg, #4EC989 0%, #65C5B9 100%)',
+        'accent': 'linear-gradient(135deg, #FFB69E 0%, #FF6B6B 100%)',
+        'surface': 'linear-gradient(135deg, #F5F9F9 0%, #FFFFFF 100%)',
       },
       keyframes: {
         "accordion-down": {
