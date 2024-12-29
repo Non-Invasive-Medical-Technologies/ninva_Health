@@ -3,7 +3,20 @@ import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  title?: string;
+  subtitle?: string;
+  metrics?: Array<{
+    value: string;
+    label: string;
+  }>;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  title = "Transform Your Health With AI-Powered Precision",
+  subtitle = "Our advanced AI algorithms analyze your health data in real-time, providing personalized insights and actionable recommendations for optimal wellness.",
+  metrics = []
+}) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-ninva/5 to-white pt-20 pb-16 lg:pt-32 lg:pb-24">
       <div className="absolute inset-0">
@@ -34,8 +47,10 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Transform Your Health
-              <span className="block text-ninva">With AI-Powered Precision</span>
+              {title.split(' ').slice(0, -2).join(' ')}
+              <span className="block text-ninva">
+                {title.split(' ').slice(-2).join(' ')}
+              </span>
             </motion.h1>
 
             <motion.p 
@@ -44,8 +59,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Our advanced AI algorithms analyze your health data in real-time, providing 
-              personalized insights and actionable recommendations for optimal wellness.
+              {subtitle}
             </motion.p>
 
             <motion.div

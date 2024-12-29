@@ -4,12 +4,11 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { AuthButton } from '@/components/auth/AuthButton';
 import { Link } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu, Home } from 'lucide-react';
 
 export const Navigation = () => {
   console.log('[Navigation] Rendering Navigation');
@@ -18,7 +17,7 @@ export const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-ninva/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-6">
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
@@ -26,6 +25,12 @@ export const Navigation = () => {
                 className="h-8 w-auto"
               />
             </Link>
+            <Button variant="ghost" className="hidden md:flex items-center space-x-2 text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
+              <Link to="/">
+                <Home className="w-4 h-4 mr-2" />
+                Home
+              </Link>
+            </Button>
           </div>
 
           {/* Desktop Navigation */}
@@ -70,6 +75,12 @@ export const Navigation = () => {
                       className="h-8 w-auto mb-6"
                     />
                     <div className="space-y-4">
+                      <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
+                        <Link to="/">
+                          <Home className="w-4 h-4 mr-2" />
+                          Home
+                        </Link>
+                      </Button>
                       <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
                         <Link to="/about">About</Link>
                       </Button>
