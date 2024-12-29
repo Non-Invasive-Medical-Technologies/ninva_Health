@@ -18,11 +18,9 @@ const Features = () => {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection
-        variant="default"
         title="Revolutionary health insights, Unmatched data."
         subtitle="Know your general health parameters, CBC, Heart Rate Variability, Cardiac Pathologies and various metabolism related analysis, all within less than five minutes."
         metrics={metrics}
-        showChat={true}
       />
       <FeaturesSection />
       <HowItWorksSection />

@@ -24,7 +24,6 @@ const Index = () => {
           title="Transform Your Healthcare Experience with AI-Powered Precision"
           subtitle="Experience the future of healthcare with Kolibri's advanced monitoring system. Seamlessly integrate professional-grade diagnostics with personalized AI insights for comprehensive health management."
           metrics={metrics}
-          showChat={true}
         />
         <FeaturesSection />
         <TechnologySection />

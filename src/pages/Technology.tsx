@@ -1,8 +1,7 @@
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
-import { HeroSection } from '@/components/sections/HeroSection';
 import { TechnologySection } from '@/components/sections/TechnologySection';
-import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
