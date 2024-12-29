@@ -17,14 +17,6 @@ const Features = () => {
     { value: '50+', label: 'Health Parameters' }
   ];
 
-  const handleGetStarted = () => {
-    navigate('/technology');
-  };
-
-  const handleLearnMore = () => {
-    navigate('/technology/ai');
-  };
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -32,8 +24,14 @@ const Features = () => {
         title="Revolutionary health insights, Unmatched data."
         subtitle="Know your general health parameters, CBC, Heart Rate Variability, Cardiac Pathologies and various metabolism related analysis, all within less than five minutes."
         metrics={metrics}
-        onGetStarted={handleGetStarted}
-        onLearnMore={handleLearnMore}
+        primaryAction={{
+          label: "Get Started",
+          onClick: () => navigate('/technology')
+        }}
+        secondaryAction={{
+          label: "Learn More",
+          onClick: () => navigate('/technology/ai')
+        }}
       />
       <FeaturesSection />
       <HowItWorksSection />

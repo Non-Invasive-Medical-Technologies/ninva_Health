@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-ninva/10">
+    <footer className="bg-white border-t border-medical-primary/10">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Logo Section */}
         <div className="flex justify-center mb-12">
@@ -18,40 +18,40 @@ const Footer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-display font-semibold mb-4 text-ninva">Product</h3>
+            <h3 className="font-display font-semibold mb-4 text-medical-primary">Product</h3>
             <div className="space-y-2">
-              <Link to="/features" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Features</Link>
-              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Technology</Link>
-              <Link to="/technology/ai" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">AI Solutions</Link>
-              <Link to="/technology/security" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Security</Link>
+              <Link to="/features" className="block text-gray-600 hover:text-medical-primary transition-colors">Features</Link>
+              <Link to="/technology" className="block text-gray-600 hover:text-medical-primary transition-colors">Technology</Link>
+              <Link to="/technology/ai" className="block text-gray-600 hover:text-medical-primary transition-colors">AI Solutions</Link>
+              <Link to="/technology/security" className="block text-gray-600 hover:text-medical-primary transition-colors">Security</Link>
             </div>
           </div>
           <div>
-            <h3 className="font-display font-semibold mb-4 text-ninva">Company</h3>
+            <h3 className="font-display font-semibold mb-4 text-medical-primary">Company</h3>
             <div className="space-y-2">
-              <Link to="/about" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">About</Link>
-              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Technology</Link>
-              <Link to="/features" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Solutions</Link>
+              <Link to="/about" className="block text-gray-600 hover:text-medical-primary transition-colors">About</Link>
+              <Link to="/technology/integration" className="block text-gray-600 hover:text-medical-primary transition-colors">Integration</Link>
+              <Link to="/features" className="block text-gray-600 hover:text-medical-primary transition-colors">Solutions</Link>
             </div>
           </div>
           <div>
-            <h3 className="font-display font-semibold mb-4 text-ninva">Resources</h3>
+            <h3 className="font-display font-semibold mb-4 text-medical-primary">Resources</h3>
             <div className="space-y-2">
-              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Documentation</Link>
-              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Integration</Link>
-              <Link to="/privacy-policy" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Privacy</Link>
+              <Link to="/technology" className="block text-gray-600 hover:text-medical-primary transition-colors">Documentation</Link>
+              <Link to="/technology/integration" className="block text-gray-600 hover:text-medical-primary transition-colors">Integration</Link>
+              <Link to="/privacy-policy" className="block text-gray-600 hover:text-medical-primary transition-colors">Privacy</Link>
             </div>
           </div>
           <div>
-            <h3 className="font-display font-semibold mb-4 text-ninva">Contact</h3>
+            <h3 className="font-display font-semibold mb-4 text-medical-primary">Contact</h3>
             <div className="space-y-2">
-              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Contact Us</Link>
-              <Link to="/technology" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Support</Link>
-              <Link to="/technology/integration" className="block text-ninva-complementary-dark hover:text-ninva transition-colors">Partners</Link>
+              <Link to="/technology/integration" className="block text-gray-600 hover:text-medical-primary transition-colors">Contact Us</Link>
+              <Link to="/technology" className="block text-gray-600 hover:text-medical-primary transition-colors">Support</Link>
+              <Link to="/technology/integration" className="block text-gray-600 hover:text-medical-primary transition-colors">Partners</Link>
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t text-center text-ninva-complementary-dark">
+        <div className="mt-8 pt-8 border-t text-center text-gray-600">
           © 2024 Ninva Health. All rights reserved.
         </div>
       </div>

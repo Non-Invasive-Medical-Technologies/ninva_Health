@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { Heart, Shield, Brain, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Card } from '@/components/ui/card';
 
 export const AboutHeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-ninva to-ninva-secondary min-h-[85vh] pt-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-medical-primary to-medical-secondary min-h-[85vh] pt-24">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 backdrop-blur-[100px] bg-white/5" />
@@ -27,7 +28,7 @@ export const AboutHeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-block px-4 py-1 rounded-full bg-ninva-light/10 text-ninva-light mb-6"
+              className="inline-block px-4 py-1 rounded-full bg-white/10 text-white mb-6 border border-white/20"
             >
               About Ninva Health
             </motion.div>
@@ -39,11 +40,11 @@ export const AboutHeroSection = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               Revolutionizing
-              <span className="block text-ninva-light">Healthcare Technology</span>
+              <span className="block text-surface-light">Healthcare Technology</span>
             </motion.h1>
 
             <motion.p 
-              className="text-lg text-ninva-light/90 mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-lg text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -61,7 +62,7 @@ export const AboutHeroSection = () => {
               <Link to="/features">
                 <Button 
                   size="lg" 
-                  className="bg-white text-ninva hover:bg-ninva-light hover:text-ninva-dark font-semibold px-8 w-full sm:w-auto"
+                  className="bg-white text-medical-primary hover:bg-surface-light hover:text-medical-primary font-semibold px-8 w-full sm:w-auto"
                 >
                   Explore Features
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -88,14 +89,24 @@ export const AboutHeroSection = () => {
           >
             {[
               {
-                icon: <Brain className="w-8 h-8 text-ninva-light" />,
+                icon: <Brain className="w-8 h-8 text-medical-primary" />,
                 title: "AI-Powered Innovation",
                 description: "Advanced health monitoring with machine learning"
               },
               {
-                icon: <Shield className="w-8 h-8 text-ninva-light" />,
+                icon: <Shield className="w-8 h-8 text-medical-primary" />,
                 title: "Privacy-First Approach",
                 description: "HIPAA-compliant security measures"
+              },
+              {
+                icon: <Heart className="w-8 h-8 text-medical-primary" />,
+                title: "Patient-Centric Care",
+                description: "Personalized health insights and recommendations"
+              },
+              {
+                icon: <ArrowRight className="w-8 h-8 text-medical-primary" />,
+                title: "Seamless Integration",
+                description: "Works with your existing healthcare systems"
               }
             ].map((item, index) => (
               <motion.div
@@ -103,13 +114,14 @@ export const AboutHeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + (index * 0.1), duration: 0.8 }}
-                className="glass-card backdrop-blur-sm rounded-xl p-6 bg-white/5"
               >
-                <div className="bg-ninva-light/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-ninva-light/90">{item.description}</p>
+                <Card className="p-6 bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300">
+                  <div className="bg-medical-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-medical-primary mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
