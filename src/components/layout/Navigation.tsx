@@ -29,7 +29,7 @@ export const Navigation = () => {
               <img 
                 src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
                 alt="Ninva Health" 
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
           </div>
