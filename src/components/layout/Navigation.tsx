@@ -7,11 +7,17 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { AuthButton } from '@/components/auth/AuthButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, Home, Info, Lightbulb, Cpu } from 'lucide-react';
 
 export const Navigation = () => {
-  console.log('[Navigation] Rendering Navigation');
+  const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    setIsOpen(false);
+    navigate(path);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-ninva/10 shadow-sm">
@@ -53,7 +59,7 @@ export const Navigation = () => {
                 Technology
               </Link>
             </Button>
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button className="bg-medical-primary text-white hover:bg-medical-primary/90">
                   Sign In
@@ -69,7 +75,7 @@ export const Navigation = () => {
 
           {/* Mobile Navigation */}
           <div className="md:hidden">
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-gray-600">
                   <Menu className="h-6 w-6" />
@@ -84,29 +90,21 @@ export const Navigation = () => {
                       className="h-8 w-auto mb-6"
                     />
                     <div className="space-y-4">
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/">
-                          <Home className="w-4 h-4 mr-2" />
-                          Home
-                        </Link>
+                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/')}>
+                        <Home className="w-4 h-4 mr-2" />
+                        Home
                       </Button>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/about">
-                          <Info className="w-4 h-4 mr-2" />
-                          About
-                        </Link>
+                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/about')}>
+                        <Info className="w-4 h-4 mr-2" />
+                        About
                       </Button>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/features">
-                          <Lightbulb className="w-4 h-4 mr-2" />
-                          Features
-                        </Link>
+                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/features')}>
+                        <Lightbulb className="w-4 h-4 mr-2" />
+                        Features
                       </Button>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/technology">
-                          <Cpu className="w-4 h-4 mr-2" />
-                          Technology
-                        </Link>
+                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/technology')}>
+                        <Cpu className="w-4 h-4 mr-2" />
+                        Technology
                       </Button>
                     </div>
                   </div>
