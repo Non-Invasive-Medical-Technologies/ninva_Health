@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { AuthButton } from '@/components/auth/AuthButton';
 import { Link } from 'react-router-dom';
-import { Menu, Home } from 'lucide-react';
+import { Menu, Home, Info, Lightbulb, Cpu } from 'lucide-react';
 
 export const Navigation = () => {
   console.log('[Navigation] Rendering Navigation');
@@ -36,13 +36,22 @@ export const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/about">About</Link>
+              <Link to="/about">
+                <Info className="w-4 h-4 mr-2" />
+                About
+              </Link>
             </Button>
             <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/features">Features</Link>
+              <Link to="/features">
+                <Lightbulb className="w-4 h-4 mr-2" />
+                Features
+              </Link>
             </Button>
             <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/technology">Technology</Link>
+              <Link to="/technology">
+                <Cpu className="w-4 h-4 mr-2" />
+                Technology
+              </Link>
             </Button>
             <Sheet>
               <SheetTrigger asChild>
@@ -82,13 +91,22 @@ export const Navigation = () => {
                         </Link>
                       </Button>
                       <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/about">About</Link>
+                        <Link to="/about">
+                          <Info className="w-4 h-4 mr-2" />
+                          About
+                        </Link>
                       </Button>
                       <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/features">Features</Link>
+                        <Link to="/features">
+                          <Lightbulb className="w-4 h-4 mr-2" />
+                          Features
+                        </Link>
                       </Button>
                       <Button variant="ghost" className="w-full justify-start text-gray-600" asChild>
-                        <Link to="/technology">Technology</Link>
+                        <Link to="/technology">
+                          <Cpu className="w-4 h-4 mr-2" />
+                          Technology
+                        </Link>
                       </Button>
                     </div>
                   </div>
