@@ -10,9 +10,9 @@ const Technology = () => {
   const navigate = useNavigate();
   
   const metrics = [
-    { label: 'Accuracy', value: '99.9%', description: 'Clinical-grade precision' },
-    { label: 'Processing Time', value: '<1s', description: 'Real-time analysis' },
-    { label: 'Parameters', value: '15+', description: 'Health markers tracked' },
+    { value: '99.9%', label: 'Accuracy', description: 'Clinical-grade precision' },
+    { value: '<1s', label: 'Processing Time', description: 'Real-time analysis' },
+    { value: '15+', label: 'Parameters', description: 'Health markers tracked' },
   ];
 
   return (
@@ -20,7 +20,7 @@ const Technology = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] pt-24">
+      <section className="relative pt-24 pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10">
             <motion.div
@@ -29,18 +29,18 @@ const Technology = () => {
               transition={{ duration: 0.6 }}
               className="max-w-2xl"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-medical-primary">Advanced Health</span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-medical-dark">
+                Advanced Health
                 <span className="block mt-2">Analytics Technology</span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed mb-12">
                 Experience the next generation of health monitoring with Kolibri's advanced technology. 
                 Our device provides comprehensive cardiovascular and respiratory health assessment with 
                 just one action.
               </p>
               
               {/* Metrics Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {metrics.map((metric, index) => (
                   <motion.div
                     key={index}
@@ -48,17 +48,15 @@ const Technology = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
                   >
-                    <Card className="p-6 hover:shadow-lg transition-shadow">
-                      <div className="text-center">
-                        <div className="text-4xl font-bold text-medical-primary mb-2">
-                          {metric.value}
-                        </div>
-                        <div className="text-sm font-medium text-gray-900 mb-1">
-                          {metric.label}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {metric.description}
-                        </div>
+                    <Card className="p-6 hover:shadow-lg transition-shadow text-center bg-white">
+                      <div className="text-5xl font-bold text-medical-primary mb-4">
+                        {metric.value}
+                      </div>
+                      <div className="text-lg font-medium text-medical-dark mb-2">
+                        {metric.label}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {metric.description}
                       </div>
                     </Card>
                   </motion.div>
@@ -84,11 +82,13 @@ const Technology = () => {
           </div>
 
           {/* Device Image */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-16 max-w-4xl mx-auto"
+          >
+            <img
               src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
               alt="Kolibri Health Device"
               className="w-full h-auto object-contain"
@@ -97,7 +97,7 @@ const Technology = () => {
                 maxHeight: '300px'
               }}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
