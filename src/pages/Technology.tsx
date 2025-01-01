@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { AnalyticsSection } from '@/components/sections/AnalyticsSection';
 
 const Technology = () => {
   const navigate = useNavigate();
@@ -144,6 +145,9 @@ const Technology = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Analytics Section */}
+      <AnalyticsSection />
 
       {/* Integration Section */}
       <section className="py-24 bg-surface-light">
