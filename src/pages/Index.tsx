@@ -6,6 +6,7 @@ import { TechnologySection } from '@/components/sections/TechnologySection';
 import { DataSection } from '@/components/sections/DataSection';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { CTASection } from '@/components/sections/CTASection';
+import { HealthVisualizationSection } from '@/components/sections/HealthVisualizationSection';
 import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
 
@@ -26,6 +27,7 @@ const Index = () => {
           metrics={metrics}
         />
         <FeaturesSection />
+        <HealthVisualizationSection />
         <TechnologySection />
         <DataSection />
         <PrivacySection />
