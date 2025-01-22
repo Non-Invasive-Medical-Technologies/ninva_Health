@@ -10,12 +10,18 @@ interface HeroSectionProps {
     value: string;
     label: string;
   }>;
+  onGetStarted: () => void;
+  onLearnMore: () => void;
+  onViewDemo: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Health With AI-Powered Precision",
   subtitle = "Our advanced AI algorithms analyze your health data in real-time, providing personalized insights and actionable recommendations for optimal wellness.",
-  metrics = []
+  metrics = [],
+  onGetStarted,
+  onLearnMore,
+  onViewDemo
 }) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-ninva/5 to-white pt-20 pb-16 lg:pt-32 lg:pb-24">
@@ -71,6 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Button 
                 size="lg" 
                 className="bg-ninva hover:bg-ninva-dark text-white"
+                onClick={onGetStarted}
               >
                 Explore Features
               </Button>
@@ -78,13 +85,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 size="lg" 
                 variant="outline" 
                 className="border-ninva text-ninva hover:bg-ninva/5"
+                onClick={onViewDemo}
               >
                 View Demo
               </Button>
             </motion.div>
           </motion.div>
 
-          {/* Feature Cards and Device Image */}
+          {/* Feature Cards */}
           <div className="space-y-12">
             <motion.div
               initial={{ opacity: 0, x: 50 }}

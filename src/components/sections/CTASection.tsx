@@ -3,7 +3,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
-export const CTASection = () => {
+interface CTASectionProps {
+  onGetStarted: () => void;
+  onBookDemo: () => void;
+}
+
+export const CTASection: React.FC<CTASectionProps> = ({ onGetStarted, onBookDemo }) => {
   return (
     <section className="section-padding bg-gradient-to-br from-ninva via-ninva-secondary to-ninva">
       <motion.div 
@@ -27,6 +32,7 @@ export const CTASection = () => {
               size="lg"
               variant="secondary"
               className="bg-white text-ninva hover:bg-white/90"
+              onClick={onGetStarted}
             >
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -35,6 +41,7 @@ export const CTASection = () => {
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white/10"
+              onClick={onBookDemo}
             >
               Book a Demo
             </Button>
