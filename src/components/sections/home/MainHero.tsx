@@ -17,11 +17,11 @@ export const MainHero = () => {
               transition={{ duration: 0.5 }}
               className="inline-block px-4 py-1 rounded-full bg-medical-primary/10 text-medical-primary mb-6"
             >
-              <span className="text-xl">Next-Generation Health Monitoring</span>
+              Next-Generation Health Monitoring
             </motion.div>
             
             <motion.h1 
-              className="text-5xl tracking-tight font-extrabold sm:text-6xl md:text-7xl" // Increased font sizes
+              className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}

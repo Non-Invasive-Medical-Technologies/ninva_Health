@@ -31,7 +31,7 @@ export const HealthVisualizationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative w-[85%] mx-auto" // Using 85% of the container width for a size between previous and current
+          className="relative max-w-4xl mx-auto"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-3xl" />
           <img
@@ -40,7 +40,6 @@ export const HealthVisualizationSection = () => {
             className="w-full h-auto object-contain relative z-10 rounded-lg"
             style={{
               filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
-              maxHeight: '450px' // Adjusted maxHeight to be proportional to the new width
             }}
           />
         </motion.div>
