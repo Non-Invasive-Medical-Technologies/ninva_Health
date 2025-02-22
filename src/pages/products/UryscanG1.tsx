@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -157,32 +158,6 @@ const UryscanG1 = () => {
                   urine analysis home, tracking four essential markers to help optimise your 
                   nutrition with personalised recommendations.
                 </p>
-                <div className="lg:hidden">
-                  <motion.img
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
-                    alt="UryScan Device"
-                    className="w-full h-auto shadow-xl object-contain max-w-md mx-auto"
-                  />
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="hidden lg:block"
-              >
-                <motion.img
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
-                  alt="UryScan Device"
-                  className="w-full h-auto shadow-xl object-contain"
-                />
               </motion.div>
 
               <motion.div
@@ -242,19 +217,6 @@ const UryscanG1 = () => {
                   Please be advised that upon cancellation of your UryScan subscription package, 
                   access to the app will be automatically terminated.
                 </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <img
-                  src="/lovable-uploads/75cc616d-5b91-4dbf-ba58-0d70a76fa75a.png"
-                  alt="UryScan App Interface"
-                  className="w-full h-auto rounded-2xl shadow-xl"
-                />
               </motion.div>
             </div>
           </div>
