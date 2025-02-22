@@ -81,6 +81,27 @@ const UryscanG1 = () => {
           </div>
         </section>
 
+        {/* UrySync Device Image */}
+        <section className="py-12 bg-gradient-to-b from-white to-gray-50/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
+              <img
+                src="/lovable-uploads/fee1d89b-6297-4cdd-bb23-c2181fc550f2.png"
+                alt="UrySync Device"
+                className="w-full max-w-lg mx-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))'
+                }}
+              />
+            </motion.div>
+          </div>
+        </section>
+
         {/* Features Grid */}
         <section id="features" className="py-24 bg-gradient-to-b from-white to-gray-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
