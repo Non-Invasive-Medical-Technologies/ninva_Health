@@ -34,8 +34,8 @@ export const AppFeatures = () => {
             className="relative"
           >
             <img
-              src="/lovable-uploads/75cc616d-5b91-4dbf-ba58-0d70a76fa75a.png"
-              alt="UryScan App Interface"
+              src="/lovable-uploads/6c8a9554-c953-4d11-bd76-71ca1123fdf5.png"
+              alt="UryScan Device in Hand"
               className="w-full h-auto rounded-2xl shadow-xl"
             />
           </motion.div>
