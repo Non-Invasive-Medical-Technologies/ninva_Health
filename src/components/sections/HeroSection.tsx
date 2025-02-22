@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
+import { cn } from "@/lib/utils";
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { HeroPill } from '@/components/ui/hero-pill';
