@@ -148,10 +148,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="relative hidden lg:block"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-3xl" />
-            <img
+            <motion.img
               src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
               alt="UryScan Device"
               className="w-full h-auto object-contain relative z-10 mx-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
               style={{
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
                 maxWidth: '400px'
