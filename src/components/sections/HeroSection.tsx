@@ -152,7 +152,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-3xl" />
             <img
-              src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
+              src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
               alt="UryScan Device"
               className="w-full h-auto object-contain relative z-10 mx-auto"
               style={{
