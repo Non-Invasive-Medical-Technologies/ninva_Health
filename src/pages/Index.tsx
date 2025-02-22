@@ -12,6 +12,8 @@ import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
+import { RainbowButton } from '@/components/ui/rainbow-button';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -60,18 +62,19 @@ const Index = () => {
                   for comprehensive health management.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button
+                  <RainbowButton
                     onClick={handleGetStarted}
-                    className="bg-ninva hover:bg-ninva-dark text-white px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="h-12 px-8"
                   >
                     Get Started
-                  </button>
-                  <button
+                  </RainbowButton>
+                  <Button 
+                    variant="outline" 
+                    className="border-2 border-ninva text-ninva hover:bg-ninva/5 h-12 px-8"
                     onClick={handleViewDemo}
-                    className="border-2 border-ninva text-ninva hover:bg-ninva/5 px-6 py-3 rounded-lg transition-all duration-300"
                   >
                     View Demo
-                  </button>
+                  </Button>
                 </div>
               </div>
               <div className="relative">

@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button, RainbowButton } from '@/components/ui/button';
 
 interface HeroSectionProps {
   title?: string;
@@ -90,10 +89,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           delay: 0.5,
           duration: 0.8
         }} className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-ninva hover:bg-ninva-dark text-white" onClick={onGetStarted}>
+            <RainbowButton
+              onClick={onGetStarted}
+              className="h-12 px-8"
+            >
               Explore Features
-            </Button>
-            <Button size="lg" variant="outline" className="border-ninva text-ninva hover:bg-ninva/5" onClick={onViewDemo}>
+            </RainbowButton>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-ninva text-ninva hover:bg-ninva/5"
+              onClick={onViewDemo}
+            >
               View Demo
             </Button>
           </motion.div>
