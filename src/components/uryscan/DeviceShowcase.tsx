@@ -23,8 +23,8 @@ export const DeviceShowcase = () => {
               nutrition with personalised recommendations.
             </p>
             <img
-              src="/lovable-uploads/3fc56e76-5894-49aa-b415-1b81af4437b0.png"
-              alt="UryScan Device"
+              src="/lovable-uploads/7474da93-db87-4f45-9f89-40d94a011952.png"
+              alt="UryScan Device Installation"
               className="w-full h-auto rounded-2xl shadow-xl"
             />
           </motion.div>

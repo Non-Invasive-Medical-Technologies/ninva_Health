@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -46,14 +47,43 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <div className="pt-16">
-        <HeroSection 
-          title="Transform Your Healthcare Experience with AI-Powered Precision"
-          subtitle="Experience the future of healthcare with Kolibri's advanced monitoring system. Seamlessly integrate professional-grade diagnostics with personalized AI insights for comprehensive health management."
-          metrics={metrics}
-          onGetStarted={handleGetStarted}
-          onLearnMore={handleLearnMore}
-          onViewDemo={handleViewDemo}
-        />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-6">
+                  Transform Your Healthcare Experience with AI-Powered Precision
+                </h1>
+                <p className="text-lg text-gray-600 mb-8">
+                  Experience the future of healthcare with Kolibri's advanced monitoring system. 
+                  Seamlessly integrate professional-grade diagnostics with personalized AI insights 
+                  for comprehensive health management.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    onClick={handleGetStarted}
+                    className="bg-ninva hover:bg-ninva-dark text-white px-6 py-3 rounded-lg"
+                  >
+                    Get Started
+                  </button>
+                  <button
+                    onClick={handleViewDemo}
+                    className="border border-ninva text-ninva hover:bg-ninva/5 px-6 py-3 rounded-lg"
+                  >
+                    View Demo
+                  </button>
+                </div>
+              </div>
+              <div className="relative">
+                <img
+                  src="/lovable-uploads/281a3f4f-4676-423e-bb56-0e01b27c1a34.png"
+                  alt="UryScan Device and App Interface"
+                  className="w-full h-auto rounded-2xl shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <FeaturesSection />
         <HealthVisualizationSection />
         <TechnologySection />
