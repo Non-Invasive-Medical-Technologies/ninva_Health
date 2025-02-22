@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -81,27 +80,6 @@ const UryscanG1 = () => {
           </div>
         </section>
 
-        {/* UrySync Device Image */}
-        <section className="py-12 bg-gradient-to-b from-white to-gray-50/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex justify-center"
-            >
-              <img
-                src="/lovable-uploads/c840556a-a772-4e97-b10f-0c17bd9d4144.png"
-                alt="UrySync Device"
-                className="w-full max-w-lg mx-auto object-contain"
-                style={{
-                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))'
-                }}
-              />
-            </motion.div>
-          </div>
-        </section>
-
         {/* Features Grid */}
         <section id="features" className="py-24 bg-gradient-to-b from-white to-gray-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,12 +89,12 @@ const UryscanG1 = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-gray-900">
                 UryScan G1 brings precise urine analysis home
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   title: "Personalized nutrition strategy",
@@ -170,33 +148,38 @@ const UryscanG1 = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-2xl md:text-3xl font-bold">
+                <h2 className="text-3xl font-bold">
                   The revolutionary toilet plug-in urine scanner
                 </h2>
-                <p className="text-base md:text-lg text-gray-600">
+                <p className="text-lg text-gray-600">
                   Your urine holds a wealth of health information through its 3,000 metabolites, 
                   but this data usually goes unmeasured. The UryScan cartridge brings precise 
                   urine analysis home, tracking four essential markers to help optimise your 
                   nutrition with personalised recommendations.
                 </p>
+                <img
+                  src="/lovable-uploads/3fc56e76-5894-49aa-b415-1b81af4437b0.png"
+                  alt="UryScan Device"
+                  className="w-full h-auto rounded-2xl shadow-xl"
+                />
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="space-y-8 lg:col-span-2"
+                className="space-y-8"
               >
                 <div className="space-y-6">
-                  <h3 className="text-xl md:text-2xl font-semibold">Advanced nutrition parameters</h3>
-                  <p className="text-base md:text-lg text-gray-600">
+                  <h3 className="text-2xl font-semibold">Advanced nutrition parameters</h3>
+                  <p className="text-lg text-gray-600">
                     Get a clear picture of your body's response to nutrition through four crucial health parameters.
                   </p>
                 </div>
 
                 <div className="space-y-6">
-                  <h3 className="text-xl md:text-2xl font-semibold">Tailored health plan</h3>
-                  <p className="text-base md:text-lg text-gray-600">
+                  <h3 className="text-2xl font-semibold">Tailored health plan</h3>
+                  <p className="text-lg text-gray-600">
                     Build your personalized nutrition strategy. Choose a measurement plan that 
                     matches your lifestyle and health needs and gain access to premium resources 
                     like exclusive content and programs.
@@ -204,8 +187,8 @@ const UryscanG1 = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <h3 className="text-xl md:text-2xl font-semibold">In-depth insights</h3>
-                  <p className="text-base md:text-lg text-gray-600">
+                  <h3 className="text-2xl font-semibold">In-depth insights</h3>
+                  <p className="text-lg text-gray-600">
                     Discover how your diet correlates to your body. The uryScan device automatically 
                     sends urine analysis results to your app, revealing four key nutritional 
                     insights about your body's response to different foods.
@@ -226,10 +209,10 @@ const UryscanG1 = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-2xl md:text-3xl font-bold">
+                <h2 className="text-3xl font-bold">
                   Build your personalized nutrition strategy
                 </h2>
-                <p className="text-base md:text-lg text-gray-600">
+                <p className="text-lg text-gray-600">
                   Discover your ideal U-Scan Nutrio plan, tailored to your nutritional needs—whether 
                   for basic guidance or a more focused approach. Enjoy complimentary access to the 
                   health app for exclusive content and step-by-step programs to optimize your health.
@@ -238,6 +221,19 @@ const UryscanG1 = () => {
                   Please be advised that upon cancellation of your UryScan subscription package, 
                   access to the app will be automatically terminated.
                 </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <img
+                  src="/lovable-uploads/75cc616d-5b91-4dbf-ba58-0d70a76fa75a.png"
+                  alt="UryScan App Interface"
+                  className="w-full h-auto rounded-2xl shadow-xl"
+                />
               </motion.div>
             </div>
           </div>
