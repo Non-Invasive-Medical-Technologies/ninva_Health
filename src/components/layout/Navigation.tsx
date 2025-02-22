@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -6,9 +7,15 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { AuthButton } from '@/components/auth/AuthButton';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, Home, Info, Lightbulb, Cpu } from 'lucide-react';
+import { Menu, Home, Info, Lightbulb, Cpu, ChevronDown } from 'lucide-react';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -41,6 +48,28 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
+            {/* Products Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center space-x-1 text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5">
+                  Products
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link to="/features" className="flex items-center">
+                    Non-Invasive Health Screener - Ninva HS+
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/products/uryscan-g1" className="flex items-center">
+                    UryScan G1
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
               <Link to="/about">
                 <Info className="w-4 h-4 mr-2" />
@@ -94,6 +123,15 @@ export const Navigation = () => {
                         <Home className="w-4 h-4 mr-2" />
                         Home
                       </Button>
+                      {/* Products in mobile menu */}
+                      <div className="pl-4 space-y-2">
+                        <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/features')}>
+                          Non-Invasive Health Screener - Ninva HS+
+                        </Button>
+                        <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/products/uryscan-g1')}>
+                          UryScan G1
+                        </Button>
+                      </div>
                       <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/about')}>
                         <Info className="w-4 h-4 mr-2" />
                         About
