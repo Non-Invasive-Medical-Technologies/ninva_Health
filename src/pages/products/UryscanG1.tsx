@@ -91,7 +91,7 @@ const UryscanG1 = () => {
               className="flex justify-center"
             >
               <img
-                src="/lovable-uploads/fee1d89b-6297-4cdd-bb23-c2181fc550f2.png"
+                src="/lovable-uploads/c840556a-a772-4e97-b10f-0c17bd9d4144.png"
                 alt="UrySync Device"
                 className="w-full max-w-lg mx-auto object-contain"
                 style={{
