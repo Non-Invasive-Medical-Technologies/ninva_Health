@@ -62,7 +62,7 @@ const UryscanG1 = () => {
         />
         
         {/* Badges Section */}
-        <section className="py-12 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-16 bg-gradient-to-b from-gray-50/50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-4">
               {nutritionBadges.map((badge, index) => (
@@ -82,7 +82,7 @@ const UryscanG1 = () => {
         </section>
 
         {/* Features Grid */}
-        <section id="features" className="py-24 bg-gradient-to-b from-white to-gray-50/50">
+        <section id="features" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -201,7 +201,7 @@ const UryscanG1 = () => {
         </section>
 
         {/* App Features */}
-        <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
