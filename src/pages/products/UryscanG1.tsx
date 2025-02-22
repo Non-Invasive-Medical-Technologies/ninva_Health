@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
-import { HeroSection } from '@/components/sections/HeroSection';
+import { UryscanHeroSection } from '@/components/sections/UryscanHeroSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { FloatingChat } from '@/components/chat/FloatingChat';
 import Footer from '@/components/layout/Footer';
@@ -9,7 +10,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { ChevronRight, Sparkles, Activity, BarChart, Smartphone } from 'lucide-react';
+import { Sparkles, Activity, BarChart, Smartphone } from 'lucide-react';
 
 const UryscanG1 = () => {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ const UryscanG1 = () => {
     <div className="min-h-screen">
       <Navigation />
       <div className="pt-16">
-        <HeroSection 
+        <UryscanHeroSection 
           title="Advanced nutrition parameters"
           subtitle="UryScan G1 brings precise urine analysis home, helping you capture key nutritional insights for optimal health monitoring."
           metrics={metrics}
