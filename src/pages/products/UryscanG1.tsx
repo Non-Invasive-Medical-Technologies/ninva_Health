@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -160,7 +159,7 @@ const UryscanG1 = () => {
                 </p>
                 <div className="lg:hidden">
                   <img
-                    src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
+                    src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
                     alt="UryScan Device"
                     className="w-full h-auto rounded-2xl shadow-xl object-contain max-w-md mx-auto"
                   />
@@ -174,7 +173,7 @@ const UryscanG1 = () => {
                 className="hidden lg:block"
               >
                 <img
-                  src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
+                  src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
                   alt="UryScan Device"
                   className="w-full h-auto rounded-2xl shadow-xl object-contain"
                 />
