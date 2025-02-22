@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { RainbowButton } from '@/components/ui/rainbow-button';
+import { HeroPill } from '@/components/ui/hero-pill';
 
 interface HeroSectionProps {
   title?: string;
@@ -38,14 +40,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-4 py-1 rounded-full bg-ninva/10 text-ninva mb-6"
-          >
-            AI & Analytics
-          </motion.div>
+          <HeroPill
+            href="#register"
+            label="Register your interest"
+            announcement="Revolutionary UryScan launching soon"
+            className="mx-auto mb-6"
+          />
           
           <motion.h1 
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-6"
@@ -74,13 +74,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Button 
-              size="lg" 
-              className="bg-ninva hover:bg-ninva-dark text-white"
+            <RainbowButton
               onClick={onGetStarted}
+              className="text-white"
             >
               Explore Features
-            </Button>
+            </RainbowButton>
             <Button 
               size="lg" 
               variant="outline" 
@@ -99,23 +98,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4"
           >
             {[
               {
-                icon: <Brain className="w-6 h-6 text-ninva" />,
+                icon: <Brain className="w-6 h-6" />,
                 title: "Advanced AI Analysis",
-                description: "Real-time processing of health metrics for instant insights"
+                description: "Real-time processing of health metrics"
               },
               {
-                icon: <Sparkles className="w-6 h-6 text-ninva" />,
-                title: "Personalized Recommendations",
-                description: "Tailored health suggestions based on your unique profile"
+                icon: <Sparkles className="w-6 h-6" />,
+                title: "Personalized Insights",
+                description: "Tailored to your unique profile"
               },
               {
-                icon: <ChartBar className="w-6 h-6 text-ninva" />,
+                icon: <ChartBar className="w-6 h-6" />,
                 title: "Predictive Analytics",
-                description: "Anticipate health trends and potential concerns early"
+                description: "Anticipate health trends early"
               }
             ].map((item, index) => (
               <motion.div
@@ -123,16 +122,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + (index * 0.1), duration: 0.8 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-ninva/10"
+                className={cn(
+                  "group relative p-4 border-r border-b last:border-r-0 hover:bg-gradient-to-t from-neutral-100 to-transparent",
+                  "transition-all duration-200"
+                )}
               >
-                <div className="flex items-start gap-4">
-                  <div className="bg-ninva/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                <div className="relative z-10">
+                  <div className="mb-4 text-ninva">
                     {item.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-ninva-darker mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.description}</p>
-                  </div>
+                  <h3 className="text-sm font-semibold mb-1 group-hover:translate-x-2 transition-transform duration-200">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
