@@ -160,7 +160,7 @@ const UryscanG1 = () => {
                 </p>
                 <div className="lg:hidden">
                   <img
-                    src="/lovable-uploads/cf4ef9dd-af83-48a2-bf0e-082908f4c40d.png"
+                    src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
                     alt="UryScan Device"
                     className="w-full h-auto rounded-2xl shadow-xl object-contain max-w-md mx-auto"
                   />
@@ -174,7 +174,7 @@ const UryscanG1 = () => {
                 className="hidden lg:block"
               >
                 <img
-                  src="/lovable-uploads/cf4ef9dd-af83-48a2-bf0e-082908f4c40d.png"
+                  src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
                   alt="UryScan Device"
                   className="w-full h-auto rounded-2xl shadow-xl object-contain"
                 />
