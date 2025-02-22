@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
@@ -13,6 +15,7 @@ interface HeroSectionProps {
   onLearnMore: () => void;
   onViewDemo: () => void;
 }
+
 export const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Health With AI-Powered Precision",
   subtitle = "Our advanced AI algorithms analyze your health data in real-time, providing personalized insights and actionable recommendations for optimal wellness.",
@@ -155,7 +158,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           delay: 0.8
         }} className="relative">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-lg" />
-            <img src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png" alt="UryScan Device" className="w-full h-auto object-contain relative z-10 mx-auto" style={{
+            <img src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png" alt="Non-invasive Screening Device" className="w-full h-auto object-contain relative z-10 mx-auto" style={{
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '400px'
           }} />
