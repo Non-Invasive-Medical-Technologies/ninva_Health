@@ -76,8 +76,8 @@ const Index = () => {
               </div>
               <div className="relative">
                 <img
-                  src="/lovable-uploads/281a3f4f-4676-423e-bb56-0e01b27c1a34.png"
-                  alt="UryScan Device and App Interface"
+                  src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
+                  alt="UryScan Device"
                   className="w-full h-auto rounded-2xl shadow-xl"
                 />
               </div>
