@@ -78,7 +78,11 @@ const Index = () => {
                 <img
                   src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
                   alt="UryScan Device"
-                  className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto object-contain"
+                  style={{
+                    maxWidth: '500px',
+                    margin: '0 auto'
+                  }}
                 />
               </div>
             </div>
