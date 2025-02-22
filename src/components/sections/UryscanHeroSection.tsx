@@ -151,7 +151,6 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             transition={{ duration: 1, delay: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-lg" />
             <img 
               src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
               alt="UryScan Device" 
@@ -166,3 +165,4 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
     </section>
   );
 };
+
