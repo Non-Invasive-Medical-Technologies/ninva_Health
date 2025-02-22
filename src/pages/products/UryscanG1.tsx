@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -100,26 +99,22 @@ const UryscanG1 = () => {
                 {
                   title: "Personalized nutrition strategy",
                   description: "Tailored recommendations based on your unique profile",
-                  icon: <Sparkles className="h-6 w-6 text-ninva" />,
-                  image: "/lovable-uploads/2dfdf42f-9a47-4feb-bb78-b51b78827db3.png"
+                  icon: <Sparkles className="h-12 w-12 text-ninva" />
                 },
                 {
                   title: "Seamless experience",
                   description: "Easy integration with your daily routine",
-                  icon: <Activity className="h-6 w-6 text-ninva" />,
-                  image: "/lovable-uploads/b1621cae-3803-4512-b0be-36556ea820dd.png"
+                  icon: <Activity className="h-12 w-12 text-ninva" />
                 },
                 {
                   title: "25+ tests per cartridge",
                   description: "Comprehensive health monitoring",
-                  icon: <BarChart className="h-6 w-6 text-ninva" />,
-                  image: "/lovable-uploads/c840556a-a772-4e97-b10f-0c17bd9d4144.png"
+                  icon: <BarChart className="h-12 w-12 text-ninva" />
                 },
                 {
                   title: "Health Analysis App",
                   description: "Track your progress on the go",
-                  icon: <Smartphone className="h-6 w-6 text-ninva" />,
-                  image: "/lovable-uploads/d66ae4ce-a8d0-4fd6-8d02-fe97dd1d51e6.png"
+                  icon: <Smartphone className="h-12 w-12 text-ninva" />
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -128,22 +123,13 @@ const UryscanG1 = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="p-2 rounded-lg bg-ninva/10">
-                          {feature.icon}
-                        </div>
-                        <h3 className="text-lg font-semibold">{feature.title}</h3>
+                  <Card className="p-6 hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                    <div className="flex flex-col items-center text-center gap-4">
+                      <div className="p-4 rounded-2xl bg-ninva/5 mb-4">
+                        {feature.icon}
                       </div>
+                      <h3 className="text-xl font-semibold text-gray-900">{feature.title}</h3>
                       <p className="text-gray-600">{feature.description}</p>
-                    </div>
-                    <div className="relative h-48 bg-gray-100">
-                      <img 
-                        src={feature.image} 
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
                     </div>
                   </Card>
                 </motion.div>
