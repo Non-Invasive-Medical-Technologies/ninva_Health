@@ -154,7 +154,7 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             <img 
               src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
               alt="UryScan Device" 
-              className="w-full h-auto object-contain relative z-10 mx-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              className="w-full h-auto object-contain relative z-10 mx-auto transform hover:scale-105 transition-transform duration-500"
               style={{
                 maxWidth: '288px'
               }}
@@ -165,4 +165,3 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
     </section>
   );
 };
-
