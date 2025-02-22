@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { HeroPill } from '@/components/ui/hero-pill';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 interface UryscanHeroSectionProps {
   title?: string;
@@ -42,9 +44,14 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-4 py-1 rounded-full bg-ninva/10 text-ninva mb-6"
+            className="flex justify-center mb-6"
           >
-            AI & Analytics
+            <HeroPill 
+              href="#register"
+              announcement="Coming Soon"
+              label="Revolutionary UryScan launching soon. Register your interest"
+              className="inline-flex"
+            />
           </motion.div>
           
           <motion.h1 
@@ -74,13 +81,12 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Button 
-              size="lg" 
-              className="bg-ninva hover:bg-ninva-dark text-white transition-all duration-300 shadow-lg hover:shadow-xl"
+            <RainbowButton
               onClick={onGetStarted}
+              className="h-12 px-8"
             >
               Explore Features
-            </Button>
+            </RainbowButton>
             <Button 
               size="lg" 
               variant="outline" 
