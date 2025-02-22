@@ -158,9 +158,9 @@ const UryscanG1 = () => {
                   nutrition with personalised recommendations.
                 </p>
                 <img
-                  src="/lovable-uploads/3fc56e76-5894-49aa-b415-1b81af4437b0.png"
+                  src="/lovable-uploads/bdf1c644-1dd8-43ae-95bd-cbf120ae4446.png"
                   alt="UryScan Device"
-                  className="w-full h-auto rounded-2xl shadow-xl"
+                  className="w-full h-auto rounded-2xl shadow-xl object-contain max-w-md mx-auto"
                 />
               </motion.div>
 
