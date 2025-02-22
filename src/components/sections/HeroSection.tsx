@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
-import { Button, RainbowButton } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 interface HeroSectionProps {
   title?: string;
