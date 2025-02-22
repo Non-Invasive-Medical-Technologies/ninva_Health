@@ -158,10 +158,13 @@ const UryscanG1 = () => {
                   nutrition with personalised recommendations.
                 </p>
                 <div className="lg:hidden">
-                  <img
+                  <motion.img
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
                     src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
                     alt="UryScan Device"
-                    className="w-full h-auto rounded-2xl shadow-xl object-contain max-w-md mx-auto"
+                    className="w-full h-auto shadow-xl object-contain max-w-md mx-auto"
                   />
                 </div>
               </motion.div>
@@ -172,10 +175,13 @@ const UryscanG1 = () => {
                 viewport={{ once: true }}
                 className="hidden lg:block"
               >
-                <img
+                <motion.img
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
                   src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
                   alt="UryScan Device"
-                  className="w-full h-auto rounded-2xl shadow-xl object-contain"
+                  className="w-full h-auto shadow-xl object-contain"
                 />
               </motion.div>
 
