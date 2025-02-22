@@ -20,8 +20,8 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  title = "Transform Your Health With AI-Powered Precision",
-  subtitle = "Our advanced AI algorithms analyze your health data in real-time, providing personalized insights and actionable recommendations for optimal wellness.",
+  title = "Transform Your Healthcare Experience with AI-Powered Precision",
+  subtitle = "Experience the future of healthcare with Kolibri's advanced monitoring system. Seamlessly integrate professional-grade diagnostics with personalized AI insights for comprehensive health management.",
   metrics = [],
   onGetStarted,
   onLearnMore,
@@ -45,23 +45,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             href="#register"
             label="Register your interest"
             announcement="Revolutionary UryScan launching soon"
-            className="mx-auto mb-6"
+            className="mx-auto mb-8"
           />
           
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            {title.split(' ').slice(0, -2).join(' ')}
-            <span className="block text-ninva">
-              {title.split(' ').slice(-2).join(' ')}
-            </span>
+            {title}
           </motion.h1>
 
           <motion.p 
-            className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
+            className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -73,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 mb-16"
           >
             <RainbowButton
               onClick={onGetStarted}
@@ -99,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4"
           >
             {[
               {
@@ -148,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-3xl" />
             <img
