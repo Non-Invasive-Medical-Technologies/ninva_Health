@@ -160,7 +160,7 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 rounded-lg" />
             <img src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png" alt="UryScan Device" className="w-full h-auto object-contain relative z-10 mx-auto" style={{
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
-            maxWidth: '300px' // Changed from 400px to 300px (25% reduction)
+            maxWidth: '288px' // Changed from 300px to 288px (4% reduction)
           }} />
           </motion.div>
         </div>
