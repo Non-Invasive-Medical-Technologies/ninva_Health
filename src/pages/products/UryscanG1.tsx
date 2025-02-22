@@ -162,7 +162,7 @@ const UryscanG1 = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
+                    src="/lovable-uploads/7c9de020-0246-4290-9031-2bc460fbff8a.png"
                     alt="UryScan Device"
                     className="w-full h-auto shadow-xl object-contain max-w-md mx-auto"
                   />
@@ -179,7 +179,7 @@ const UryscanG1 = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  src="/lovable-uploads/252e8a15-5680-49f6-8431-07581954a7d0.png"
+                  src="/lovable-uploads/7c9de020-0246-4290-9031-2bc460fbff8a.png"
                   alt="UryScan Device"
                   className="w-full h-auto shadow-xl object-contain"
                 />
