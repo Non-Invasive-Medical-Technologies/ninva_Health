@@ -23,7 +23,7 @@ export function HeroPill({
       target={isExternal ? "_blank" : undefined}
       className={cn(
         "flex w-auto items-center space-x-2 rounded-full",
-        "bg-ninva/10 ring-1 ring-ninva/20",
+        "bg-medical-secondary/10 ring-1 ring-medical-secondary/20",
         "px-2 py-1 whitespace-pre",
         className
       )}
@@ -32,13 +32,13 @@ export function HeroPill({
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className={cn(
-        "w-fit rounded-full bg-ninva px-2 py-0.5",
+        "w-fit rounded-full bg-medical-secondary px-2 py-0.5",
         "text-xs font-medium text-white sm:text-sm",
         "text-center"
       )}>
         {announcement}
       </div>
-      <p className="text-xs font-medium text-ninva sm:text-sm">
+      <p className="text-xs font-medium text-medical-secondary sm:text-sm">
         {label}
       </p>
       <svg
@@ -52,7 +52,7 @@ export function HeroPill({
         <path
           d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
           fill="currentColor"
-          className="text-ninva"
+          className="text-medical-secondary"
         />
       </svg>
     </motion.a>
