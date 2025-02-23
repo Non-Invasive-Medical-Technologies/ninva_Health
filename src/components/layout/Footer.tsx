@@ -1,13 +1,18 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { uploadVideo } from '@/utils/uploadUtils';
 
 const Footer = () => {
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      // Handle file upload here
-      console.log('File to upload:', file);
+      try {
+        await uploadVideo(file);
+      } catch (error) {
+        console.error('Upload error:', error);
+      }
     }
   };
 
@@ -64,21 +69,21 @@ const Footer = () => {
         <div className="mt-8 pt-8 border-t">
           <div className="flex flex-col items-center justify-center space-y-4">
             <label htmlFor="file-upload" className="text-sm text-gray-500">
-              Upload Documentation
+              Upload Video
             </label>
             <input
               id="file-upload"
               type="file"
               className="hidden"
               onChange={handleFileUpload}
-              accept=".pdf,.doc,.docx"
+              accept="video/*"
             />
             <Button 
               variant="outline"
               className="text-sm"
               onClick={() => document.getElementById('file-upload')?.click()}
             >
-              Choose File
+              Choose Video
             </Button>
           </div>
           <div className="mt-8 text-center text-gray-600">
