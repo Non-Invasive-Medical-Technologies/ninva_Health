@@ -10,6 +10,7 @@ import { NutritionBadges } from '@/components/uryscan/NutritionBadges';
 import { FeaturesGrid } from '@/components/uryscan/FeaturesGrid';
 import { DeviceShowcase } from '@/components/uryscan/DeviceShowcase';
 import { AppFeatures } from '@/components/uryscan/AppFeatures';
+import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 
 const UryscanG1 = () => {
   const { toast } = useToast();
@@ -60,6 +61,7 @@ const UryscanG1 = () => {
         />
         
         <NutritionBadges badges={nutritionBadges} />
+        <HowItWorksSection /> {/* Added HowItWorksSection here */}
         <FeaturesGrid />
         <DeviceShowcase />
         <AppFeatures />
