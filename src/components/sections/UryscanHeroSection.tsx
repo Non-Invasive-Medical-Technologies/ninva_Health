@@ -79,7 +79,7 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 mb-12"
           >
             <RainbowButton
               onClick={onGetStarted}
@@ -96,17 +96,23 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
               View Demo
             </Button>
           </motion.div>
-        </motion.div>
 
-        {/* Features and Device Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Feature Cards */}
+          {/* Device Image - Centered */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex justify-center mb-16"
           >
+            <img 
+              src="/lovable-uploads/89ae2761-e955-40d9-9660-03b8793c3d01.png"
+              alt="UryScan Device" 
+              className="w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-500"
+            />
+          </motion.div>
+
+          {/* Feature Cards - 3x1 Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: <Brain className="w-6 h-6 text-ninva" />,
@@ -129,38 +135,21 @@ export const UryscanHeroSection: React.FC<UryscanHeroSectionProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + index * 0.1, duration: 0.8 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-ninva/10 hover:shadow-xl transition-shadow duration-300"
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-ninva/10 hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="flex items-start gap-4">
-                  <div className="bg-ninva/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="bg-ninva/10 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-ninva-darker mb-1">{item.title}</h3>
+                    <h3 className="text-lg font-semibold text-ninva-darker mb-2">{item.title}</h3>
                     <p className="text-sm text-gray-600">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Device Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="relative"
-          >
-            <img 
-              src="/lovable-uploads/92c9bfcc-c86c-49c3-98cd-0fa4bf7b844e.png"
-              alt="UryScan Device" 
-              className="w-full h-auto object-contain relative z-10 mx-auto transform hover:scale-105 transition-transform duration-500"
-              style={{
-                maxWidth: '288px'
-              }}
-            />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
