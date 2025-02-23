@@ -38,7 +38,7 @@ export function HeroPill({
       )}>
         {announcement}
       </div>
-      <p className="text-xs font-medium text-medical-secondary sm:text-sm">
+      <p className="text-xs font-medium text-black sm:text-sm">
         {label}
       </p>
       <svg
@@ -52,7 +52,7 @@ export function HeroPill({
         <path
           d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
           fill="currentColor"
-          className="text-medical-secondary"
+          className="text-black"
         />
       </svg>
     </motion.a>
