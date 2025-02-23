@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Footer = () => {
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Handle file upload here
+      console.log('File to upload:', file);
+    }
+  };
+
   return (
     <footer className="bg-white border-t border-medical-primary/10">
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -51,8 +60,30 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t text-center text-gray-600">
-          © 2024 Ninva Health. All rights reserved.
+        
+        <div className="mt-8 pt-8 border-t">
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <label htmlFor="file-upload" className="text-sm text-gray-500">
+              Upload Documentation
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              className="hidden"
+              onChange={handleFileUpload}
+              accept=".pdf,.doc,.docx"
+            />
+            <Button 
+              variant="outline"
+              className="text-sm"
+              onClick={() => document.getElementById('file-upload')?.click()}
+            >
+              Choose File
+            </Button>
+          </div>
+          <div className="mt-8 text-center text-gray-600">
+            © 2024 Ninva Health. All rights reserved.
+          </div>
         </div>
       </div>
     </footer>

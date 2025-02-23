@@ -1,153 +1,218 @@
 
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { AuthButton } from '@/components/auth/AuthButton';
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, Home, Info, Lightbulb, Cpu, ChevronDown } from 'lucide-react';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const menuItems = [
+  { title: "Home", url: "/" },
+  {
+    title: "Products",
+    url: "#",
+    items: [
+      {
+        title: "Non-Invasive Health Screener",
+        description: "Advanced health screening technology",
+        icon: <Book className="size-5 shrink-0" />,
+        url: "/features",
+      },
+      {
+        title: "UryScan G1",
+        description: "Revolutionary urine analysis device",
+        icon: <Trees className="size-5 shrink-0" />,
+        url: "/products/uryscan-g1",
+      }
+    ],
+  },
+  {
+    title: "Technology",
+    url: "#",
+    items: [
+      {
+        title: "AI Solutions",
+        description: "Advanced artificial intelligence integration",
+        icon: <Zap className="size-5 shrink-0" />,
+        url: "/technology/ai",
+      },
+      {
+        title: "Security",
+        description: "Enterprise-grade data protection",
+        icon: <Sunset className="size-5 shrink-0" />,
+        url: "/technology/security",
+      },
+    ],
+  },
+  { title: "About", url: "/about" },
+];
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
   const navigate = useNavigate();
 
-  const handleNavigation = (path: string) => {
-    setIsOpen(false);
-    navigate(path);
+  const renderMenuItem = (item: any) => {
+    if (item.items) {
+      return (
+        <NavigationMenuItem key={item.title} className="text-muted-foreground">
+          <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-80 p-3">
+              <NavigationMenuLink asChild>
+                <div>
+                  {item.items.map((subItem: any) => (
+                    <li key={subItem.title}>
+                      <Link
+                        to={subItem.url}
+                        className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+                      >
+                        {subItem.icon}
+                        <div>
+                          <div className="text-sm font-semibold">
+                            {subItem.title}
+                          </div>
+                          {subItem.description && (
+                            <p className="text-sm leading-snug text-muted-foreground">
+                              {subItem.description}
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </div>
+              </NavigationMenuLink>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      );
+    }
+
+    return (
+      <NavigationMenuItem key={item.title}>
+        <Link
+          to={item.url}
+          className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+        >
+          {item.title}
+        </Link>
+      </NavigationMenuItem>
+    );
+  };
+
+  const renderMobileMenuItem = (item: any) => {
+    if (item.items) {
+      return (
+        <AccordionItem key={item.title} value={item.title} className="border-b-0">
+          <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+            {item.title}
+          </AccordionTrigger>
+          <AccordionContent className="mt-2">
+            {item.items.map((subItem: any) => (
+              <Link
+                key={subItem.title}
+                to={subItem.url}
+                className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+              >
+                {subItem.icon}
+                <div>
+                  <div className="text-sm font-semibold">{subItem.title}</div>
+                  {subItem.description && (
+                    <p className="text-sm leading-snug text-muted-foreground">
+                      {subItem.description}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+      );
+    }
+
+    return (
+      <Link key={item.title} to={item.url} className="font-semibold">
+        {item.title}
+      </Link>
+    );
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-ninva/10 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center space-x-6">
-            <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
-                alt="Ninva Health" 
-                className="h-8 w-auto"
-              />
+    <section className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-ninva/10">
+      <div className="container py-4">
+        <nav className="hidden justify-between lg:flex">
+          <div className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png" className="h-8" alt="Ninva Health" />
             </Link>
-            <Button variant="ghost" className="hidden md:flex items-center space-x-2 text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/">
-                <Home className="w-4 h-4 mr-2" />
-                Home
-              </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                {menuItems.map(renderMenuItem)}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+          <div className="flex gap-2">
+            <Button asChild variant="outline" size="sm">
+              <Link to="/login">Log in</Link>
+            </Button>
+            <Button asChild size="sm">
+              <Link to="/signup">Sign up</Link>
             </Button>
           </div>
+        </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {/* Products Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-1 text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5">
-                  Products
-                  <ChevronDown className="w-4 h-4 ml-1" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem asChild>
-                  <Link to="/features" className="flex items-center">
-                    Non-Invasive Health Screener - Ninva HS+
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/products/uryscan-g1" className="flex items-center">
-                    UryScan G1
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/about">
-                <Info className="w-4 h-4 mr-2" />
-                About
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/features">
-                <Lightbulb className="w-4 h-4 mr-2" />
-                Features
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-gray-600 hover:text-medical-primary hover:bg-medical-primary/5" asChild>
-              <Link to="/technology">
-                <Cpu className="w-4 h-4 mr-2" />
-                Technology
-              </Link>
-            </Button>
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <div className="block lg:hidden">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png" className="h-8" alt="Ninva Health" />
+            </Link>
+            <Sheet>
               <SheetTrigger asChild>
-                <Button className="bg-medical-primary text-white hover:bg-medical-primary/90">
-                  Sign In
+                <Button variant="outline" size="icon">
+                  <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="w-full sm:max-w-md p-0">
-                <div className="flex flex-col justify-center min-h-[60vh] p-8">
-                  <AuthButton />
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-gray-600">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[85vw] p-0">
-                <div className="flex flex-col h-full">
-                  <div className="p-6 border-b">
-                    <img 
-                      src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png"
-                      alt="Ninva Health" 
-                      className="h-8 w-auto mb-6"
-                    />
-                    <div className="space-y-4">
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/')}>
-                        <Home className="w-4 h-4 mr-2" />
-                        Home
-                      </Button>
-                      {/* Products in mobile menu */}
-                      <div className="pl-4 space-y-2">
-                        <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/features')}>
-                          Non-Invasive Health Screener - Ninva HS+
-                        </Button>
-                        <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/products/uryscan-g1')}>
-                          UryScan G1
-                        </Button>
-                      </div>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/about')}>
-                        <Info className="w-4 h-4 mr-2" />
-                        About
-                      </Button>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/features')}>
-                        <Lightbulb className="w-4 h-4 mr-2" />
-                        Features
-                      </Button>
-                      <Button variant="ghost" className="w-full justify-start text-gray-600" onClick={() => handleNavigation('/technology')}>
-                        <Cpu className="w-4 h-4 mr-2" />
-                        Technology
-                      </Button>
-                    </div>
-                  </div>
-                  <div className="flex-1 p-6">
-                    <AuthButton />
+              <SheetContent className="overflow-y-auto">
+                <SheetHeader>
+                  <SheetTitle>
+                    <Link to="/" className="flex items-center gap-2">
+                      <img src="/lovable-uploads/1f0b3e9f-c483-488d-b00f-1fdca2800b5a.png" className="h-8" alt="Ninva Health" />
+                    </Link>
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="my-6 flex flex-col gap-6">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="flex w-full flex-col gap-4"
+                  >
+                    {menuItems.map(renderMobileMenuItem)}
+                  </Accordion>
+                  <div className="flex flex-col gap-3">
+                    <Button asChild variant="outline">
+                      <Link to="/login">Log in</Link>
+                    </Button>
+                    <Button asChild>
+                      <Link to="/signup">Sign up</Link>
+                    </Button>
                   </div>
                 </div>
               </SheetContent>
@@ -155,6 +220,6 @@ export const Navigation = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </section>
   );
 };
