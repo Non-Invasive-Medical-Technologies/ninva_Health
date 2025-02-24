@@ -78,9 +78,33 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
       
       const data = response.data;
       if (data.choices && data.choices[0]) {
+        const aiResponse = data.choices[0].message;
+
+        // Handle function calls
+        if (aiResponse.function_call) {
+          const { name, arguments: args } = aiResponse.function_call;
+          const parsedArgs = JSON.parse(args);
+
+          switch (name) {
+            case 'schedule_appointment':
+              toast.success('Appointment request received', {
+                description: `Type: ${parsedArgs.appointmentType}, Date: ${parsedArgs.preferredDate}`,
+              });
+              // Here you would typically integrate with your appointment scheduling system
+              break;
+
+            case 'update_health_record':
+              toast.success('Health record update received', {
+                description: `Type: ${parsedArgs.recordType}, Value: ${parsedArgs.value}`,
+              });
+              // Here you would typically update the health records in your database
+              break;
+          }
+        }
+
         setMessages(prev => [...prev, {
           role: 'assistant',
-          content: data.choices[0].message.content,
+          content: aiResponse.content || "I've processed your request. Is there anything else you need help with?",
         }]);
       }
     } catch (error) {
@@ -187,7 +211,7 @@ export const FloatingChat = ({ activeCard, contextMessage }: FloatingChatProps) 
             className="fixed bottom-20 right-4 w-96 h-[600px] bg-white rounded-lg shadow-xl overflow-hidden z-50 flex flex-col"
           >
             <div className="p-4 bg-ninva text-white flex justify-between items-center">
-              <h3 className="font-semibold">Chat Assistant</h3>
+              <h3 className="font-semibold">Health Assistant</h3>
               <Button
                 variant="ghost"
                 size="icon"
