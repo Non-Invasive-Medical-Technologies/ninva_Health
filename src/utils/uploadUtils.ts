@@ -24,7 +24,7 @@ export const uploadVideo = async (file: File) => {
       .from('videos')
       .insert({
         title: file.name,
-        file_path: filePath,
+        video_path: filePath,
       })
       .select()
       .single();

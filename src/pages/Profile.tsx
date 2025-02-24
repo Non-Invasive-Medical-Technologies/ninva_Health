@@ -10,6 +10,19 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { LogOut } from 'lucide-react';
 
+interface Profile {
+  id: string;
+  created_at: string;
+  first_name: string | null;
+  last_name: string | null;
+  date_of_birth: string | null;
+  gender: string | null;
+  blood_type: string | null;
+  medical_conditions: string[] | null;
+  allergies: string[] | null;
+  updated_at: string;
+}
+
 interface ProfileFormValues {
   first_name: string;
   last_name: string;
@@ -37,6 +50,7 @@ const Profile = () => {
       const { data: profile, error } = await supabase
         .from('profiles')
         .select('*')
+        .eq('id', session.user.id)
         .single();
 
       if (error) {
