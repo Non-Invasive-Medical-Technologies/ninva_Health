@@ -2,6 +2,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,14 +11,22 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
-interface AuthFormValues {
-  email: string;
-  password: string;
-}
+const formSchema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
+});
+
+type AuthFormValues = z.infer<typeof formSchema>;
 
 const Auth = () => {
   const navigate = useNavigate();
-  const form = useForm<AuthFormValues>();
+  const form = useForm<AuthFormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
 
   const handleAuth = async (data: AuthFormValues) => {
     try {
