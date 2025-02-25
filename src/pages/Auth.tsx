@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -30,6 +30,9 @@ type AuthFormValues = z.infer<typeof formSchema>;
 
 const Auth = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
+  
   const form = useForm<AuthFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,18 +70,16 @@ const Auth = () => {
   ];
 
   const handleAuth = async (data: AuthFormValues) => {
+    setIsLoading(true);
     try {
-      // First try to sign in
-      const { error: signInError, data: signInData } = await supabase.auth.signInWithPassword({
-        email: data.email,
-        password: data.password,
-      });
-
-      if (signInError) {
-        // If sign in fails, try to sign up
+      if (isSignUp) {
+        // Handle Sign Up
         const { error: signUpError } = await supabase.auth.signUp({
           email: data.email,
           password: data.password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/auth`
+          }
         });
 
         if (signUpError) {
@@ -88,12 +89,24 @@ const Auth = () => {
           form.reset();
         }
       } else {
-        toast.success('Signed in successfully!');
-        form.reset();
-        navigate('/profile');
+        // Handle Sign In
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: data.email,
+          password: data.password,
+        });
+
+        if (signInError) {
+          toast.error(signInError.message);
+        } else {
+          toast.success('Signed in successfully!');
+          form.reset();
+          navigate('/profile');
+        }
       }
     } catch (error: any) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -111,10 +124,12 @@ const Auth = () => {
           />
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tight text-ninva font-display">
-              Welcome Back
+              {isSignUp ? 'Create Account' : 'Welcome Back'}
             </h2>
             <p className="text-sm text-muted-foreground font-text">
-              Sign in to your account or create a new one
+              {isSignUp 
+                ? 'Sign up for a new account to get started' 
+                : 'Sign in to your account to continue'}
             </p>
           </div>
         </div>
@@ -134,6 +149,7 @@ const Auth = () => {
                           type="email" 
                           placeholder="name@company.com" 
                           className="bg-white/80"
+                          disabled={isLoading}
                           {...field} 
                         />
                       </FormControl>
@@ -152,6 +168,7 @@ const Auth = () => {
                           type="password" 
                           placeholder="••••••••" 
                           className="bg-white/80"
+                          disabled={isLoading}
                           {...field} 
                         />
                       </FormControl>
@@ -163,8 +180,9 @@ const Auth = () => {
                   <Button 
                     type="submit" 
                     className="w-full bg-ninva hover:bg-ninva/90"
+                    disabled={isLoading}
                   >
-                    Get Started
+                    {isLoading ? 'Please wait...' : (isSignUp ? 'Create Account' : 'Sign In')}
                   </Button>
                 </div>
               </form>
@@ -177,7 +195,7 @@ const Auth = () => {
                 </div>
                 <div className="relative flex justify-center text-sm">
                   <span className="px-2 bg-card text-muted-foreground backdrop-blur-sm">
-                    Already have an account?
+                    {isSignUp ? 'Already have an account?' : 'Need an account?'}
                   </span>
                 </div>
               </div>
@@ -185,10 +203,13 @@ const Auth = () => {
               <div className="mt-6 text-center">
                 <Button 
                   variant="ghost"
-                  onClick={() => navigate('/auth')}
+                  onClick={() => {
+                    setIsSignUp(!isSignUp);
+                    form.reset();
+                  }}
                   className="text-sm hover:text-ninva"
                 >
-                  Sign in here
+                  {isSignUp ? 'Sign in here' : 'Sign up here'}
                 </Button>
               </div>
             </div>
