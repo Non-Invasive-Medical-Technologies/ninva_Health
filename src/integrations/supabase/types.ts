@@ -11,45 +11,21 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
-          allergies: string[] | null
           avatar_url: string | null
-          blood_type: string | null
           created_at: string
-          date_of_birth: string | null
-          first_name: string | null
-          gender: string | null
           id: string
-          last_name: string | null
-          medical_conditions: string[] | null
-          updated_at: string | null
           username: string | null
         }
         Insert: {
-          allergies?: string[] | null
           avatar_url?: string | null
-          blood_type?: string | null
           created_at?: string
-          date_of_birth?: string | null
-          first_name?: string | null
-          gender?: string | null
           id: string
-          last_name?: string | null
-          medical_conditions?: string[] | null
-          updated_at?: string | null
           username?: string | null
         }
         Update: {
-          allergies?: string[] | null
           avatar_url?: string | null
-          blood_type?: string | null
           created_at?: string
-          date_of_birth?: string | null
-          first_name?: string | null
-          gender?: string | null
           id?: string
-          last_name?: string | null
-          medical_conditions?: string[] | null
-          updated_at?: string | null
           username?: string | null
         }
         Relationships: []
