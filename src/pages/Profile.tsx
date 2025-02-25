@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -8,7 +7,8 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { LogOut } from 'lucide-react';
+import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon } from 'lucide-react';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface Profile {
   id: string;
@@ -36,45 +36,57 @@ interface ProfileFormValues {
 const Profile = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [healthMetrics, setHealthMetrics] = useState<any>(null);
   const form = useForm<ProfileFormValues>();
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        navigate('/auth');
-        return;
-      }
-      
-      // Load profile data
-      const { data: profile, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', session.user.id)
-        .single();
-
-      if (error) {
-        console.error('Error loading profile:', error);
-        return;
-      }
-
-      if (profile) {
-        form.reset({
-          first_name: profile.first_name || '',
-          last_name: profile.last_name || '',
-          date_of_birth: profile.date_of_birth || '',
-          gender: profile.gender || '',
-          blood_type: profile.blood_type || '',
-          medical_conditions: profile.medical_conditions?.join(', ') || '',
-          allergies: profile.allergies?.join(', ') || '',
-        });
-      }
-
-      setLoading(false);
-    };
-
     checkSession();
   }, [navigate, form]);
+
+  const checkSession = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      navigate('/auth');
+      return;
+    }
+    
+    const { data: profile, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', session.user.id)
+      .single();
+
+    if (error) {
+      console.error('Error loading profile:', error);
+      return;
+    }
+
+    if (profile) {
+      form.reset({
+        first_name: profile.first_name || '',
+        last_name: profile.last_name || '',
+        date_of_birth: profile.date_of_birth || '',
+        gender: profile.gender || '',
+        blood_type: profile.blood_type || '',
+        medical_conditions: profile.medical_conditions?.join(', ') || '',
+        allergies: profile.allergies?.join(', ') || '',
+      });
+    }
+
+    try {
+      const { data: metrics, error: metricsError } = await supabase.functions.invoke('health-metrics', {
+        method: 'GET',
+      });
+
+      if (metricsError) throw metricsError;
+      if (metrics) setHealthMetrics(metrics.data);
+    } catch (error) {
+      console.error('Error loading health metrics:', error);
+    }
+
+    setLoading(false);
+  };
 
   const handleSubmit = async (data: ProfileFormValues) => {
     try {
@@ -94,6 +106,7 @@ const Profile = () => {
 
       if (error) throw error;
       toast.success('Profile updated successfully');
+      setShowDashboard(true);
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -111,6 +124,114 @@ const Profile = () => {
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  if (showDashboard) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900">Health Dashboard</h1>
+            <Button variant="outline" onClick={handleSignOut}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Sign Out
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Heart className="w-5 h-5 text-red-500 mr-2" />
+                  Heart Rate
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{healthMetrics?.heart_rate || '--'}</div>
+                <div className="text-sm text-gray-500">BPM</div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Activity className="w-5 h-5 text-blue-500 mr-2" />
+                  Blood Pressure
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">
+                  {healthMetrics?.blood_pressure_systolic || '--'}/{healthMetrics?.blood_pressure_diastolic || '--'}
+                </div>
+                <div className="text-sm text-gray-500">mmHg</div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Droplets className="w-5 h-5 text-blue-500 mr-2" />
+                  Blood Oxygen
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{healthMetrics?.blood_oxygen_level || '--'}</div>
+                <div className="text-sm text-gray-500">SpO2 %</div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <FootprintsIcon className="w-5 h-5 text-green-500 mr-2" />
+                  Steps
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{healthMetrics?.steps_count || '--'}</div>
+                <div className="text-sm text-gray-500">steps today</div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Flame className="w-5 h-5 text-orange-500 mr-2" />
+                  Calories
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{healthMetrics?.calories_burned || '--'}</div>
+                <div className="text-sm text-gray-500">kcal burned</div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Moon className="w-5 h-5 text-purple-500 mr-2" />
+                  Sleep
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">
+                  {healthMetrics?.sleep_duration_minutes 
+                    ? `${Math.floor(healthMetrics.sleep_duration_minutes / 60)}h ${healthMetrics.sleep_duration_minutes % 60}m` 
+                    : '--'}
+                </div>
+                <div className="text-sm text-gray-500">hours slept</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-8">
+            <Button variant="outline" onClick={() => setShowDashboard(false)}>
+              Edit Profile
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
