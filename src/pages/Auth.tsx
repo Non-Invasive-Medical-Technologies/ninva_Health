@@ -58,27 +58,27 @@ const Auth = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-medical-primary/20 via-medical-secondary/20 to-medical-accent/20 animate-gradient-wave" />
       <div className="absolute inset-0 backdrop-blur-[100px]" />
       
-      <div className="w-full max-w-md space-y-8 relative z-10">
-        <div className="text-center space-y-6">
+      <div className="w-full max-w-md space-y-10 relative z-10">
+        <div className="text-center space-y-8">
           <img
             src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
             alt="Ninva Health"
-            className="h-12 mx-auto"
+            className="h-16 mx-auto" // Increased from h-12 to h-16
           />
-          <div>
-            <h2 className="text-4xl font-bold tracking-tight text-ninva font-display">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tight text-ninva font-display">
               Welcome Back
             </h2>
-            <p className="mt-2 text-base text-muted-foreground font-text">
+            <p className="text-sm text-muted-foreground font-text">
               Sign in to your account or create a new one
             </p>
           </div>
         </div>
 
         <Card className="mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
-          <CardContent className="pt-6">
+          <CardContent className="pt-8 pb-8"> {/* Increased padding */}
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-6"> {/* Increased spacing */}
                 <FormField
                   control={form.control}
                   name="email"
@@ -126,7 +126,7 @@ const Auth = () => {
               </form>
             </Form>
 
-            <div className="mt-6">
+            <div className="mt-8"> {/* Increased margin */}
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-border" />
