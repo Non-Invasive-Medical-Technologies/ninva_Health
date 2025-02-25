@@ -18,7 +18,10 @@ const Index = () => {
       />
       <FeatureHighlights />
       <HealthVisualizationSection />
-      <CTASection />
+      <CTASection 
+        onGetStarted={() => navigate('/features')}
+        onBookDemo={() => navigate('/products/uryscan-g1')}
+      />
     </div>
   );
 };
