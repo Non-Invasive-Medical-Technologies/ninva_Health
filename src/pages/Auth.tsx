@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -18,7 +18,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 const formSchema = z.object({
@@ -78,7 +77,7 @@ const Auth = () => {
           email: data.email,
           password: data.password,
           options: {
-            emailRedirectTo: `${window.location.origin}/auth`
+            emailRedirectTo: `${window.location.origin}/auth/callback`
           }
         });
 
@@ -86,7 +85,11 @@ const Auth = () => {
           toast.error(signUpError.message);
         } else {
           toast.success('Account created! Please check your email for verification.');
-          form.reset();
+          // Reset form and clear fields
+          form.reset({
+            email: '',
+            password: '',
+          });
         }
       } else {
         // Handle Sign In
@@ -99,7 +102,11 @@ const Auth = () => {
           toast.error(signInError.message);
         } else {
           toast.success('Signed in successfully!');
-          form.reset();
+          // Reset form and clear fields
+          form.reset({
+            email: '',
+            password: '',
+          });
           navigate('/profile');
         }
       }
@@ -108,6 +115,15 @@ const Auth = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Clear form when switching between sign-up and sign-in
+  const handleModeSwitch = () => {
+    setIsSignUp(!isSignUp);
+    form.reset({
+      email: '',
+      password: '',
+    });
   };
 
   return (
@@ -203,10 +219,7 @@ const Auth = () => {
               <div className="mt-6 text-center">
                 <Button 
                   variant="ghost"
-                  onClick={() => {
-                    setIsSignUp(!isSignUp);
-                    form.reset();
-                  }}
+                  onClick={handleModeSwitch}
                   className="text-sm hover:text-ninva"
                 >
                   {isSignUp ? 'Sign in here' : 'Sign up here'}
