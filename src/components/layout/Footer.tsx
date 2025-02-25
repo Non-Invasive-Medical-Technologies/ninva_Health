@@ -2,14 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { uploadVideo } from '@/utils/uploadUtils';
+import { uploadFile } from '@/utils/uploadUtils';
 
 const Footer = () => {
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       try {
-        await uploadVideo(file);
+        await uploadFile(file);
       } catch (error) {
         console.error('Upload error:', error);
       }
