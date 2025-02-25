@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { Activity, Shield, HeartPulse } from 'lucide-react';
 
 const formSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -27,6 +28,24 @@ const Auth = () => {
       password: '',
     },
   });
+
+  const features = [
+    {
+      icon: <HeartPulse className="h-6 w-6 text-medical-primary" />,
+      title: "Health Monitoring",
+      description: "Real-time tracking of vital health metrics"
+    },
+    {
+      icon: <Shield className="h-6 w-6 text-medical-secondary" />,
+      title: "HIPAA Compliant",
+      description: "Your data is protected and secure"
+    },
+    {
+      icon: <Activity className="h-6 w-6 text-medical-accent" />,
+      title: "Smart Analytics",
+      description: "AI-powered health insights"
+    }
+  ];
 
   const handleAuth = async (data: AuthFormValues) => {
     try {
@@ -63,7 +82,7 @@ const Auth = () => {
           <img
             src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
             alt="Ninva Health"
-            className="h-16 mx-auto" // Increased from h-12 to h-16
+            className="h-16 mx-auto"
           />
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tight text-ninva font-display">
@@ -76,9 +95,9 @@ const Auth = () => {
         </div>
 
         <Card className="mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
-          <CardContent className="pt-8 pb-8"> {/* Increased padding */}
+          <CardContent className="pt-8 pb-8">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-6"> {/* Increased spacing */}
+              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="email"
@@ -126,7 +145,7 @@ const Auth = () => {
               </form>
             </Form>
 
-            <div className="mt-8"> {/* Increased margin */}
+            <div className="mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-border" />
@@ -150,6 +169,22 @@ const Auth = () => {
             </div>
           </CardContent>
         </Card>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          {features.map((feature, index) => (
+            <Card key={index} className="bg-white/60 backdrop-blur-sm border-medical-primary/10 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6">
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="p-2 rounded-full bg-white/80">
+                    {feature.icon}
+                  </div>
+                  <h3 className="font-semibold text-ninva">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
