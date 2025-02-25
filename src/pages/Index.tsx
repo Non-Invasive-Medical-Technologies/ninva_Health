@@ -54,12 +54,15 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker leading-tight tracking-tight mb-6">
-                  Transform Your Healthcare Experience with AI-Powered Precision
+                  Non-invasive, AI-powered at-home health screening.
                 </h1>
                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-                  Experience the future of healthcare with Kolibri's advanced monitoring system. 
-                  Seamlessly integrate professional-grade diagnostics with personalized AI insights 
-                  for comprehensive health management.
+                  Experience the future of healthcare with Ninva's automated health screening device. 
+                  Smaller than a smartphone, this device delivers precise health insights. 
+                  Effortlessly measure heart rate, blood oxygen levels, and body temperature.
+                </p>
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                  This device elevates telehealth to a whole new level.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <RainbowButton
