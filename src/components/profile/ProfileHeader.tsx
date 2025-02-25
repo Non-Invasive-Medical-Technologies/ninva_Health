@@ -18,7 +18,7 @@ export const ProfileHeader = ({ profile, setProfile, onSignOut }: ProfileHeaderP
         <img
           src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
           alt="Ninva Health"
-          className="h-6 sm:h-8"
+          className="h-8 sm:h-12" // Increased from h-6 sm:h-8 to h-8 sm:h-12
         />
         <h1 className="text-xl sm:text-3xl font-bold text-gray-900">Health Dashboard</h1>
       </div>
@@ -42,7 +42,7 @@ export const ProfileHeader = ({ profile, setProfile, onSignOut }: ProfileHeaderP
                 if (file) {
                   try {
                     const publicUrl = await uploadAvatar(file);
-                    setProfile(prev => prev ? { ...prev, avatar_url: publicUrl } : null);
+                    setProfile(profile ? { ...profile, avatar_url: publicUrl } : null);
                   } catch (error) {
                     console.error('Failed to upload avatar:', error);
                   }
