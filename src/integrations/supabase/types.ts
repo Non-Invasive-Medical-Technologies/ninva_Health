@@ -9,6 +9,59 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      health_metrics: {
+        Row: {
+          blood_oxygen_level: number | null
+          blood_pressure_diastolic: number | null
+          blood_pressure_systolic: number | null
+          calories_burned: number | null
+          created_at: string
+          device_type: string | null
+          heart_rate: number | null
+          id: string
+          recorded_at: string
+          sleep_duration_minutes: number | null
+          steps_count: number | null
+          user_id: string
+        }
+        Insert: {
+          blood_oxygen_level?: number | null
+          blood_pressure_diastolic?: number | null
+          blood_pressure_systolic?: number | null
+          calories_burned?: number | null
+          created_at?: string
+          device_type?: string | null
+          heart_rate?: number | null
+          id?: string
+          recorded_at?: string
+          sleep_duration_minutes?: number | null
+          steps_count?: number | null
+          user_id: string
+        }
+        Update: {
+          blood_oxygen_level?: number | null
+          blood_pressure_diastolic?: number | null
+          blood_pressure_systolic?: number | null
+          calories_burned?: number | null
+          created_at?: string
+          device_type?: string | null
+          heart_rate?: number | null
+          id?: string
+          recorded_at?: string
+          sleep_duration_minutes?: number | null
+          steps_count?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "health_metrics_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           allergies: string[] | null
@@ -92,7 +145,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_latest_health_metrics: {
+        Args: {
+          p_user_id: string
+        }
+        Returns: {
+          heart_rate: number
+          blood_pressure_systolic: number
+          blood_pressure_diastolic: number
+          blood_oxygen_level: number
+          steps_count: number
+          calories_burned: number
+          sleep_duration_minutes: number
+          recorded_at: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
