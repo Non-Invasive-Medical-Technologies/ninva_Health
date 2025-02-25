@@ -59,13 +59,20 @@ const Auth = () => {
       <div className="absolute inset-0 backdrop-blur-[100px]" />
       
       <div className="w-full max-w-md space-y-8 relative z-10">
-        <div className="text-center">
-          <h2 className="mt-6 text-4xl font-bold tracking-tight text-ninva font-display">
-            Welcome to Ninva Health
-          </h2>
-          <p className="mt-2 text-base text-muted-foreground font-text">
-            Sign in to your account or create a new one
-          </p>
+        <div className="text-center space-y-6">
+          <img
+            src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
+            alt="Ninva Health"
+            className="h-12 mx-auto"
+          />
+          <div>
+            <h2 className="text-4xl font-bold tracking-tight text-ninva font-display">
+              Welcome Back
+            </h2>
+            <p className="mt-2 text-base text-muted-foreground font-text">
+              Sign in to your account or create a new one
+            </p>
+          </div>
         </div>
 
         <Card className="mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
