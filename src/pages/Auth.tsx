@@ -68,7 +68,8 @@ const Auth = () => {
 
   const handleAuth = async (data: AuthFormValues) => {
     try {
-      const { error: signInError } = await supabase.auth.signInWithPassword({
+      // First try to sign in
+      const { error: signInError, data: signInData } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password,
       });
@@ -80,10 +81,15 @@ const Auth = () => {
           password: data.password,
         });
 
-        if (signUpError) throw signUpError;
-        toast.success('Account created! Please check your email for verification.');
+        if (signUpError) {
+          toast.error(signUpError.message);
+        } else {
+          toast.success('Account created! Please check your email for verification.');
+          form.reset();
+        }
       } else {
         toast.success('Signed in successfully!');
+        form.reset();
         navigate('/profile');
       }
     } catch (error: any) {
