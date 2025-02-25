@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
-import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { TechnologySection } from '@/components/sections/TechnologySection';
 import { DataSection } from '@/components/sections/DataSection';
@@ -14,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -77,17 +77,33 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
-              <div className="relative">
+              <motion.div 
+                className="relative"
+                animate={{
+                  y: [0, -10, 0],
+                  scale: [1, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
                 <img
                   src="/lovable-uploads/2afd0ae0-a1fa-4901-8295-713b02a4b474.png"
                   alt="UryScan Device"
                   className="w-full h-auto object-contain"
                   style={{
                     maxWidth: '500px',
-                    margin: '0 auto'
+                    margin: '0 auto',
+                    filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.1))'
                   }}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
