@@ -9,6 +9,33 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      activity_feed: {
+        Row: {
+          activity_type: string
+          created_at: string
+          description: string
+          id: string
+          metadata: Json | null
+          user_id: string
+        }
+        Insert: {
+          activity_type: string
+          created_at?: string
+          description: string
+          id?: string
+          metadata?: Json | null
+          user_id: string
+        }
+        Update: {
+          activity_type?: string
+          created_at?: string
+          description?: string
+          id?: string
+          metadata?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       health_metrics: {
         Row: {
           blood_oxygen_level: number | null
@@ -104,6 +131,39 @@ export type Database = {
           medical_conditions?: string[] | null
           updated_at?: string | null
           username?: string | null
+        }
+        Relationships: []
+      }
+      reminders: {
+        Row: {
+          completed: boolean | null
+          created_at: string
+          description: string | null
+          due_date: string
+          id: string
+          reminder_type: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string
+          description?: string | null
+          due_date: string
+          id?: string
+          reminder_type: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string
+          description?: string | null
+          due_date?: string
+          id?: string
+          reminder_type?: string
+          title?: string
+          user_id?: string
         }
         Relationships: []
       }

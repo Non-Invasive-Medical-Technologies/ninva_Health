@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon, Calendar, MessageSquare } from 'lucide-react';
+import { Reminders } from '@/components/health/Reminders';
+import { ActivityFeed } from '@/components/health/ActivityFeed';
 
 interface Profile {
   id: string;
@@ -260,6 +262,15 @@ const Profile = () => {
                 <div className="text-sm text-gray-500">hours slept</div>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2">
+              <ActivityFeed />
+            </div>
+            <div>
+              <Reminders />
+            </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
