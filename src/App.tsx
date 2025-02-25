@@ -37,6 +37,7 @@ const App = () => (
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/products/uryscan-g1" element={<UryscanG1 />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/signup" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>

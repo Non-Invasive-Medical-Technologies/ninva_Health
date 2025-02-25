@@ -54,32 +54,31 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
-            Create your Free Account
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-ninva font-display">
+            Welcome to Ninva Health
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-base text-muted-foreground font-text">
             Sign in to your account or create a new one
           </p>
         </div>
 
-        <Card className="mt-8 bg-white shadow-xl border-0">
-          <CardContent className="pt-8">
+        <Card className="mt-8">
+          <CardContent className="pt-6">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-4">
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700">Email address</FormLabel>
+                      <FormLabel className="text-foreground">Email address</FormLabel>
                       <FormControl>
                         <Input 
                           type="email" 
                           placeholder="name@company.com" 
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                           {...field} 
                         />
                       </FormControl>
@@ -92,12 +91,11 @@ const Auth = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700">Password</FormLabel>
+                      <FormLabel className="text-foreground">Password</FormLabel>
                       <FormControl>
                         <Input 
                           type="password" 
                           placeholder="••••••••" 
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                           {...field} 
                         />
                       </FormControl>
@@ -105,12 +103,12 @@ const Auth = () => {
                     </FormItem>
                   )}
                 />
-                <div>
+                <div className="pt-2">
                   <Button 
                     type="submit" 
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                    className="w-full"
                   >
-                    Create an account
+                    Get Started
                   </Button>
                 </div>
               </form>
@@ -119,10 +117,10 @@ const Auth = () => {
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
+                  <div className="w-full border-t border-border" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">
+                  <span className="px-2 bg-card text-muted-foreground">
                     Already have an account?
                   </span>
                 </div>
@@ -131,8 +129,8 @@ const Auth = () => {
               <div className="mt-6 text-center">
                 <Button 
                   variant="ghost"
-                  onClick={() => form.reset()} 
-                  className="text-sm text-primary-600 hover:text-primary-500"
+                  onClick={() => navigate('/auth')}
+                  className="text-sm"
                 >
                   Sign in here
                 </Button>
