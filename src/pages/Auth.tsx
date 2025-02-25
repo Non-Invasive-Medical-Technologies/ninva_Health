@@ -54,8 +54,11 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-medical-primary/20 via-medical-secondary/20 to-medical-accent/20 animate-gradient-wave" />
+      <div className="absolute inset-0 backdrop-blur-[100px]" />
+      
+      <div className="w-full max-w-md space-y-8 relative z-10">
         <div className="text-center">
           <h2 className="mt-6 text-4xl font-bold tracking-tight text-ninva font-display">
             Welcome to Ninva Health
@@ -65,7 +68,7 @@ const Auth = () => {
           </p>
         </div>
 
-        <Card className="mt-8">
+        <Card className="mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
           <CardContent className="pt-6">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-4">
@@ -79,6 +82,7 @@ const Auth = () => {
                         <Input 
                           type="email" 
                           placeholder="name@company.com" 
+                          className="bg-white/80"
                           {...field} 
                         />
                       </FormControl>
@@ -96,6 +100,7 @@ const Auth = () => {
                         <Input 
                           type="password" 
                           placeholder="••••••••" 
+                          className="bg-white/80"
                           {...field} 
                         />
                       </FormControl>
@@ -106,7 +111,7 @@ const Auth = () => {
                 <div className="pt-2">
                   <Button 
                     type="submit" 
-                    className="w-full"
+                    className="w-full bg-ninva hover:bg-ninva/90"
                   >
                     Get Started
                   </Button>
@@ -120,7 +125,7 @@ const Auth = () => {
                   <div className="w-full border-t border-border" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-card text-muted-foreground">
+                  <span className="px-2 bg-card text-muted-foreground backdrop-blur-sm">
                     Already have an account?
                   </span>
                 </div>
@@ -130,7 +135,7 @@ const Auth = () => {
                 <Button 
                   variant="ghost"
                   onClick={() => navigate('/auth')}
-                  className="text-sm"
+                  className="text-sm hover:text-ninva"
                 >
                   Sign in here
                 </Button>
