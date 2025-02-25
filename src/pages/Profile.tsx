@@ -7,7 +7,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon } from 'lucide-react';
+import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon, Calendar, MessageSquare } from 'lucide-react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface Profile {
@@ -131,11 +131,36 @@ const Profile = () => {
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Health Dashboard</h1>
-            <Button variant="outline" onClick={handleSignOut}>
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </Button>
+            <div className="flex items-center space-x-4">
+              <img
+                src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
+                alt="Ninva Health"
+                className="h-8"
+              />
+              <h1 className="text-3xl font-bold text-gray-900">Health Dashboard</h1>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3">
+                <div className="relative">
+                  <img
+                    src={form.getValues('avatar_url') || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + form.getValues('first_name')}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-ninva"
+                  />
+                  <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-white bg-green-500" />
+                </div>
+                <div className="text-sm">
+                  <p className="font-medium text-gray-900">
+                    {form.getValues('first_name')} {form.getValues('last_name')}
+                  </p>
+                  <p className="text-gray-500">Online</p>
+                </div>
+              </div>
+              <Button variant="outline" onClick={handleSignOut}>
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -224,12 +249,56 @@ const Profile = () => {
             </Card>
           </div>
 
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Calendar className="w-5 h-5 text-ninva mr-2" />
+                  Telehealth Consultations
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Button 
+                  className="w-full"
+                  onClick={() => {
+                    toast.success('Opening appointment scheduler');
+                    // You would typically open your appointment scheduling system here
+                  }}
+                >
+                  Book Consultation
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MessageSquare className="w-5 h-5 text-ninva mr-2" />
+                  Ask Dr. Ninva
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Button 
+                  className="w-full"
+                  onClick={() => {
+                    toast.success('Opening chat with Dr. Ninva');
+                    // The FloatingChat component will handle this
+                  }}
+                >
+                  Start Chat
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
           <div className="mt-8">
             <Button variant="outline" onClick={() => setShowDashboard(false)}>
               Edit Profile
             </Button>
           </div>
         </div>
+
+        <FloatingChat />
       </div>
     );
   }
