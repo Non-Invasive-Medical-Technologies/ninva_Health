@@ -54,6 +54,15 @@ const Footer = () => {
               <Link to="/technology" className="block text-gray-600 hover:text-medical-primary transition-colors">Documentation</Link>
               <Link to="/privacy-policy" className="block text-gray-600 hover:text-medical-primary transition-colors">Privacy Policy</Link>
               <Link to="/terms-of-service" className="block text-gray-600 hover:text-medical-primary transition-colors">Terms of Service</Link>
+              <label htmlFor="file-upload" className="block text-gray-600 hover:text-medical-primary transition-colors cursor-pointer">
+                Upload File
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                className="hidden"
+                onChange={handleFileUpload}
+              />
             </div>
           </div>
           <div>
@@ -66,29 +75,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-8 pt-8 border-t">
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <label htmlFor="file-upload" className="text-sm text-gray-500">
-              Upload Video
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              className="hidden"
-              onChange={handleFileUpload}
-              accept="video/*"
-            />
-            <Button 
-              variant="outline"
-              className="text-sm"
-              onClick={() => document.getElementById('file-upload')?.click()}
-            >
-              Choose Video
-            </Button>
-          </div>
-          <div className="mt-8 text-center text-gray-600">
-            © 2024 Ninva Health. All rights reserved.
-          </div>
+        <div className="mt-8 text-center text-gray-600">
+          © 2024 Ninva Health. All rights reserved.
         </div>
       </div>
     </footer>

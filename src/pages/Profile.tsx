@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon, Calendar, MessageSquare } from 'lucide-react';
 import { Reminders } from '@/components/health/Reminders';
 import { ActivityFeed } from '@/components/health/ActivityFeed';
+import { uploadAvatar } from '@/utils/uploadUtils';
 
 interface Profile {
   id: string;
@@ -156,13 +157,31 @@ const Profile = () => {
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
-                <div className="relative">
+                <div className="relative group">
                   <img
                     src={profile?.avatar_url || `https://api.dicebear.com/7.x/avataaars/svg?seed=${profile?.first_name}`}
                     alt="Profile"
-                    className="w-10 h-10 rounded-full object-cover border-2 border-ninva"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-ninva cursor-pointer"
+                    onClick={() => document.getElementById('avatar-upload')?.click()}
                   />
                   <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-white bg-green-500" />
+                  <input
+                    type="file"
+                    id="avatar-upload"
+                    className="hidden"
+                    accept="image/*"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        try {
+                          const publicUrl = await uploadAvatar(file);
+                          setProfile(prev => prev ? { ...prev, avatar_url: publicUrl } : null);
+                        } catch (error) {
+                          console.error('Failed to upload avatar:', error);
+                        }
+                      }
+                    }}
+                  />
                 </div>
                 <div className="text-sm">
                   <p className="font-medium text-gray-900">

@@ -7,7 +7,6 @@ export const uploadVideo = async (file: File) => {
     const fileExt = file.name.split('.').pop();
     const filePath = `${crypto.randomUUID()}.${fileExt}`;
 
-    // Upload file to storage
     const { data: uploadData, error: uploadError } = await supabase.storage
       .from('videos')
       .upload(filePath, file, {
@@ -19,7 +18,6 @@ export const uploadVideo = async (file: File) => {
       throw uploadError;
     }
 
-    // Insert video metadata into database
     const { data: videoData, error: insertError } = await supabase
       .from('videos')
       .insert({
@@ -44,13 +42,6 @@ export const uploadVideo = async (file: File) => {
 export const uploadFile = async (file: File) => {
   try {
     const fileExt = file.name.split('.').pop();
-    // Check if file extension is allowed
-    const allowedExtensions = ['tsx', 'ts', 'jsx', 'js', 'pdf', 'doc', 'docx'];
-    
-    if (!allowedExtensions.includes(fileExt?.toLowerCase() || '')) {
-      throw new Error(`File type .${fileExt} is not supported`);
-    }
-
     const filePath = `${crypto.randomUUID()}.${fileExt}`;
 
     const { data, error: uploadError } = await supabase.storage
@@ -68,6 +59,51 @@ export const uploadFile = async (file: File) => {
     return { filePath, fileName: file.name };
   } catch (error: any) {
     toast.error(error.message || "Failed to upload file");
+    throw error;
+  }
+};
+
+export const uploadAvatar = async (file: File) => {
+  try {
+    const fileExt = file.name.split('.').pop();
+    const allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+    
+    if (!allowedTypes.includes(fileExt?.toLowerCase() || '')) {
+      throw new Error('Please upload an image file (jpg, jpeg, png, or gif)');
+    }
+
+    const filePath = `${crypto.randomUUID()}.${fileExt}`;
+
+    const { data, error: uploadError } = await supabase.storage
+      .from('avatars')
+      .upload(filePath, file, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (uploadError) {
+      throw uploadError;
+    }
+
+    // Get the public URL
+    const { data: { publicUrl } } = supabase.storage
+      .from('avatars')
+      .getPublicUrl(filePath);
+
+    // Update the user's profile with the new avatar URL
+    const { error: updateError } = await supabase
+      .from('profiles')
+      .update({ avatar_url: publicUrl })
+      .eq('id', (await supabase.auth.getUser()).data.user?.id);
+
+    if (updateError) {
+      throw updateError;
+    }
+
+    toast.success("Profile picture updated successfully");
+    return publicUrl;
+  } catch (error: any) {
+    toast.error(error.message || "Failed to upload profile picture");
     throw error;
   }
 };
