@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { LogOut, Heart, Activity, Droplets, FootprintsIcon, Flame, Moon, Calendar, MessageSquare } from 'lucide-react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface Profile {
   id: string;
@@ -21,6 +20,7 @@ interface Profile {
   medical_conditions: string[] | null;
   allergies: string[] | null;
   updated_at: string;
+  avatar_url?: string | null;
 }
 
 interface ProfileFormValues {
@@ -38,6 +38,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [showDashboard, setShowDashboard] = useState(false);
   const [healthMetrics, setHealthMetrics] = useState<any>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const form = useForm<ProfileFormValues>();
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const Profile = () => {
       return;
     }
     
-    const { data: profile, error } = await supabase
+    const { data: profileData, error } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', session.user.id)
@@ -62,16 +63,20 @@ const Profile = () => {
       return;
     }
 
-    if (profile) {
+    if (profileData) {
+      setProfile(profileData);
       form.reset({
-        first_name: profile.first_name || '',
-        last_name: profile.last_name || '',
-        date_of_birth: profile.date_of_birth || '',
-        gender: profile.gender || '',
-        blood_type: profile.blood_type || '',
-        medical_conditions: profile.medical_conditions?.join(', ') || '',
-        allergies: profile.allergies?.join(', ') || '',
+        first_name: profileData.first_name || '',
+        last_name: profileData.last_name || '',
+        date_of_birth: profileData.date_of_birth || '',
+        gender: profileData.gender || '',
+        blood_type: profileData.blood_type || '',
+        medical_conditions: profileData.medical_conditions?.join(', ') || '',
+        allergies: profileData.allergies?.join(', ') || '',
       });
+      if (profileData.first_name && profileData.last_name) {
+        setShowDashboard(true);
+      }
     }
 
     try {
@@ -105,6 +110,14 @@ const Profile = () => {
         .eq('id', (await supabase.auth.getUser()).data.user?.id);
 
       if (error) throw error;
+      
+      setProfile(prev => ({
+        ...prev!,
+        ...data,
+        medical_conditions: data.medical_conditions.split(',').map(item => item.trim()),
+        allergies: data.allergies.split(',').map(item => item.trim()),
+      }));
+      
       toast.success('Profile updated successfully');
       setShowDashboard(true);
     } catch (error: any) {
@@ -143,7 +156,7 @@ const Profile = () => {
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   <img
-                    src={form.getValues('avatar_url') || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + form.getValues('first_name')}
+                    src={profile?.avatar_url || `https://api.dicebear.com/7.x/avataaars/svg?seed=${profile?.first_name}`}
                     alt="Profile"
                     className="w-10 h-10 rounded-full object-cover border-2 border-ninva"
                   />
@@ -151,7 +164,7 @@ const Profile = () => {
                 </div>
                 <div className="text-sm">
                   <p className="font-medium text-gray-900">
-                    {form.getValues('first_name')} {form.getValues('last_name')}
+                    {profile?.first_name} {profile?.last_name}
                   </p>
                   <p className="text-gray-500">Online</p>
                 </div>
@@ -262,7 +275,6 @@ const Profile = () => {
                   className="w-full"
                   onClick={() => {
                     toast.success('Opening appointment scheduler');
-                    // You would typically open your appointment scheduling system here
                   }}
                 >
                   Book Consultation
@@ -282,7 +294,6 @@ const Profile = () => {
                   className="w-full"
                   onClick={() => {
                     toast.success('Opening chat with Dr. Ninva');
-                    // The FloatingChat component will handle this
                   }}
                 >
                   Start Chat
@@ -297,8 +308,6 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-
-        <FloatingChat />
       </div>
     );
   }
