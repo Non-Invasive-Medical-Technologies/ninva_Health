@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LineChart, BarChart, Shield } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { FlickeringGrid } from '@/components/ui/flickering-grid';
 
 export const DataSection = () => {
   const features = [
@@ -23,8 +25,19 @@ export const DataSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-muted">
-      <div className="section-container">
+    <section className="section-padding bg-muted relative overflow-hidden">
+      {/* Flickering Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <FlickeringGrid 
+          color="#1d617a" 
+          maxOpacity={0.65} 
+          squareSize={5}
+          gridGap={8}
+          flickerChance={0.25}
+        />
+      </div>
+      
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +63,7 @@ export const DataSection = () => {
           className="grid md:grid-cols-3 gap-8"
         >
           {features.map((feature, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-card/90 backdrop-blur-sm">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                   {feature.icon}
