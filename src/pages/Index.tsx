@@ -15,6 +15,7 @@ import { RainbowButton } from '@/components/ui/rainbow-button';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { AnnouncementPill } from '@/components/ui/announcement-pill';
+import { Waves } from '@/components/ui/waves';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -51,7 +52,21 @@ const Index = () => {
       <Navigation />
       <div className="pt-16">
         <div className="relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+          {/* Wave background */}
+          <div className="absolute inset-0 bg-[#F2FCE2]/40 overflow-hidden">
+            <Waves 
+              lineColor="#B3E6C0" 
+              backgroundColor="transparent" 
+              waveSpeedX={0.015}
+              waveSpeedY={0.008}
+              waveAmpX={25}
+              waveAmpY={15}
+              xGap={15}
+              yGap={30}
+            />
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 relative z-10">
             <div className="flex justify-center w-full mb-8">
               <AnnouncementPill 
                 message="Experience the future of Healthcare now in Dubai" 
@@ -114,7 +129,7 @@ const Index = () => {
                   alt="UryScan Device"
                   className="w-full h-auto object-contain"
                   style={{
-                    maxWidth: '600px', // Increased from 500px
+                    maxWidth: '600px',
                     margin: '0 auto',
                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.1))'
                   }}

@@ -1,114 +1,105 @@
 
-"use client";
-
-import React from "react";
-import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-interface BentoGridProps extends React.HTMLAttributes<HTMLDivElement> {
-  title?: string;
-  subtitle?: string;
-  badgeText?: string;
+interface BentoGridProps {
+  children: React.ReactNode;
   className?: string;
-  children?: React.ReactNode;
 }
 
-interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  icon?: React.ReactNode;
+export function BentoGrid({ children, className }: BentoGridProps) {
+  return (
+    <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4", className)}>
+      {children}
+    </div>
+  );
+}
+
+interface BentoCardProps {
   title: string;
   description: string;
+  icon?: React.ReactNode;
+  className?: string;
   colSpan?: "col-span-1" | "col-span-2";
+  hoverEffect?: boolean;
   animated?: boolean;
 }
 
-const AnimatedBorder = ({ className }: { className?: string }) => {
-  return (
-    <div className={cn("absolute inset-0 rounded-md overflow-hidden", className)}>
-      <div className="absolute inset-0 bg-gradient-to-r from-medical-primary via-medical-secondary to-medical-primary bg-[length:200%_100%] animate-gradient-flow" />
-      <div className="absolute inset-[1px] rounded-md bg-card" />
-    </div>
-  );
-};
-
 export function BentoCard({
-  className,
-  icon,
   title,
   description,
+  icon,
+  className,
   colSpan = "col-span-1",
+  hoverEffect = true,
   animated = false,
-  ...props
 }: BentoCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const divRef = useRef<HTMLDivElement | null>(null);
+
+  // Track if component is in view for animation
+  const [isInView, setIsInView] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (divRef.current) {
+      observer.observe(divRef.current);
+    }
+    
+    return () => {
+      if (divRef.current) {
+        observer.unobserve(divRef.current);
+      }
+    };
+  }, []);
+
+  const Card = animated ? motion.div : "div";
+  const cardProps = animated
+    ? {
+        ref: divRef,
+        initial: { opacity: 0, y: 20 },
+        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+        transition: { duration: 0.5, ease: "easeOut" },
+        whileHover: hoverEffect ? { scale: 1.02 } : undefined,
+      }
+    : {};
+
   return (
-    <motion.div
+    <Card
       className={cn(
-        "relative rounded-lg overflow-hidden group",
+        "group relative overflow-hidden rounded-xl border border-ninva/10 bg-white p-6 shadow-md transition-all duration-300",
+        hoverEffect && "hover:shadow-xl hover:border-ninva/20",
         colSpan,
         className
       )}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-      {...props}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...cardProps as any}
     >
-      {animated && <AnimatedBorder />}
-      <div className={cn(
-        "relative h-full p-6 flex flex-col justify-between bg-card border border-border overflow-hidden",
-        animated ? "z-10" : ""
-      )}>
-        <div className="flex-1 flex flex-col">
-          {icon && <div className="mb-4">{icon}</div>}
-          <h3 className="text-xl font-semibold tracking-tight mb-2">{title}</h3>
-          <p className="text-muted-foreground">{description}</p>
-        </div>
+      {/* Moving gradient border */}
+      <div
+        className={cn(
+          "absolute inset-0 opacity-0 transition-opacity duration-500",
+          isHovered && "opacity-100"
+        )}
+      >
+        <div className="absolute inset-[-1px] rounded-xl bg-gradient-to-r from-ninva/40 via-ninva-light/40 to-ninva/40 animate-gradient-flow" />
       </div>
-    </motion.div>
-  );
-}
 
-export function BentoGrid({
-  title,
-  subtitle,
-  badgeText,
-  className,
-  children,
-  ...props
-}: BentoGridProps) {
-  return (
-    <div className={cn("py-12", className)} {...props}>
-      <div className="container px-4 mx-auto">
-        <div className="flex flex-col gap-8">
-          {(title || subtitle || badgeText) && (
-            <div className="flex gap-4 flex-col items-start">
-              {badgeText && (
-                <div>
-                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
-                    {badgeText}
-                  </Badge>
-                </div>
-              )}
-              {(title || subtitle) && (
-                <div className="flex gap-2 flex-col">
-                  {title && (
-                    <h2 className="text-3xl md:text-4xl tracking-tighter font-bold">
-                      {title}
-                    </h2>
-                  )}
-                  {subtitle && (
-                    <p className="text-lg max-w-xl lg:max-w-2xl leading-relaxed text-muted-foreground">
-                      {subtitle}
-                    </p>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {children}
-          </div>
+      <div className="relative h-full flex flex-col justify-between z-10">
+        {icon && <div className="mb-4">{icon}</div>}
+        <div>
+          <h3 className="text-lg font-semibold mb-2 text-ninva-darker">{title}</h3>
+          <p className="text-sm text-gray-600">{description}</p>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
