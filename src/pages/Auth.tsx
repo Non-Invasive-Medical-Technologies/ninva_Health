@@ -10,15 +10,6 @@ import { Input } from '@/components/ui/input';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Activity, Shield, HeartPulse, Stethoscope, Brain } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from 'embla-carousel-autoplay';
 
 const formSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -39,34 +30,6 @@ const Auth = () => {
       password: '',
     },
   });
-
-  const features = [
-    {
-      icon: <HeartPulse className="h-6 w-6 text-medical-primary" />,
-      title: "Health Monitoring",
-      description: "Real-time tracking of vital health metrics"
-    },
-    {
-      icon: <Shield className="h-6 w-6 text-medical-secondary" />,
-      title: "HIPAA Compliant",
-      description: "Your data is protected and secure"
-    },
-    {
-      icon: <Activity className="h-6 w-6 text-medical-accent" />,
-      title: "Smart Analytics",
-      description: "AI-powered health insights"
-    },
-    {
-      icon: <Stethoscope className="h-6 w-6 text-medical-primary" />,
-      title: "Remote Diagnostics",
-      description: "Professional medical analysis from home"
-    },
-    {
-      icon: <Brain className="h-6 w-6 text-medical-secondary" />,
-      title: "AI Insights",
-      description: "Advanced machine learning for better health outcomes"
-    }
-  ];
 
   const handleAuth = async (data: AuthFormValues) => {
     setIsLoading(true);
@@ -228,41 +191,6 @@ const Auth = () => {
             </div>
           </CardContent>
         </Card>
-
-        <div className="mt-8">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 4000,
-              }),
-            ]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {features.map((feature, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/3">
-                  <Card className="bg-white/60 backdrop-blur-sm border-medical-primary/10 hover:shadow-lg transition-shadow duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col items-center text-center space-y-2">
-                        <div className="p-2 rounded-full bg-white/80">
-                          {feature.icon}
-                        </div>
-                        <h3 className="font-semibold text-ninva">{feature.title}</h3>
-                        <p className="text-sm text-muted-foreground">{feature.description}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
-        </div>
       </div>
     </div>
   );
