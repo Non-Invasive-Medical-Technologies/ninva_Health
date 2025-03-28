@@ -52,9 +52,9 @@ const Index = () => {
       <Navigation />
       <div className="pt-16">
         <div className="relative">
-          <div className="absolute inset-0 bg-[#F2FCE2]/40 overflow-hidden" style={{ height: "calc(100% + 400px)" }}>
+          <div className="absolute inset-0 bg-transparent overflow-hidden" style={{ height: "calc(100% + 400px)" }}>
             <Waves 
-              lineColor="rgba(29, 97, 122, 0.6)"
+              lineColor="rgba(29, 97, 122, 0.3)"
               backgroundColor="transparent" 
               waveSpeedX={0.015}
               waveSpeedY={0.008}
@@ -62,7 +62,7 @@ const Index = () => {
               waveAmpY={15}
               xGap={15}
               yGap={30}
-              showEquations={true}
+              showEquations={false}
             />
           </div>
           
