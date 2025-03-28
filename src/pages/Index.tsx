@@ -14,6 +14,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { AnnouncementPill } from '@/components/ui/announcement-pill';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -53,6 +54,17 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
+                <AnnouncementPill 
+                  message="Experience the future of Healthcare now in Dubai" 
+                  className="mb-6"
+                  onClick={() => {
+                    navigate('/about');
+                    toast({
+                      title: "Dubai Launch",
+                      description: "Learn more about our Dubai operations and services.",
+                    });
+                  }}
+                />
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker leading-tight tracking-tight mb-6">
                   Non-invasive, AI-powered at-home health screening.
                 </h1>
