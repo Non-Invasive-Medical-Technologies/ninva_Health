@@ -30,7 +30,7 @@ export const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <BentoGrid>
           {features.map((feature, index) => (

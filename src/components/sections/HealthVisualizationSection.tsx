@@ -1,10 +1,21 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
 export const HealthVisualizationSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gradient-to-b from-white to-white relative">
+      {/* Wave background for this section only */}
+      <div className="absolute inset-0 bg-[#F2FCE2]/30 overflow-hidden">
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: `url('/lovable-uploads/bc9880fc-132f-472f-bffd-632ea6809075.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.4
+        }} />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
