@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
@@ -52,8 +51,7 @@ const Index = () => {
       <Navigation />
       <div className="pt-16">
         <div className="relative">
-          {/* Wave background */}
-          <div className="absolute inset-0 bg-[#F2FCE2]/40 overflow-hidden">
+          <div className="absolute inset-0 bg-[#F2FCE2]/40 overflow-hidden" style={{ height: "calc(100% + 700px)" }}>
             <Waves 
               lineColor="#B3E6C0" 
               backgroundColor="transparent" 
@@ -138,7 +136,11 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <FeaturesSection />
+        
+        <div className="relative z-10">
+          <FeaturesSection />
+        </div>
+        
         <HealthVisualizationSection />
         <TechnologySection />
         <DataSection />
