@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -95,11 +96,11 @@ export default {
           },
         },
         "gradient-flow": {
-          "0%, 100%": {
+          "0%": {
             "background-position": "0% 50%",
           },
-          "50%": {
-            "background-position": "100% 50%",
+          "100%": {
+            "background-position": "200% 50%",
           },
         },
         "gradient-wave": {
@@ -124,14 +125,26 @@ export default {
             "background-size": "200% 200%",
           },
         },
+        "border-flow": {
+          "0%": {
+            "border-color": "var(--medical-primary)",
+          },
+          "50%": {
+            "border-color": "var(--medical-secondary)",
+          },
+          "100%": {
+            "border-color": "var(--medical-primary)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
-        "gradient-flow": "gradient-flow 15s ease infinite",
+        "gradient-flow": "gradient-flow 8s linear infinite",
         "gradient-wave": "gradient-wave 15s ease infinite",
+        "border-flow": "border-flow 4s ease infinite",
       },
     },
   },
