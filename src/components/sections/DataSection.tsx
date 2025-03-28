@@ -30,7 +30,7 @@ export const DataSection = () => {
       <div className="absolute inset-0 z-0">
         <FlickeringGrid 
           color="#1d617a" 
-          maxOpacity={0.65} 
+          maxOpacity={0.5} 
           squareSize={5}
           gridGap={8}
           flickerChance={0.25}

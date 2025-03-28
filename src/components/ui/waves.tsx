@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +20,7 @@ interface WavesProps {
   tension?: number;
   maxCursorMove?: number;
   className?: string;
+  showEquations?: boolean;
 }
 
 class Grad {
@@ -129,6 +129,7 @@ export function Waves({
   tension = 0.005,
   maxCursorMove = 100,
   className,
+  showEquations = true,
 }: WavesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -148,6 +149,23 @@ export function Waves({
     a: 0,
     set: false,
   });
+
+  const medicalEquations = [
+    "BMI = weight(kg) / height²(m)",
+    "VO₂max = 15.3 × (HRmax/HRrest)",
+    "BMR = 10W + 6.25H - 5A ± S",
+    "BP = CO × SVR",
+    "P = F × V / A",
+    "GFR = (U × V) / P",
+    "A = 2πr² + 2πrh",
+    "F = 1.8C + 32",
+    "HDL + LDL = TC - TG/5",
+    "O₂ + Glucose → CO₂ + H₂O + ATP",
+    "HR = SV × CO",
+    "pH = -log[H⁺]",
+    "eGFR = 175 × (SCr)⁻¹·¹⁵⁴",
+    "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O"
+  ];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -243,6 +261,34 @@ export function Waves({
       if (!ctx) return;
       
       ctx.clearRect(0, 0, width, height);
+      
+      if (showEquations) {
+        ctx.font = "16px monospace";
+        ctx.fillStyle = `${lineColor.replace(")", ", 0.08)")}`;
+        
+        const cols = Math.floor(width / 300);
+        const rows = Math.floor(height / 100);
+        const cellWidth = width / cols;
+        const cellHeight = height / rows;
+        
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            const equationIndex = (i * rows + j) % medicalEquations.length;
+            const equation = medicalEquations[equationIndex];
+            
+            const xPos = i * cellWidth + Math.random() * (cellWidth / 2);
+            const yPos = j * cellHeight + Math.random() * (cellHeight / 2);
+            
+            ctx.save();
+            ctx.translate(xPos, yPos);
+            const rotation = (Math.random() - 0.5) * 0.2;
+            ctx.rotate(rotation);
+            ctx.fillText(equation, 0, 0);
+            ctx.restore();
+          }
+        }
+      }
+      
       ctx.beginPath();
       ctx.strokeStyle = lineColor;
       ctx.lineWidth = 1.5;
@@ -343,6 +389,7 @@ export function Waves({
     maxCursorMove,
     xGap,
     yGap,
+    showEquations,
   ]);
 
   return (

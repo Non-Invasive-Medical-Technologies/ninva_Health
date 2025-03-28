@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
@@ -61,6 +62,7 @@ const Index = () => {
               waveAmpY={15}
               xGap={15}
               yGap={30}
+              showEquations={true}
             />
           </div>
           
