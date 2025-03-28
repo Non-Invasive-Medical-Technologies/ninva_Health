@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -35,7 +34,6 @@ const Auth = () => {
     setIsLoading(true);
     try {
       if (isSignUp) {
-        // Handle Sign Up
         const { error: signUpError } = await supabase.auth.signUp({
           email: data.email,
           password: data.password,
@@ -48,14 +46,12 @@ const Auth = () => {
           toast.error(signUpError.message);
         } else {
           toast.success('Account created! Please check your email for verification.');
-          // Reset form and clear fields
           form.reset({
             email: '',
             password: '',
           });
         }
       } else {
-        // Handle Sign In
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email: data.email,
           password: data.password,
@@ -65,7 +61,6 @@ const Auth = () => {
           toast.error(signInError.message);
         } else {
           toast.success('Signed in successfully!');
-          // Reset form and clear fields
           form.reset({
             email: '',
             password: '',
@@ -80,7 +75,6 @@ const Auth = () => {
     }
   };
 
-  // Clear form when switching between sign-up and sign-in
   const handleModeSwitch = () => {
     setIsSignUp(!isSignUp);
     form.reset({
@@ -90,19 +84,19 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-medical-primary/20 via-medical-secondary/20 to-medical-accent/20 animate-gradient-wave" />
       <div className="absolute inset-0 backdrop-blur-[100px]" />
       
-      <div className="w-full max-w-md space-y-10 relative z-10">
-        <div className="text-center space-y-8">
+      <div className="w-full max-w-md space-y-8 relative z-10">
+        <div className="text-center space-y-6">
           <img
             src="/lovable-uploads/084aad43-bdcd-4659-b80e-63f9542f47c6.png"
             alt="Ninva Health"
-            className="h-16 mx-auto"
+            className="h-14 sm:h-16 mx-auto"
           />
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-ninva font-display">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ninva font-display">
               {isSignUp ? 'Create Account' : 'Welcome Back'}
             </h2>
             <p className="text-sm text-muted-foreground font-text">
@@ -113,10 +107,10 @@ const Auth = () => {
           </div>
         </div>
 
-        <Card className="mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
-          <CardContent className="pt-8 pb-8">
+        <Card className="mt-6 sm:mt-8 bg-white/80 backdrop-blur-sm shadow-xl border-medical-primary/20">
+          <CardContent className="pt-6 pb-6 sm:pt-8 sm:pb-8">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(handleAuth)} className="space-y-5">
                 <FormField
                   control={form.control}
                   name="email"
@@ -167,7 +161,7 @@ const Auth = () => {
               </form>
             </Form>
 
-            <div className="mt-8">
+            <div className="mt-6 sm:mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-border" />
@@ -179,7 +173,7 @@ const Auth = () => {
                 </div>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-4 sm:mt-6 text-center">
                 <Button 
                   variant="ghost"
                   onClick={handleModeSwitch}

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Sparkles, ChartBar } from 'lucide-react';
@@ -11,7 +12,7 @@ export const AIHeroSection = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +30,7 @@ export const AIHeroSection = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-ninva-darker mb-6 tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -75,7 +76,7 @@ export const AIHeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 gap-6"
+            className="grid grid-cols-1 gap-4 sm:gap-6 mt-8 lg:mt-0"
           >
             {[
               {
@@ -99,15 +100,15 @@ export const AIHeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 + (index * 0.1), duration: 0.8 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-ninva/10"
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-5 sm:p-6 shadow-lg border border-ninva/10"
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-ninva/10 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <div className="bg-ninva/10 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-ninva-darker mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <p className="text-gray-600 text-sm sm:text-base">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
