@@ -52,19 +52,20 @@ const Index = () => {
       <div className="pt-16">
         <div className="relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+            <div className="flex justify-center w-full mb-8">
+              <AnnouncementPill 
+                message="Experience the future of Healthcare now in Dubai" 
+                onClick={() => {
+                  navigate('/about');
+                  toast({
+                    title: "Dubai Launch",
+                    description: "Learn more about our Dubai operations and services.",
+                  });
+                }}
+              />
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <AnnouncementPill 
-                  message="Experience the future of Healthcare now in Dubai" 
-                  className="mb-6"
-                  onClick={() => {
-                    navigate('/about');
-                    toast({
-                      title: "Dubai Launch",
-                      description: "Learn more about our Dubai operations and services.",
-                    });
-                  }}
-                />
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ninva-darker leading-tight tracking-tight mb-6">
                   Non-invasive, AI-powered at-home health screening.
                 </h1>
@@ -113,7 +114,7 @@ const Index = () => {
                   alt="UryScan Device"
                   className="w-full h-auto object-contain"
                   style={{
-                    maxWidth: '500px',
+                    maxWidth: '600px', // Increased from 500px
                     margin: '0 auto',
                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.1))'
                   }}

@@ -19,12 +19,12 @@ export function AnnouncementPill({
 }: AnnouncementPillProps) {
   return (
     <motion.div
-      className={cn("relative flex justify-center", className)}
+      className={cn("relative w-full flex justify-center", className)}
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center gap-1 rounded-full border border-ninva/20 bg-ninva/10 px-3 py-1.5 text-sm">
+      <div className="inline-flex items-center gap-1 rounded-full border border-ninva/20 bg-ninva/10 px-4 py-2 text-sm">
         <span className="font-medium text-ninva">{message}</span>
         {onClick && (
           <button
