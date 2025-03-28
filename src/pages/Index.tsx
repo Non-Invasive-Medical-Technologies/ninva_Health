@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
@@ -51,12 +50,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <div className="pt-16">
-        {/* Hero and Features section with wave background */}
         <div className="relative">
-          {/* Wave background that covers hero and features sections */}
           <div className="absolute inset-0 bg-[#F2FCE2]/40 overflow-hidden" style={{ height: "calc(100% + 400px)" }}>
             <Waves 
-              lineColor="#B3E6C0" 
+              lineColor="rgba(29, 97, 122, 0.6)"
               backgroundColor="transparent" 
               waveSpeedX={0.015}
               waveSpeedY={0.008}
@@ -67,7 +64,6 @@ const Index = () => {
             />
           </div>
           
-          {/* Hero Content */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 relative z-10">
             <div className="flex justify-center w-full mb-8">
               <AnnouncementPill 
@@ -141,12 +137,10 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Features Section - still within wave background */}
         <div className="relative z-10 -mt-16">
           <FeaturesSection />
         </div>
         
-        {/* Sections without wave background */}
         <HealthVisualizationSection />
         <TechnologySection />
         <DataSection />
